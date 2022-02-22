@@ -11,7 +11,7 @@
 
 
 
-<title>FOSSILPOL workflow webpage</title>
+<title>A step-by-step guide to data processing</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -262,18 +262,34 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">FOSSILPOL workflow webpage</h1>
+<h1 class="title toc-ignore">A step-by-step guide to data processing</h1>
 
 </div>
 
 
-<div id="technical-guide-to-fossilpol-the-workflow-to-process-global-palaeoecological-pollen-data" class="section level3">
-<h3>Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data</h3>
-<p>This websites should serve as additional source of information for FOSSILPOL: The workflow to process global palaeoecological pollen data. <br></br></p>
-<p><strong>Authors</strong>: Ondřej Mottl, Alistair W.R. Seddon, Kuber P. Bhatta, Vivian A. Felde, Suzette G.A. Flantua, … <br></br></p>
-<p>The version of the document: <strong>0.0.1</strong></p>
-<p>The version of the FOSSILPOL workflow: <strong>0.0.1</strong></p>
-<p>The version of the R-fossilpol package: <strong>0.0.0.9037</strong></p>
+<p>The Workflow is structured in a modular manner where all steps are organized sequentially and guided by one main configuration file (Config file) where all criteria and setup configurations are pre-defined by the user (see next section).</p>
+<div id="data-inputs" class="section level2">
+<h2>Data inputs</h2>
+<p>The Workflow is set up in a way that data from Neotoma is the primary data. However, additional data sources (<code>private</code>) can be used in parallel by using our predefined format (see section Data sourcing). The user thus has the flexibility to either source data from Neotoma or another data source if the consistent formatting file is used.</p>
+<p>Three additional data inputs are required for the initial set-up of the Workflow:</p>
+<ul>
+<li><p>Configuration file (<code>00_Config_file.R</code>) – The configuration file contains all the user-selected settings which will be applied throughout the Workflow. These range from technical settings (e.g. location of the data storage) to specific requirements (e.g. filtering criteria) for sequences to be included.</p></li>
+<li><p>Geographical shapefiles – Several shapefiles, which define the geographical information and harmonisation region for each sequence, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalization of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a <code>harmonisation region shapefile</code> which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working on corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each sequence as long as shapefiles are provided.</p></li>
+<li><p>Harmonisation tables – In each project, one harmonisation table must be provided per each harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) <code>original taxa</code> with taxonomic names originally present in Neotoma (and other data sourced in the project), and ii) <code>harmonised taxa</code> with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template to create harmonisation of the <code>harmonised taxa</code> column.</p></li>
+</ul>
+</div>
+<div id="data-processing" class="section level2">
+<h2>Data processing</h2>
+<p>Here we focus on the scripts within the <code>R/01_Data_processing</code> folder representing all steps needed for data processing from data obtaining to the final dataset compilation, organised in these sections:</p>
+<ol style="list-style-type: upper-roman">
+<li><p>Data sourcing: <code>01_Neotoma_source</code>- Retrieve and process data from Neotoma</p></li>
+<li><p>Data sourcing: <code>02_Private_source</code> - Process data from private datasets (optional)</p></li>
+<li><p>Initial data processing: <code>03_Merging_and_filtering</code> - Merge data sources, filter out duplicates, and assign values based on geographical location</p></li>
+<li><p>Chronologies: <code>04_Chronologies</code>- Prepare chronology control tables, calculate age-depth models, and predict ages for levels</p></li>
+<li><p>Harmonisation: <code>05_Harmonisation</code> - Prepare all harmonisation tables and harmonise pollen taxa</p></li>
+<li><p>Data filtering: <code>06_Level_filtering</code> - Filter out levels and sequences based on user-defined criteria</p></li>
+<li><p>Outputs: <code>07_Outputs</code> - Save the final outputs including dataset compilation, pollen diagrams, and metadata information</p></li>
+</ol>
 </div>
 
 
