@@ -1,9 +1,11 @@
-name: "my-website"
+name: "FOSSILPOL workflow webpage"
 output_dir: 'docs'
 navbar:
-  title: "My Website"
+  title: "FOSSILPOL workflow webpage"
   left:
-    - text: "Home"
-      href: index.html
     - text: "About"
+      href: index.html
+    - text: "General Information"
       href: about.html
+    - text: "A step-by-step guide"
+      href: step_by_step_guide.html

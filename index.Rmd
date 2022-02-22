@@ -1,9 +1,17 @@
 ---
-title: "My Website"
+title: "FOSSILPOL workflow webpage"
 ---
 
-Hello, Website!
+### Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data
 
-For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+This websites should serve as additional source of information for FOSSILPOL: The workflow to process global palaeoecological pollen data.
+<br></br>
 
-Please also note that simple R Markdown sites are _not_ based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+**Authors**: Ondřej Mottl, Alistair W.R. Seddon, Kuber P. Bhatta, Vivian A. Felde, Suzette G.A. Flantua, …
+<br></br>
+
+The version of the document: **0.0.1**
+
+The version of the FOSSILPOL workflow: **0.0.1**
+
+The version of the R-fossilpol package: **0.0.0.9037**

@@ -1,0 +1,35 @@
+---
+title: "A step-by-step guide to data processing"
+---
+
+The Workflow is structured in a modular manner where all steps are organized sequentially and guided by one main configuration file (Config file) where all criteria and setup configurations are pre-defined by the user (see next section). 
+
+## Data inputs 
+
+The Workflow is set up in a way that data from Neotoma is the primary data. However, additional data sources (`private`) can be used in parallel by using our predefined format (see section Data sourcing). The user thus has the flexibility to either source data from Neotoma or another data source if the consistent formatting file is used.
+
+Three additional data inputs are required for the initial set-up of the Workflow:
+
+- Configuration file (`00_Config_file.R`) – The configuration file contains all the user-selected settings which will be applied throughout the Workflow. These range from technical settings (e.g. location of the data storage) to specific requirements (e.g. filtering criteria) for sequences to be included. 
+
+- Geographical shapefiles – Several shapefiles, which define the geographical information and harmonisation region for each sequence, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalization of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a `harmonisation region shapefile` which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working on corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each sequence as long as shapefiles are provided.
+
+- Harmonisation tables – In each project, one harmonisation table must be provided per each harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma (and other data sourced in the project), and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template to create harmonisation of the `harmonised taxa` column.
+
+## Data processing
+
+Here we focus on the scripts within the  `R/01_Data_processing` folder representing all steps needed for data processing from data obtaining to the final dataset compilation, organised in these sections:
+
+(I) Data sourcing: `01_Neotoma_source`- Retrieve and process data from Neotoma 
+
+(II) Data sourcing: `02_Private_source` - Process data from private datasets (optional)
+
+(III) Initial data processing: `03_Merging_and_filtering` - Merge data sources, filter out duplicates, and assign values based on geographical location
+
+(IV) Chronologies: `04_Chronologies`- Prepare chronology control tables, calculate age-depth models, and predict ages for levels
+
+(V) Harmonisation: `05_Harmonisation` - Prepare all harmonisation tables and harmonise pollen taxa
+
+(VI) Data filtering: `06_Level_filtering` - Filter out levels and sequences based on user-defined criteria
+
+(VII) Outputs: `07_Outputs` - Save the final outputs including dataset compilation, pollen diagrams, and metadata information
