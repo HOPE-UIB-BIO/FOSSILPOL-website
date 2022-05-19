@@ -1,10 +1,8 @@
-name: "FOSSILPOL workflow webpage"
+name: "FOSSILPOL project"
 output_dir: 'docs'
 navbar:
-  title: "FOSSILPOL workflow webpage"
+  title: "FOSSILPOL project"
   left:
-    - text: "About"
-      href: index.html
     - text: "General Information"
       href: about.html
     - text: "A step-by-step guide"
