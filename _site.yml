@@ -9,3 +9,5 @@ navbar:
       href: about.html
     - text: "A step-by-step guide"
       href: step_by_step_guide.html
+    - text: "Contribute"
+      href: contributing.html

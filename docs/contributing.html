@@ -11,7 +11,7 @@
 
 
 
-<title>FOSSILPOL workflow webpage</title>
+<title>Contribute</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -265,18 +265,68 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">FOSSILPOL workflow webpage</h1>
+<h1 class="title toc-ignore">Contribute</h1>
 
 </div>
 
 
-<div id="technical-guide-to-fossilpol-the-workflow-to-process-global-palaeoecological-pollen-data" class="section level3">
-<h3>Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data</h3>
-<p>This websites should serve as additional source of information for FOSSILPOL: The workflow to process global palaeoecological pollen data. <br></br></p>
-<p><strong>Authors</strong>: Suzette G.A. Flantua#, Ondrej Mottl, Vivian Felde, Kuber P. Bhatta, Alistair Seddon, John-Arvid Grytnes, Hilary Birks, H. John B. Birks <br></br></p>
-<p>The version of the document: <strong>0.0.1</strong></p>
-<p>The version of the FOSSILPOL workflow: <strong>0.0.1</strong></p>
-<p>The version of the R-fossilpol package: <strong>0.0.1</strong></p>
+<p>Thank you for considering to contribute to FOSSILPOL, we appreciate the help :sparkling_heart:. To make sure that we maintain the highest quality of code, we do have to adhere to some strict guidelines though. Please read through this document to help you get up and running.</p>
+<p>If you would like to report a bug, suggest enhancements, or request a new feature, jump to the <a href="#issues">Issues section</a>.</p>
+<p><br></p>
+<div id="git-github" class="section level2">
+<h2>Git + GitHub <a name = "git"></a></h2>
+<p>We use the <a href="https://git-scm.com/">Git</a> version control system to manage the development with the repository hosted on <a href="https://github.com">GitHub</a>. If you are new to Git or GitHub, please read through the <a href="https://help.github.com/categories/bootcamp/">GitHub Bootcamp</a> to get up to speed.</p>
+<p>If you’re already familiar with Git and GitHub, please read <a href="#submitting-pull-requests">Submitting Pull Requests</a>.</p>
+<p><br></p>
+</div>
+<div id="coding-style-guidelines" class="section level2">
+<h2>Coding Style Guidelines <a name = "guide"></a></h2>
+<p>While we do have our own style in coding and haven’t followed any standards available in the web, we do maintain some uniformity. For contributors, we require the standards defined in <a href="http://adv-r.had.co.nz/Style.html">Advanced R by Hadley Wickham</a>.</p>
+<p>If we missed to mention a particular case, you should always follow the below procedure:</p>
+<ul>
+<li>See how it’s done in the codebase.</li>
+<li>See what Advanced R convention says and choose something that’s close to the codebase.</li>
+<li>If all else fails, ask :)</li>
+</ul>
+<p><br></p>
+</div>
+<div id="submitting-pull-requests" class="section level2">
+<h2>Submitting Pull Requests <a name = "PR"></a></h2>
+<p>All changes to FOSSILPOL Tools must be in the form of <strong>pull request</strong> (also known as a PR). If you are unfamiliar with pull requests, please read <a href="https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project%3E">this</a>.</p>
+<p>Here is the recommended process:</p>
+<ol style="list-style-type: decimal">
+<li>Fork the repo so that you can make your changes without affecting the original project until you’re ready to merge them. <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#fork-an-example-repository">Guide to forking</a></li>
+<li>Commit your updates once you are happy with them. See contributing <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages">guide</a> to for commit messages.</li>
+<li>When you’re finished with the changes, create a PR
+<ul>
+<li>Fill in the “Ready for review” template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.</li>
+<li>Don’t forget to <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue">link PR to issue</a> if you are solving one.</li>
+<li>Enable the checkbox to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">allow maintainer edits</a> so the branch can be updated for a merge. Once you submit your PR, a HOPE team member will review your proposal. We may ask questions or request additional information.</li>
+<li>We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, and then commit them to your branch. As you update your PR and apply changes, mark each conversation as <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#resolving-conversations">resolved</a></li>
+<li>If you run into any merge issues, check out this <a href="https://lab.github.com/githubtraining/managing-merge-conflicts">git tutorial</a> to help you resolve merge conflicts and other issues.</li>
+</ul></li>
+</ol>
+<p>Before submitting a pull request, please make sure you follow the all guidelines below while working on your changes:</p>
+<ul>
+<li>Each pull request should try to accomplish one general task.</li>
+<li>All work should be done on a branch with a descriptive name relating to the general task (eg. <code>fix_bug_x</code> or <code>add_feature_y</code>).</li>
+<li>Each individual commit should accomplish one small sub-task and should be explainable in a sentence or two.</li>
+<li>Each commit should have a descriptive commit message.</li>
+<li>You should make sure your code passes all tests before committing.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="issues" class="section level2">
+<h2>Issues <a name = "issues"></a></h2>
+<p>Not all contributions have to do with code. If you would like to report a bug, suggest enhancements, or request a new feature, please use the <a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/issues">issues page</a> to do so.</p>
+<p>If you encounter any issues using this workflow, please use the repository’s <strong>Issue</strong> tracker.</p>
+<p>Consider the following steps before and when opening a new Issue:</p>
+<ol style="list-style-type: decimal">
+<li><p>Have you searched for similar issues that may have been already reported? The issue tracker has a filter function to search for keywords in open Issues. You can narrow down the search using <code>labels</code>:label: as filters. See <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">Labels</a> for more information. As a general rule, we don’t assign issues to anyone.</p></li>
+<li><p>Click on the green <strong>New issue</strong> button in the upper right corner, and describe your problem as detailed as possible. The issue should state what the problem is, what the expected behaviour should be, and, maybe, suggest a solution. Note that you can also attach files or images to the issue.</p></li>
+<li><p>Select a suitable <code>label</code>:label: from the drop-down menu called <strong>Labels</strong>.</p></li>
+<li><p>Click on the green <strong>Submit new issue</strong> button and wait for a reply.</p></li>
+</ol>
 </div>
 
 
