@@ -250,6 +250,9 @@ $(document).ready(function () {
 <li>
   <a href="step_by_step_guide.html">A step-by-step guide</a>
 </li>
+<li>
+  <a href="contributing.html">Contribute</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -267,16 +270,31 @@ $(document).ready(function () {
 </div>
 
 
-<p>Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Supplementary Fig. 1). More detailed information can be found on the FOSSILPOL website [link].</p>
-<p>The FOSSILPOL workflow has been developed during the ERC project called the “Humans on Planet Earth” (HOPE) team at the University of Bergen.</p>
-<p>The goal of the FOSSILPOL workflow is to process multiple fossil pollen sequences to create a comprehensive, standardized dataset compilation, ready for multi-sequence and multi-proxy analyses. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for a specific research project.</p>
-<p>The FOSSILPOL workflow (referred to as “the Workflow” from here on) is accessible in two ways a) If a user has a GitHub account, the easiest way is to create his/her own GitHub repo using this GitHub template [link]; b) A user can obtain the newest release of the Workflow as a zip file from ZENODO [link]. The R project consists of codes with individual scripts and functions. All scripts are stored in the <code>R</code> folder. After obtaining the workflow, the R project will have the following structure:</p>
+<p>Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Supplementary Fig. 1). The general guide is described in the paper titled, A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis”, published in <a href="https://onlinelibrary.wiley.com/journal/14668238">GEB</a>. More detailed information and updates can be found on the <a href="https://hope-uib-bio.github.io/FOSSILPOL-website/">FOSSILPOL website</a>.</p>
+<p>The goal of the FOSSILPOL workflow is to process multiple fossil pollen sequences to create a comprehensive, standardised dataset compilation, ready for multi-sequence and multi-proxy analyses. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for a specific research project.</p>
+<p>The FOSSILPOL workflow has been developed during the ERC project called the “Humans on Planet Earth” (HOPE) team at the University of Bergen. <br></br></p>
+<div id="table-of-contents" class="section level2">
+<h2>Table of Contents</h2>
+<ol style="list-style-type: decimal">
+<li><a href="#get">How to obtain the workflow</a></li>
+<li><a href="#setup">Set up</a></li>
+<li><a href="#cascade">Cascade of scripts</a> <br></br></li>
+</ol>
+</div>
+<div id="how-to-obtain-the-workflow" class="section level1">
+<h1>How to obtain the workflow <a name = "get"></a></h1>
+<p>The FOSSILPOL workflow (referred to as “the Workflow” from here on) is accessible in two ways:</p>
+<ol style="list-style-type: decimal">
+<li><p>If a user has a GitHub account, the easiest way is to create your own GitHub repo using this <a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow">GitHub template</a>. More details about how to use GitHub templates are on <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub Docs</a>.</p></li>
+<li><p>A user can obtain the newest release of the Workflow as a zip file from ZENODO [link].</p></li>
+</ol>
+<p>The R project consists of codes with individual scripts and functions. All scripts are stored in the <code>R</code> folder. After obtaining the workflow, the R project will have the following structure:</p>
 <p>Code block 1</p>
 <pre><code>project
 │
 │   README.md
-│   .Rprofile
-│   .gitignore  
+│   Rprofile
+│   gitignore  
 │   Workflow_template.Rproj
 │
 └───Data
@@ -293,7 +311,7 @@ $(document).ready(function () {
 │           │
 │           └───Countries_shapefile
 │           │  
-│           └───Harmonization_regions_shapefile
+│           └───Harmonisation_regions_shapefile
 │           │
 │           └───Postbomb_shapefile
 │           │
@@ -303,19 +321,18 @@ $(document).ready(function () {
 │   │
 │   │   ___Init_project___.R
 │   │   00_Config_file.R
-│   │   00_Master.R
 │   │
 │   └───01_Data_processing
 │   │   │   │
-│   │   │   │   Run_01.R
+│   │   │   │   Master_run_01.R
 │   │   │
 │   │   └───01_Neotoma_source
 │   │   │   │
 │   │   │   │   Run_01_01.R
 │   │   │   │   01_Download_neotoma.R
-│   │   │   │   02_Create_initial_tibble.R
+│   │   │   │   02_Extract_samples.R
 │   │   │   │   03_Filter_dep_env.R
-│   │   │   │   04_Prepare_chron_control_tables.R
+│   │   │   │   04_Extract_chron_control_tables.R
 │   │   │   │   05_Extract_raw_pollen_data.R
 │   │   │   
 │   │   └───02_Private_source
@@ -323,7 +340,7 @@ $(document).ready(function () {
 │   │   │   │   Run_01_02.R
 │   │   │   │   01_Import_private_data.R
 │   │   │
-│   │   └───03_Merging_and_filtering
+│   │   └───03_Merging_and_geography
 │   │   │   │
 │   │   │   │   Run_01_03.R
 │   │   │   │   01_Merge_datasets.R
@@ -335,164 +352,81 @@ $(document).ready(function () {
 │   │   │   │   02_Run_age_depth_models.R
 │   │   │   │   03_Predict_ages.R
 │   │   │   │   04_Save_AD_figures.R
-│   │   │   │   05_Merge_and_sort_bchron.R
+│   │   │   │   05_Merge_chron_output.R
 │   │   │
 │   │   └───05_Harmonisation
 │   │   │   │
 │   │   │   │   Run_01_05.R
 │   │   │   │   01_Harmonisation.R
 │   │   │
-│   │   └───06_Level_filtering
+│   │   └───06_Main_filtrering
 │   │   │   │
 │   │   │   │   Run_01_06.R
 │   │   │   │   01_Level_filtering.R
 │   │   │
 │   │   └───07_Outputs
 │   │       │
-│   │       │   Run_01_04.R
-│   │       │   01_Prepare_chron_control_tables.R
-│   │       │   02_Run_age_depth_models.R
-│   │       │   03_Predict_ages.R
+│   │       │   Run_01_07.R
+│   │       │   01_Pollen_diagrams.R
+│   │       │   02_Save_assembly.R
+│   │       │   03_Save_references.R
 │   │
 │   └───02_Main_analyses
 │   │   │
-│   │   │   Run_02.R
+│   │   │   Master_run_02.R
 │   │
 │   └───03_Supplementary_analyses
 │   │   │
-│   │   │   Run_03.R
+│   │   │   Master_run_03.R
 │   │
 │   └───Functions
 │       │
-│       │extract.config.data.R
+│       │ example_function.R
 │
 └───renv
     │
-    │   .gitignore
+    │   gitignore
     │   activate.R
     │   library_list.lock
     │   settings.dcf</code></pre>
-<div id="how-to-set-up" class="section level2">
-<h2>How to set up</h2>
-<p>Once a user obtains their own version of the Workflow, there are several steps to be done before using it.</p>
+<p><br></br></p>
+<div id="set-up" class="section level2">
+<h2>Set up <a name = "setup"></a></h2>
+<p>Once a user obtains their own version of the Workflow, there are several steps to be done before using it:</p>
 <ul>
-<li><p>Update R and R-studio.</p></li>
-<li><p>Execute all individual steps with the <code>___Init_project___.R</code> script. This will result in the preparation of all packages using the <code>renv</code> package, which is R dependency management to your projects.</p></li>
-<li><p>Set up your preferences by editing the <code>00_Config_file.R</code> script (referred to as “Config file” from here on). The Config file is a script, where all settings and criteria, used throughout the project, are defined. In addition, it also prepares the general functionality of the current session by loading the required packages and saving all settings throughout the project. The points of focus for users are flagged using [USER]. More info on the Config file is given in the section “A step-by-step guide to data processing”</p></li>
-<li><p>Execute the<code>00_Master.R</code> script to run the whole project by accessing individual subroutine scripts (see next sections below).</p></li>
-<li><p>If wanted, the user can add additional project-specific scripts in <code>02_Main_analyses</code> and <code>03_Supplementary_analyses</code> folders.</p></li>
+<li><p>Update R and R-studio. There are many guides on how to do so (e.g. <a href="https://jennhuck.github.io/workshops/install_update_R.html">here</a>)</p></li>
+<li><p>Execute all individual steps with the <code>___Init_project___.R</code> script. This will result in the preparation of all packages using the <code>renv</code> package, which is an R dependency management of your projects (more info about <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html">here</a>). This step can take a substantial amount of time. For any issues with <code>___Init_project___.R</code>, see the <em><a href="https://hope-uib-bio.github.io/FOSSILPOL-website/contributing#issues.html">Issue</a></em> section on the FOSSILPOL website.</p></li>
+<li><p>Set up your preferences by editing the <code>00_Config_file.R</code> script (referred to as <em>“Config file”</em> from here on). The Config file is a script where all settings and criteria used throughout the project are predefined by the user before running the Workflow. In addition, it prepares the current session by loading the required packages and saving all settings throughout the project. The points of focus for users are flagged by “<strong>[USER]</strong>” in the Config file, meaning that these are criteria that need to be checked by the user. More info on the Config file is given in the section “A step-by-step guide to data processing”. The crucial points are:</p>
+<ul>
+<li><p><code>data_storage_path</code> within <em>section 4</em> - as the workflow produces several large files, a user can specify the directory where such files will be placed. Note that the default place is within the project.</p></li>
+<li><p><em>section 5</em> - there are many variables important for data selection and filtering of the final data assembly.</p></li>
+</ul></li>
+<li><p>Run <code>R/01_Data_processing/Master_run_01.R</code> to run the whole data processing part of the project (be ready for <strong>“stop-checks”</strong>, see below). Alternatively, the user can run each script individually. After all “stop-checks” are resolved, the Workflow can be run as a whole to produce the standardised dataset compilation, ready for multi-sequence and multi-proxy analyses.</p></li>
+<li><p>If desired, the user can run additional project-specific scripts in the <code>02_Main_analyses</code> and <code>03_Supplementary_analyses</code> folders to analyse the data compilation. <br></br></p></li>
 </ul>
 </div>
 <div id="cascade-of-r-scripts" class="section level2">
-<h2>Cascade of R scripts</h2>
-<p>This Workflow is constructed using a “script cascade”. That means that the <code>00_Master.R script</code>, located within <code>R</code> folder, executes all scripts within sub-folders of <code>R</code> folder (<code>R/01_Data_processing/Run_01.R</code>, <code>R/02_Main_analyses/Run_02.R</code>, and <code>R/03_Supplementary_analyses/Run_03.R</code>). Those scripts, in turn, execute all their sub-folders (e.g. <code>R/01_Data_processing/Run_01.R</code> executes <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code>, <code>R/01_Data_processing/02_Private_source/Run_01_02.R</code>, …).</p>
+<h2>Cascade of R scripts <a name = "cascade"></a></h2>
+<p>This Workflow is constructed using a “script cascade”. This means that the <code>Master_run_01.R</code>, located within <code>R /01_Data_processing/</code> folder, executes all scripts within sub-folders of the <code>R /01_Data_processing/</code> folder, which in turn, execute all their sub-folders (e.g., <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code> executes <code>R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R</code>, , <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>, …). See Code block 2.</p>
+<p>Therefore, a user can run the data processing section of the project executing <code>R/01_Data_processing/Master_run_01.R</code>script, or run individual sections by executing individual scripts within sections. Alternatively, the user can run the Workflow subsection as a whole for instance running, <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code>, and not <code>R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R</code>, and then <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>, etc.</p>
 <p>Code block 2</p>
 <pre><code>R
 │
-│   00_Master.R
-│
 └───01_Data_processing
         │
-        │   Run_01.R
+        │   Master_run_01.R
         │
         └───01_Neotoma_source
             │
-            │   Run_01_01.R</code></pre>
+            │   Run_01_01.R
+                │
+                │   01_Download_neotoma.R
+                │   02_Extract_samples.R
+                │   03_Filter_dep_env.R
+                │   04_Extract_chron_control_tables.R
+                │   05_Extract_raw_pollen_data.R
+</code></pre>
 </div>
-<div id="data-storage" class="section level2">
-<h2>Data storage</h2>
-<p>The Workflow will produce several files including temporal output files, “stop-check” tables, and outputs (figures, data assembly, etc).</p>
-<ol style="list-style-type: decimal">
-<li>Temporal output files: The Workflow is set up in a way that temporal (in-progress) data files are saved at various stages of the Workflow. Each file will contain the date of creation for easier organisation. When run multiple times, the Workflow will automatically detect if there are any changes in a selected file and only overwrite it if an updated file can be produced. This also means that the user does not have to re-run the whole Workflow but can only re-run specific parts. As the total size of the files can become substantially large, the user can specify if all files should be stored within the project folder (default) or in another directory (specified in using <code>data_storage_path</code> in Config file). After such specification, and running the <code>00_Config_file.R</code> script, there will be an additional folder structure created:</li>
-</ol>
-<p>Code block 3</p>
-<pre><code>data_storage_path
-│
-└───Data
-│   │
-│   └───Input
-│   │   │
-│   │   └───Chronology_setting
-│   │   │   │
-│   │   │   └───Bchron_crash
-│   │   │   │
-│   │   │   └───Chron_control_point_types
-│   │   │   │
-│   │   │   └───Percentage_radiocarbon
-│   │   │
-│   │   └───Depositional_environment
-│   │   │   │
-│   │   │   └───Neotoma
-│   │   │   │
-│   │   │   └───Other
-│   │   │
-│   │   └───Eco_group
-│   │   │
-│   │   └───Harmonisation_tables
-│   │   │
-│   │   └───Neotoma_download
-│   │   │
-│   │   └───Potential_duplicates
-│   │   │
-│   │   └───Private
-│   │   │
-│   │   └───Regional_age_limits
-│   │   
-│   └───Personal_database_storage
-│   │
-│   └───Processed
-│       │
-│       └───Bchron
-│       │   │
-│       │   └───Bchron_tibble_prepared
-│       │   │
-│       │   └───Full_outputs
-│       │   │
-│       │   └───Predicted_ages
-│       │   │
-│       │   └───Temporary_output
-│       │
-│       └───Data_filtered
-│       │
-│       └───Data_harmonised
-│       │
-│       └───Data_merged
-│       │
-│       └───Data_with_chronologies
-│       │
-│       └───Neotoma_processed
-│       │   │
-│       │   └───Neotoma_chron_control
-│       │   │
-│       │   └───Neotoma_dep_env
-│       │   │
-│       │   └───Neotoma_meta
-│       │
-│       └───Private
-│ 
-└───Outputs
-    │
-    └───Data
-    │
-    └───Figures
-    │   │
-    │   └───Bchron
-    │   │
-    │   └───Pollen_diagrams
-    │   
-    └───Tables
-        │
-        └───Meta_and_references</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><p>“Stop-checks” CSV tables (Supplementary Figure 1): While running the workflow, there will be several times that a user will be asked to check and where necessary adjust produced CSV tables to subsequently continue with the Workflow (i.e. re-run script). This is done so that the user is obliged to check produced intermediate results before continuing. For example, at a certain point, the Workflow will produce a list of all ecological groups detected within the dataset compilation obtained from Neotoma. A user then has to edit the mentioned CSV table and specify which ecological groups should be kept (include = TRUE) and which should be filtered out (include = FALSE). There are several stop-checks throughout the workflow (Supplementary Figure 1)</p></li>
-<li><p>Workflow final outputs:</p></li>
-</ol>
-<ul>
-<li>a ready-to-use, taxonomically harmonised and standardised compilation of fossil pollen data, ready for the analytical stage</li>
-<li>Age-depth model of each sequence</li>
-<li>Pollen diagram of each sequence</li>
-<li>Metadata table related to main data contributor, contact information, and corresponding publications for citation purposes of the used datasets.</li>
-</ul>
 </div>
 
 
