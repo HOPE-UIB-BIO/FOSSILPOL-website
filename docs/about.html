@@ -289,7 +289,7 @@ $(document).ready(function () {
 <li><p>A user can obtain the newest release of the Workflow as a zip file from ZENODO [link].</p></li>
 </ol>
 <p>The R project consists of codes with individual scripts and functions. All scripts are stored in the <code>R</code> folder. After obtaining the workflow, the R project will have the following structure:</p>
-<p>Code block 1</p>
+<p><strong>Code block 1</strong></p>
 <pre><code>project
 │
 │   README.md
@@ -395,7 +395,7 @@ $(document).ready(function () {
 <p>Once a user obtains their own version of the Workflow, there are several steps to be done before using it:</p>
 <ul>
 <li><p>Update R and R-studio. There are many guides on how to do so (e.g. <a href="https://jennhuck.github.io/workshops/install_update_R.html">here</a>)</p></li>
-<li><p>Execute all individual steps with the <code>___Init_project___.R</code> script. This will result in the preparation of all packages using the <code>renv</code> package, which is an R dependency management of your projects (more info about <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html">here</a>). This step can take a substantial amount of time. For any issues with <code>___Init_project___.R</code>, see the <em><a href="https://hope-uib-bio.github.io/FOSSILPOL-website/contributing#issues.html">Issue</a></em> section on the FOSSILPOL website.</p></li>
+<li><p>Execute all individual steps with the <code>___Init_project___.R</code> script. This will result in the preparation of all packages using the <code>renv</code> package, which is an R dependency management of your projects (more info about <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html">here</a>). This step can take a substantial amount of time. For any issues with <code>___Init_project___.R</code>, see the <em><a href="https://hope-uib-bio.github.io/FOSSILPOL-website/contributing.html#issues">Issue</a></em> section on the FOSSILPOL website.</p></li>
 <li><p>Set up your preferences by editing the <code>00_Config_file.R</code> script (referred to as <em>“Config file”</em> from here on). The Config file is a script where all settings and criteria used throughout the project are predefined by the user before running the Workflow. In addition, it prepares the current session by loading the required packages and saving all settings throughout the project. The points of focus for users are flagged by “<strong>[USER]</strong>” in the Config file, meaning that these are criteria that need to be checked by the user. More info on the Config file is given in the section “A step-by-step guide to data processing”. The crucial points are:</p>
 <ul>
 <li><p><code>data_storage_path</code> within <em>section 4</em> - as the workflow produces several large files, a user can specify the directory where such files will be placed. Note that the default place is within the project.</p></li>
@@ -409,7 +409,7 @@ $(document).ready(function () {
 <h2>Cascade of R scripts <a name = "cascade"></a></h2>
 <p>This Workflow is constructed using a “script cascade”. This means that the <code>Master_run_01.R</code>, located within <code>R /01_Data_processing/</code> folder, executes all scripts within sub-folders of the <code>R /01_Data_processing/</code> folder, which in turn, execute all their sub-folders (e.g., <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code> executes <code>R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R</code>, , <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>, …). See Code block 2.</p>
 <p>Therefore, a user can run the data processing section of the project executing <code>R/01_Data_processing/Master_run_01.R</code>script, or run individual sections by executing individual scripts within sections. Alternatively, the user can run the Workflow subsection as a whole for instance running, <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code>, and not <code>R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R</code>, and then <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>, etc.</p>
-<p>Code block 2</p>
+<p><strong>Code block 2</strong></p>
 <pre><code>R
 │
 └───01_Data_processing
