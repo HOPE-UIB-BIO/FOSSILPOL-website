@@ -1,17 +1,50 @@
 ---
-title: "FOSSILPOL workflow webpage"
+title: "FOSSILPOL project"
 ---
 
-### Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data
-
 This websites should serve as additional source of information for FOSSILPOL: The workflow to process global palaeoecological pollen data.
-<br></br>
 
-**Authors**: Suzette G.A. Flantua#, Ondrej Mottl, Vivian Felde, Kuber P. Bhatta, Alistair Seddon, John-Arvid Grytnes, Hilary Birks, H. John B. Birks
-<br></br>
+<br>
 
-The version of the document: **0.0.1**
+## Authors
+The FOSSILPOL workflow has been developed during the ERC project called the “Humans on Planet Earth” (HOPE) team at the University of Bergen:
+Suzette G.A. Flantua, Ondrej Mottl, Vivian Felde, Kuber P. Bhatta, Alistair Seddon, John-Arvid Grytnes, Hilary Birks, H. John B. Birks
+
+<br>
+
+## Project sections
+
+The project consist of several parts:
+
+* **A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis** - A paper published in GEB (in submition)
+
+* **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen sequences to create a comprehensive, standardised dataset compilation, ready for multi-sequence and multi-proxy analyses (coded in the R environment)
+
+* **[R-Fossilpol package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - A R-package package developed specifically to provide tools for FOSSILPOL workflow.
+
+* **[Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data](https://hope-uib-bio.github.io/FOSSILPOL-website/)** - A detailed technical information for users of FOSSILPOL. A static version attached as Supplementary with the paper, and a live version published as websites 
+
+* **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - specific GitHub repository to manage all Issues from the whole project
+
+<br>
+
+## Websites
+
+* [The project](https://hope-uib-bio.github.io/FOSSILPOL-website/index.html) - A description of the whole project
+
+* [General information](https://hope-uib-bio.github.io/FOSSILPOL-website/about.html) - Information about how to obtain, set up, and run FOSSILPOL project
+
+* [A step-by-step guide](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html) - Detailed information about individual steps of the data processing
+
+* [Contribute](https://hope-uib-bio.github.io/FOSSILPOL-website/contributing.html) - information about potential collaboration and issue reporting
+
+<br>
+
+## Versions
+The version of the Technical guide to FOSSILPOL: **0.0.1**
 
 The version of the FOSSILPOL workflow: **0.0.1**
 
 The version of the R-fossilpol package: **0.0.1**
+
+
