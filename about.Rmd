@@ -2,7 +2,7 @@
 title: "General information"
 ---
 
-Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Supplementary Fig. 1). The general guide is described in the paper titled, A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis”, published in [GEB](https://onlinelibrary.wiley.com/journal/14668238). More detailed information and updates can be found on the [FOSSILPOL website](https://hope-uib-bio.github.io/FOSSILPOL-website/).
+Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Supplementary Fig. 1). The general guide is described in the paper titled "*A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis*”, published in [GEB](https://onlinelibrary.wiley.com/journal/14668238). More detailed information and updates can be found on the [FOSSILPOL website](https://hope-uib-bio.github.io/FOSSILPOL-website/).
 
 The goal of the FOSSILPOL workflow is to process multiple fossil pollen sequences to create a comprehensive, standardised dataset compilation, ready for multi-sequence and multi-proxy analyses. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for a specific research project.
 
