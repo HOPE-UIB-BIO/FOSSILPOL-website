@@ -76,7 +76,7 @@ Not all contributions have to do with code.
 If you would like to report a bug, suggest enhancements, or request a new
 feature, please use the [issues page](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) to do so.
 
-If you encounter any issues using this workflow, please use the repository's **Issue** tracker. 
+If you encounter any issues using this workflow, please use the repository's **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues)**. 
 
 Consider the following steps before and when opening a new Issue:
 

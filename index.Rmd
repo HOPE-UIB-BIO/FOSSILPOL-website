@@ -32,13 +32,13 @@ The project consist of several parts:
 
 ## Websites
 
-* [The project](https://hope-uib-bio.github.io/FOSSILPOL-website/index.html) - A description of the whole project
+* [The project](index.html) - A description of the whole project
 
-* [General information](https://hope-uib-bio.github.io/FOSSILPOL-website/about.html) - Information about how to obtain, set up, and run FOSSILPOL project
+* [General information](about.html) - Information about how to obtain, set up, and run FOSSILPOL project
 
-* [A step-by-step guide](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html) - Detailed information about individual steps of the data processing
+* [A step-by-step guide](step_by_step_guide.html) - Detailed information about individual steps of the data processing
 
-* [Contribute](https://hope-uib-bio.github.io/FOSSILPOL-website/contributing.html) - information about potential collaboration and issue reporting
+* [Contribute](contributing.html) - information about potential collaboration and issue reporting
 
 <br>
 
