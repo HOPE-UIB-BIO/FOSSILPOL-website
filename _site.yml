@@ -9,3 +9,5 @@ navbar:
       href: step_by_step_guide.html
     - text: "Contribute"
       href: contributing.html
+    - text: "Project roadmap"
+      href: road_map.html

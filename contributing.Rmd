@@ -3,6 +3,12 @@ title: "Contribute"
 ---
 
 Thank you for considering to contribute to FOSSILPOL, we appreciate the help :sparkling_heart:.
+
+The FOSSILPOL project is always envisioned as software, which should be updated. 
+
+See the planned future updates in **[project roadmap](https://github.com/orgs/HOPE-UIB-BIO/projects/3)**.
+More details about the project roadmap [here](road_map.html).
+
 To make sure that we maintain the highest quality of code, we do have to adhere
 to some strict guidelines though. Please read through this document to help you get up and running.
 
