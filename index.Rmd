@@ -24,9 +24,11 @@ The project consist of several parts:
 
 * **[Technical guide to FOSSILPOL: The workflow to process global palaeoecological pollen data](https://hope-uib-bio.github.io/FOSSILPOL-website/)** - A detailed technical information for users of FOSSILPOL. A static version attached as Supplementary with the paper, and a live version published as websites 
 
-* **[Europe example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Europe)** - Example of the use for FOSSILPOL workflow for whole Europe
+* **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - Example of the use for FOSSILPOL workflow for Scandinavia
 
 * **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - specific GitHub repository to manage all Issues from the whole project
+
+* **[Roadmap](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - the planned future updates
 
 <br>
 
