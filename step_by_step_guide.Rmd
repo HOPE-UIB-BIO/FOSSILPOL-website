@@ -2,7 +2,7 @@
 title: "A step-by-step guide to data processing"
 ---
 
-The Workflow is structured in a modular manner where all steps are organised sequentially and guided by one main configuration file (*Config file*) where all criteria and setup configurations are pre-defined by the user (see next section, Supplementary Figure 1). 
+The FOSSILPOL Workflow is structured in a modular manner where all steps are organised sequentially and guided by one main configuration file (*Config file*) where all criteria and setup configurations are pre-defined by the user (see Data input Section and Workflow detailed overview figure). 
 <br></br>
 
 # Table of Contents
@@ -53,7 +53,7 @@ The Workflow is structured in a modular manner where all steps are organised seq
 
 # Data input<a name = "data-input"></a> 
 
-The Workflow is set up in a way that data from Neotoma are the primary data. However, additional data sources (`private`) can be used in parallel by using our predefined format (see section **Data sourcing**). The user thus has the flexibility to either source data from Neotoma or another data source if a consistent formatting file is used as provided in this Workflow. 
+The Workflow is set up in a way that data from Neotoma are the primary data. However, additional data sources (`private`) can be used in parallel by using our predefined format (see Section **Data sourcing**). The user thus has the flexibility to either source data from Neotoma or another data source as long as a consistent formatting file is used which we provide in this Workflow. 
 
 Three additional data inputs are required for the initial set-up of the Workflow:
 
@@ -61,17 +61,17 @@ Three additional data inputs are required for the initial set-up of the Workflow
 
 2. Geographical shapefiles – several shapefiles, which define the geographical information and harmonisation region for each sequence, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalisation of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a `harmonisation region shapefile` which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working with corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each sequence as long as shapefiles are provided.
 
-3.	Harmonisation tables – for each project, one harmonisation table must be provided per harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma (and other data sourced in the project), and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template for harmonisation in the `harmonised taxa` column.
+3.	Harmonisation tables – for each project, one harmonisation table must be provided per harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma and/or private data sourced in the project), and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template for harmonisation in the `harmonised taxa` column.
 
 <br>
 
 # Data storage<a name = "data-stor"></a>
 
-The Workflow will produce several files including temporary output files, “stop-check” tables, and final output (figures, data assembly, etc.) (Supplementary Figure 1): 
+The Workflow will produce several files including temporary output files, “stop-check” tables, and final output (figures, data assembly, etc.) (Workflow detailed overview figure): 
 
 1. Temporary output files: the Workflow is set up in a way that temporary (in-progress) data files are saved at various stages of the Workflow. Each file will contain the date of creation for easier organisation. When run multiple times, the Workflow will automatically detect if there are any changes in a selected file and only overwrite it if an updated file can be produced. This also means that the user does not have to re-run the whole Workflow but can re-run only specific parts. As the total size of the files can become substantial, the user can specify if all files should be stored within the project folder (default) or in another directory (specified by using the `data_storage_path` in the Config file). With such specification, and after running the `00_Config_file.R` script, there will be an additional folder structure created (Code block 3).
 
-2. “Stop-checks” CSV tables: while running the workflow, there will be several times that a user will be asked to check and, where necessary, adjust the produced CSV tables to subsequently continue with the Workflow (i.e. re-run script). This is done to oblige the user to check the produced intermediate results before continuing. For example, at a certain point, the Workflow will produce a list of all ecological groups detected within the dataset compilation obtained from Neotoma. A user then has to edit the mentioned CSV table and specify which ecological groups should be kept (include = TRUE) and which should be filtered out (include = FALSE). There are several stop-checks throughout the workflow (Supplementary Figure 1)
+2. “Stop-checks” CSV tables: while running the workflow, there will be several times that a user will be asked to check and, where necessary, adjust the produced CSV tables to subsequently continue with the Workflow (i.e. re-run script). This is done to oblige the user to check the produced intermediate results before continuing. For example, at a certain point, the Workflow will produce a list of all ecological groups detected within the dataset compilation obtained from Neotoma. A user then has to edit the mentioned CSV table and specify which ecological groups should be kept (include = TRUE) and which should be filtered out (include = FALSE). Note that there are several stop-checks throughout the workflow (Workflow detailed overview figure)
 
 3. Workflow final output: 
     + A ready-to-use, taxonomically harmonised and standardised compilation of fossil pollen data, ready for the analytical stage
@@ -166,7 +166,7 @@ data_storage_path
 
 # Data processing<a name = "data-proc"></a>
 
-Here we focus on the scripts within the `R/01_Data_processing` folder representing all steps needed for data processing from obtaining data to the final dataset compilation, organised in the following sections:
+Here we focus on the scripts within the `R/01_Data_processing` folder representing all steps needed for data processing from obtaining data to the final dataset compilation, organised in the following Sections:
 
 (I)   [Data sourcing: `01_Neotoma_source`](#01)- retrieve and process data from Neotoma 
 
@@ -220,7 +220,7 @@ Each sequence is processed using a unique dataset ID (`dataset_id`) with metadat
 
 #### 03_Filter_dep_env.R <a name = "0103"></a>
 
-Depositional information about each sequence gives information about the environments where a core was extracted. Based on the research question, there could be a preference for certain environments (e.g. terrestrial vs marine). Currently in Neotoma, the data about depositional environments are organised in a hierarchical structure (e.g. “Pond” is nested in “Natural Lake”, which is nested in “Lacustrine”), in which the maximum number of nested layers is five. At the lowest hierarchical level, there are currently over 50 different categories of depositional environments (for fossil pollen sequences). Based on the selected sequences, the Workflow will produce a full list of all depositional environments (and their hierarchical position) presented in the data selection. The user is then requested to define the environments of choice (this is a “stop-check” point, Supplementary Figure 1). Note that excluding depositional environments with the higher hierarchical position will not automatically exclude all depositional environments nested in it.
+Depositional information about each sequence gives information about the environments where a sequence was extracted. Based on the research question, there could be a preference for certain environments (e.g. terrestrial vs marine). Currently in Neotoma, the data about depositional environments are organised in a hierarchical structure (e.g. “Pond” is nested in “Natural Lake”, which is nested in “Lacustrine”), in which the maximum number of nested layers is five. At the lowest hierarchical level, there are currently over 50 different categories of depositional environments (for fossil pollen sequences). Based on the selected sequences, the Workflow will produce a full list of all depositional environments (and their hierarchical position) presented in the data selection. The user is then requested to define the environments of choice (this is a “stop-check” point, Workflow detailed overview figure). Note that excluding depositional environments with the higher hierarchical position will not automatically exclude all depositional environments nested in it.
 
 <br>
 
@@ -236,11 +236,11 @@ Each level of each sequence comes with additional information: a) unique sample 
 
 The Workflow will only keep sequences with a minimal number of levels as defined in the Config file (`min_n_sites_initial`). The minimum number of levels is by default selected as three but the user can change this setting.
 
-In the case of data derived from Neotoma, each pollen taxon has information about the ecological group (e.g. palms, mangroves, etc). Based on the selected sequences, the Workflow will produce a full list of all ecological groups after which the user is requested to define which ecological groups to include (a “stop-check”, Supplementary Figure 1, see explanation of abbreviation in Supplementary Table 1)
+In the case of data derived from Neotoma, each pollen taxon has information about the ecological group (e.g. palms, mangroves, etc). Based on the selected sequences, the Workflow will produce a full list of all ecological groups after which the user is requested to define which ecological groups to include (a “stop-check”, Workflow detailed overview figure, see explanation of abbreviation in Table 1)
 
 <br>
 
-**Supplementary Table 1.** Ecological groups assigned to pollen taxa as defined in Neotoma. 
+**Table 1.** Ecological groups assigned to pollen taxa as defined in Neotoma. 
 
 ABBREVIATION  | ECOLOGICAL GROUP
 ----          | ----
@@ -317,7 +317,7 @@ After initial data processing, sequences from Neotoma and Private are merged tog
 
 ##### *Detection of duplicates* <a name = "0301-dupl"></a>
 
-There is a possibility that some datasets from the user's private source are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates `. Because comparing all sequences between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 sequences per group). The user can define the number of groups using the `n_subgroups` argument. Next, each sequence from one source is compared to all sequences from the other source as long as they are within 1 degree radius (the assumption here is that duplicated sequences will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated sequences (a “stop-check”, Supplementary Figure 1).  For each sequence pair, the user must specify which sequences should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both sequences in). 
+There is a possibility that some datasets from the user's private source are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates`. Because comparing all sequences between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 sequences per group). The user can define the number of groups using the `n_subgroups` argument. Next, each sequence from one source is compared to all sequences from the other source as long as they are within 1 degree radius (the assumption here is that duplicated sequences will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated sequences (a “stop-check”, Workflow detailed overview figure).  For each sequence pair, the user must specify which sequences should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both sequences in). 
 
 <br>
 
@@ -331,11 +331,11 @@ Several more steps take place to create the fully merged dataset compilation bef
 
 3. Spatial information for each sequence is assigned based on the provided geographical shapefiles. Specifically: 
   
-    + Region information – the shapefile in `Data/Input/Spatial/Regions_shapefile` will assign the regional names for each sequence (see Data input section above). The user can (and is recommended to) change the spatial delimitation of the data by altering the shapefile. 
+    + Region information – the shapefile in `Data/Input/Spatial/Regions_shapefile` will assign the regional names for each sequence (see Data input Section above). The user can (and is recommended to) change the spatial delimitation of the data by altering the shapefile. 
   
     + Political delimitation (countries) - obtained from GADM database (www.gadm.org), version 2.8, November 2015.
   
-    + Harmonisation region – the shapefile in `Data/Input/Spatial/Harmonisation_regions_shapefile` will assign the harmonisation region (to be able to link the corresponding harmonisation table to use; See Data input section above). The default shapefile in the Workflow is a copy of the Region information shapefile but should be adjusted by the user to correspond to the area covered by the different harmonisation tables.
+    + Harmonisation region – the shapefile in `Data/Input/Spatial/Harmonisation_regions_shapefile` will assign the harmonisation region (to be able to link the corresponding harmonisation table to use; See Data input Section above). The default shapefile in the Workflow is a copy of the Region information shapefile but should be adjusted by the user to correspond to the area covered by the different harmonisation tables.
   
     + Calibration curves (normal and post-bomb) - depending on the geographical position of the sequence, a different calibration curve needs to be assigned, as different curves are used for the northern and southern hemispheres, and for terrestrial and marine environments. See more details about calibration curves below. 
 
@@ -428,7 +428,7 @@ Modern radiocarbon dates are calibrated by using one of the post-bomb calibratio
 
 Each control point in the control table has several properties: unique ID, depth, age, error, thickness, and chron control point type (e.g. radiocarbon, biostratigraphical, annual laminations). Each type of chronology control point has different age uncertainties. For instance, many older sequences relied on indirect dating techniques based on biostratigraphical layers, similar geological levels from other records (e.g. a volcanic event), and pollen-based levels (e.g. the appearance of a key taxon), among others and can have large age uncertainties into thousands of years. Neotoma has over 50 different chronology controls points that fall within the categories of geochronological (e.g. lead-210, radiocarbon, uranium-series),  relative time scale (e.g. MIS5e, Heinrich Stadial 1,  Late Wisconsin event), stratigraphic (e.g. biostratigraphic events such as the introduction of anthropogenic taxa), cultural (e.g. European Settlement Horizon), other absolute dating methods (e.g. annual laminations, collection date), and other dating methods (e.g. extrapolated or guesses). Only the chronology control points in uncalibrated radiocarbon ages require recalibration with the calibration curves as most, if not all, other control points will be in calendar ages and no recalibration should be implemented. 
 
-A user has the option to select which control point types should be accepted and which should be calibrated (a “stop-check”, Supplementary Figure 1). The Workflow will automatically produce a list of all detected control points from all selected sequences, which includes columns called `include` (the user should indicate if the chronology control point should be included) and `calibrate` (the user should indicate if the point should be recalibrated using the calibration curves).
+A user has the option to select which control point types should be accepted and which should be calibrated (a “stop-check”, Workflow detailed overview figure). The Workflow will automatically produce a list of all detected control points from all selected sequences, which includes columns called `include` (the user should indicate if the chronology control point should be included) and `calibrate` (the user should indicate if the point should be recalibrated using the calibration curves).
 
 <br>
 
@@ -502,7 +502,7 @@ The visual representation of all age-depth models is saved as output for visual 
 
 #### 05_Merge_chron_output.R <a name = "0405"></a>
 
-The successfully predicted ages are linked with all the sequences from various sources (sections I-III). The individual levels of each sequence are then ordered by the predicted ages and the same order of levels is then applied to the tables with the pollen counts.
+The successfully predicted ages are linked with all the sequences from various sources (Sections I-III). The individual levels of each sequence are then ordered by the predicted ages and the same order of levels is then applied to the tables with the pollen counts.
 
 <br>
 
@@ -523,7 +523,7 @@ The goal of taxonomic harmonisation is to standardise all taxa synonyms to the s
 
 #### 01_Harmonisation.R <a name = "0501"></a>
 
-First, the Workflow will check the `harmonisation regions` present in the data, defined by the shapefile (see Data input and section III), and confirm that there is one harmonisation table per region (a “stop-check”, Supplementary Figure 1). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the sequences from within that region. 
+First, the Workflow will check the `harmonisation regions` present in the data, defined by the shapefile (see Data input and Section III), and confirm that there is one harmonisation table per region (a “stop-check”, see Workflow detailed overview figure). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the sequences from within that region. 
 
 Each harmonisation table is created so each taxon can have two columns: 
 
@@ -543,19 +543,19 @@ Before obtaining the final harmonised comprehensive dataset compilation, data ne
 
 * `filter_by_pollen_sum` - if `TRUE`, the Workflow will use the quantity of counted pollen grains at each level as a factor in determining the quality of the level.
 
-* `filter_by_age_limit` - if `TRUE`, the Workflow will filter out sequences which do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see section III).
+* `filter_by_age_limit` - if `TRUE`, the Workflow will filter out sequences that do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see Section III).
 
 * `filter_by_extrapolation` - if `TRUE`, the Workflow will filter out levels based on the number of years between their age and the last chronology control point used for age-depth modelling.
 
-* `filter_by_interest_region` - if `TRUE`, the Workflow will filter out levels that are older than `end_of_interest_period` (defined in `Regional_age_limits` table; see section III) to subsequently reduce processing time during follow-up analyses.
+* `filter_by_interest_region` - if `TRUE`, the Workflow will filter out levels that are older than `end_of_interest_period` (defined in `Regional_age_limits` table; see Section III) to subsequently reduce processing time during follow-up analyses.
 
 * `filter_by_number_of_levels` - if `TRUE`, the Workflow will filter out sequences based on the number of levels.
 
 In addition, two more options can be turned on by the user:
 
-* `use_age_quantiles` - if `TRUE`, the Workflow will use the 95th age quantile (uncertainty of the level age) throughout the data filtration process, i.e. the age of the level will be assumed to be anywhere between the upper and lower boundary (see section IV). This will result in a more stable dataset compilation between the different results of age-depth modelling (as a probabilistic result can output slightly different results each time they are run). However, the final dataset compilation may require some additional filtering before any analyses, as the 95th age quantile can span very long time periods.
+* `use_age_quantiles` - if `TRUE`, the Workflow will use the 95th age quantile (uncertainty of the level age) throughout the data filtration process, i.e. the age of the level will be assumed to be anywhere between the upper and lower boundary (see Section IV). This will result in a more stable dataset compilation between the different results of age-depth modelling (as a probabilistic result can output slightly different results each time they are run). However, the final dataset compilation may require some additional filtering before any analyses, as the 95th age quantile can span very long time periods.
 
-* `use_bookend_level` - if `TRUE`, the Workflow will leave one additional level in the older time period through the data filtration process. This will result in a "bookend" level, which can help to anchor information beyond the period of interest.
+* `use_bookend_level` - if `TRUE`, the Workflow will leave one additional level beyond the oldest age of the user-defined time period. This will result in a "bookend" level, which can help to anchor information beyond the period of interest.
 
 ### **Scripts**
 
@@ -574,7 +574,7 @@ In addition, two more options can be turned on by the user:
 
 ##### *Pollen count sum* <a name = "0401-polsum"></a>
 
-The quantity of counted pollen grains at each level can be a factor in determining the quality of the level, and different reasons exist for defining a minimum and/or acceptable number of counted pollen grains per level. To obtain a reliable representation of the vegetation, researchers often aim to obtain counts higher than 300 (following Moore et al. 1991 [Blackwell, Oxford], but other recommendations may have been followed (>150; #REFS, Djamali & Cilleros, 2020). A low pollen count (<100) can have different reasons: i) natural depositional phenomenon causing poor pollen preservation and ii) low pollen counts by the data contributor due to time constraints. 
+The quantity of counted pollen grains at each level can be a factor in determining the quality of the level, and different reasons exist for defining a minimum and/or acceptable number of counted pollen grains per level. To obtain a reliable representation of the vegetation, researchers often aim to obtain counts higher than 300 (following Moore et al. 1991 [Blackwell, Oxford], but other recommendations may have been followed (>150; Djamali & Cilleros, 2020). A low pollen count (<100) can have different reasons: i) natural depositional phenomenon causing poor pollen preservation and ii) low pollen counts by the data contributor due to time constraints. 
 
 The user can select two different quantities of total pollen grains per level: a) minimum number (`min_n_grains`) and b) acceptable number (`target_n_grains`). All levels with total pollen grains below the minimum number will be filtered out. In addition, the whole sequence will only be accepted if X% (set by `percentage_samples`; default = 50) of all levels fulfils at least the acceptable number of pollen grains.  This filtration criterion will only be used if `filter_by_pollen_sum` == `TRUE`.
 
@@ -582,25 +582,25 @@ The user can select two different quantities of total pollen grains per level: a
 
 ##### *Age criteria* <a name = "0401-age"></a>
 
-As projects differ in their temporal focus, only a subset of sequences will be of interest to the particular project. Therefore, sequences that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE`.
+As projects differ in their temporal focus, only a subset of sequences will be of interest to the particular project. Therefore, sequences that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE` in the Config file.
 
 <br>
 
 ##### *Level age extrapolation* <a name = "0401-extrap"></a>
 
-Levels between chronology control points have a certain degree of temporal uncertainty, which increases with the distance to the points (Giesecke et al. 2014 [VHA]). In addition, levels older than the oldest chronology control point have no other chronology control point to extrapolate towards and, therefore, have increasingly large uncertainty. In order to limit the use of levels based on large extrapolations, the user can select the maximum extrapolation age (`maximum_age_extrapolation`), i.e. levels older than the selected criterion from the last chronology control point will be filtered out. This filtration criterion will only be used if `filter_by_extrapolation` == `TRUE`.
+Levels between chronology control points have a certain degree of temporal uncertainty, which increases with the distance to the points (Giesecke et al. 2014). In addition, levels older than the oldest chronology control point have no other chronology control point to extrapolate towards and, therefore, have increasingly large uncertainty. In order to limit the use of levels based on large extrapolations, the user can select the maximum extrapolation age (`maximum_age_extrapolation`), i.e. levels older than the selected criterion from the last chronology control point will be filtered out. This filtration criterion will only be used if `filter_by_extrapolation` == `TRUE` in the Config file.
 
 <br>
 
 ##### *Interest period* <a name = "0401-interest"></a>
 
-The individual levels of a sequence outside of the “interest period” (`end_of_interest_period` specified by the `Regional_age_limits` table) will be filtered out as they do not provide additional information. This filtration criterion will only be used if ` filter_by_interest_region` == `TRUE`.
+The individual levels of a sequence outside of the “interest period” (`end_of_interest_period` specified by the `Regional_age_limits` table) will be filtered out as they do not provide additional information. This filtration criterion will only be used if ` filter_by_interest_region` == `TRUE` in the Config file.
 
 <br>
 
 ##### *Number of levels* <a name = "0401-levels"></a>
 
-The total number of levels in a sequence might be an important criterion for further usage of the sequence in specific analysis. Sequences might have been sampled at low resolution (large space between levels such as > 30 cm) leaving substantial unassessed gaps – and thus time periods – between levels. In addition, sequences with few levels will likely contribute poorly to studies focused on specific time periods (many non-value levels) and can cause unnecessary outlier values. Therefore, the user can select the minimum number of levels (`min_n_levels`) which sequences must have at the end of the filtration subroutine. This filtration criterion will only be used if `filter_by_number_of_levels` == `TRUE`
+The total number of levels in a sequence might be an important criterion for further usage of the sequence in specific analysis. Sequences might have been sampled at low resolution (large space between levels such as > 30 cm) leaving substantial unassessed gaps – and thus time periods – between levels. In addition, sequences with few levels will likely contribute poorly to studies focused on specific time periods (many non-value levels) and can cause unnecessary outlier values. Therefore, the user can select the minimum number of levels (`min_n_levels`) which sequences must have at the end of the filtration subroutine. This filtration criterion will only be used if `filter_by_number_of_levels` == `TRUE` in the Config file.
 
 <br>
 
@@ -621,7 +621,7 @@ The total number of levels in a sequence might be an important criterion for fur
 
 #### 01_Pollen_diagrams.R <a name = "0701"></a>
 
-Pollen diagrams for all sequences will be created using the rioja R package (LINK). The harmonised data will be automatically transformed into relative proportion for plotting purposes. The pollen diagrams will be saved in the `/Outputs/Figures/Pollen_diagrams/` folder and split into sub-folders defined by Region. 
+Pollen diagrams for all sequences will be created using the rioja R package (Juggins, 2020). The harmonised data will be automatically transformed into relative proportion for plotting purposes. The pollen diagrams will be saved in the `/Outputs/Figures/Pollen_diagrams/` folder and split into sub-folders defined by Region. 
 
 The `plot_all_pollen_diagrams` function will automatically produce a PDF of the pollen diagram split into several A4 pages ready to be printed out. The y-axis is, by default, the age of the levels, but it can be altered to depth (by the `y_var` argument). The maximum number of taxa per page can be altered by the `max_taxa` argument (default = 20). In addition, the function will automatically omit very rare taxa. Specifically, the `min_n_occur` argument will determine the minimum number of occurrences per sequence each taxon has to have to be plotted.
 
@@ -638,7 +638,7 @@ The user can select which columns (variables) should be present in the final dat
 #### 03_Save_references.R <a name = "0703"></a>
 
 First, the Workflow will output a “metadata table” (`data_assembly_meta.csv`) that contains:
--	the list of all sequences in the final dataset assembly 
+-	the list of all sequences in the final dataset compilation 
 -	information about geographical location 
 -	depositional environment 
 -	assigned continental region
@@ -650,7 +650,7 @@ First, the Workflow will output a “metadata table” (`data_assembly_meta.csv`
 -	data source (Neotoma or private)
 -	DOI (from Neotoma). 
 
-This list can be altered by changing the final variables (see previous section).
+This list can be altered by changing the final variables (see previous Section).
 
 Second, the Workflow will output a “reference table” (`authors_meta.csv`) containing information about the datasets used, the main data contributor, and their contact information. 
 
@@ -662,4 +662,9 @@ All of these outputs can be found in the `/Outputs/Tables/Meta_and_references/` 
 <br>
 
 # References <a name = "ref"></a>
-WIP
+Djamali, M., Cilleros, K. (2020) Statistically significant minimum pollen count in Quaternary pollen analysis; the case of pollen-rich lake sediments. Review of Palaeobotany and Palynology 275, pp.104156. ff10.1016/j.revpalbo.2019.104156
+Giesecke, T., Davis, B., Brewer, S. et al. (2014) Towards mapping the late Quaternary vegetation change of Europe. Vegetation History and Archaeobotany 23, 75–86. https://doi.org/10.1007/s00334-012-0390-y
+Juggins, S. (2020). rioja: Analysis of Quaternary Science Data. R package version 0.9-26, https://cran.r-project.org/package=rioja
+Moore, P.D., Webb, J.A. and Collinson, M.E. (1991) Pollen Analysis. 2nd Edition, Blackwell, Oxford, 1-216.
+
+
