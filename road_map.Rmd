@@ -2,13 +2,15 @@
 title: "Project roadmap"
 ---
 
-The FOSSILPOL project is always envisioned as software, which should be updated. 
+The FOSSILPOL project is envisioned as a software that will undergo updates for further improvement. 
 
-We know there are already functions and features we would like to implement in the future.
+We are aware of functions and features we would like to implement in the future.
 
 See the planned future updates in **[project roadmap](https://github.com/orgs/HOPE-UIB-BIO/projects/3)**
 
-If there is a feature you would like to implement first check the [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues), look if someone already did not mention it, and upvote it if it is already there. If the feature is not there, you can write a new Issue (but check out the [guidance](https://hope-uib-bio.github.io/FOSSILPOL-website/contributing.html) for contribution to the project.
+If there is a feature you would like to implement, please first check the [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues), 
+and look if someone already suggested it and 'upvote' it if it is already there. 
+If the feature is not there yet, please feel free to make a new Issue as a contribution to the project. Note: check out the [guidance](https://hope-uib-bio.github.io/FOSSILPOL-website/contributing.html) for guidelines on making contributions. 
 
-We would regularly update the list.
+We aim to regularly update the list.
 
