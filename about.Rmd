@@ -1,20 +1,27 @@
 ---
-title: "General information"
+title: "FOSSILPOL workflow"
 ---
 
-Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Supplementary Fig. 1). The general guide is described in the manuscript titled "*A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis*”, currently in review in [GEB](https://onlinelibrary.wiley.com/journal/14668238). More detailed information and updates can be found on the [FOSSILPOL website](https://hope-uib-bio.github.io/FOSSILPOL-website/).
+## Table of Contents
+
+1. [General information](#general)
+2. [How to obtain the workflow](#get)
+3. [Set up](#setup)
+4. [Cascade of scripts](#cascade)
+
+# General information <a name = "general"></a>
+
+Here we present the detailed technical guide for the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Fig. 1). The general guide is described in the manuscript titled "*A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis*”, currently in review in [GEB](https://onlinelibrary.wiley.com/journal/14668238).
 
 The goal of the FOSSILPOL workflow is to process multiple fossil pollen sequences to create a comprehensive, standardised dataset compilation, ready for multi-sequence and multi-proxy analyses. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for their specific research project.
 
 The FOSSILPOL workflow has been developed during the ERC project called the “Humans on Planet Earth” (HOPE) team at the University of Bergen.
 <br></br>
 
-## Table of Contents
+**Figure 1**
+![Workflow_MainText_Summary](figures/Workflow_MainText_Summary.drawio.png)
 
-1. [How to obtain the workflow](#get)
-2. [Set up](#setup)
-3. [Cascade of scripts](#cascade)
-<br></br>
+<br>
 
 # How to obtain the workflow <a name = "get"></a>
 The FOSSILPOL workflow (referred to as “the Workflow” from here on) is accessible in two ways:
