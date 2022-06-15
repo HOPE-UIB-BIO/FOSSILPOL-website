@@ -1,12 +1,12 @@
 ---
-title: "Project roadmap"
+title: "Project future updates"
 ---
 
 The FOSSILPOL project is envisioned as a software that will undergo updates for further improvement. 
 
 We are aware of functions and features we would like to implement in the future.
 
-See the planned future updates in **[project roadmap](https://github.com/orgs/HOPE-UIB-BIO/projects/3)**
+See the planned future updates in **[project future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3)**
 
 If there is a feature you would like to implement, please first check the [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues), 
 and look if someone already suggested it and 'upvote' it if it is already there. 

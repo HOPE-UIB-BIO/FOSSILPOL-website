@@ -29,7 +29,7 @@ The project consists of several sections:
 
 * **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - Specific GitHub repository to manage all Issues detected in the FOSSILPOL workflow
 
-* **[Roadmap](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Planned future updates
+* **[Future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Planned future updates
 
 <br>
 
@@ -41,7 +41,7 @@ The project consists of several sections:
 
 * [Contribute](contributing.html) - Information about potential collaboration and issue reporting
 
-* [Project roadmap](road_map.html) - Planned future updates
+* [Project future updates](road_map.html) - Planned future updates
 
 <br>
 
