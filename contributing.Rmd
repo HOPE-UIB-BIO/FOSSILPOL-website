@@ -63,7 +63,7 @@ Here is the recommended process:
 As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#resolving-conversations)
    + If you run into any merge issues, check out this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
 
-Before submitting a pull request, please make sure you follow the all guidelines
+Before submitting a pull request, please make sure you follow all the guidelines
 below while working on your changes:
 
 * Each pull request should try to accomplish one general task.
