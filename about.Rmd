@@ -13,7 +13,7 @@ title: "FOSSILPOL workflow"
 
 Here we present the technical guide on how to obtain and setup the FOSSILPOL workflow which is an R-based modular workflow to process global palaeoecological pollen data (Fig. 1). The general guide is described in the manuscript titled "*A guide to process and standardise global palaeoecological pollen datasets for large-scale synthesis*”, currently in review in [GEB](https://onlinelibrary.wiley.com/journal/14668238).
 
-The goal of the FOSSILPOL workflow is to process multiple fossil pollen sequences to create a comprehensive, standardised dataset compilation, ready for multi-sequence and multi-proxy analyses at any spatial scale. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for their specific research project.
+The goal of the FOSSILPOL workflow is to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses at any spatial scale. The FOSSILPOL workflow is coded as an RStudio project (in the R environment), which should be customised by the user for their specific research project.
 
 The FOSSILPOL workflow has been developed during the ERC project called the “Humans on Planet Earth” (HOPE) team at the University of Bergen.
 <br></br>
@@ -150,7 +150,7 @@ Once a user obtains their own version of the Workflow, there are several steps t
     
   + *section 5* - there are many variables important for data selection and filtering of the final data assembly.
 
-*	Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for **"stop-checks”**, see below). Alternatively, the user can run each script individually. After all “stop-checks” are resolved, the Workflow can be run as a whole to produce the standardised dataset compilation, ready for multi-sequence and multi-proxy analyses.
+*	Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for **"stop-checks”**, see below). Alternatively, the user can run each script individually. After all “stop-checks” are resolved, the Workflow can be run as a whole to produce the standardised dataset compilation, ready for multi-record and multi-proxy analyses.
 
 *	If desired, the user can run additional project-specific scripts (not provided) in the `02_Main_analyses` and `03_Supplementary_analyses` folders to analyse the data compilation.
 <br></br>

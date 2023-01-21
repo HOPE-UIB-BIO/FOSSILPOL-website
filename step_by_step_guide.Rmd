@@ -62,9 +62,9 @@ The Workflow is set up in a way that data from Neotoma are the primary data. How
 
 Three additional data inputs are required for the initial set-up of the Workflow:
 
-1. Configuration file (`00_Config_file.R`) – this contains all the user-selected settings which will be applied throughout the Workflow. These range from technical settings (e.g. location of the data storage) to specific requirements (e.g. filtering criteria) for sequences to be included. An overview of where the config critera are used through the Workflow is summaried in Figure 2.
+1. Configuration file (`00_Config_file.R`) – this contains all the user-selected settings which will be applied throughout the Workflow. These range from technical settings (e.g. location of the data storage) to specific requirements (e.g. filtering criteria) for records to be included. An overview of where the config critera are used through the Workflow is summaried in Figure 2.
 
-2. Geographical shapefiles – several shapefiles, which define the geographical information and harmonisation region for each sequence, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalisation of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a `harmonisation region shapefile` which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working with corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each sequence as long as shapefiles are provided.
+2. Geographical shapefiles – several shapefiles, which define the geographical information and harmonisation region for each record, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalisation of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a `harmonisation region shapefile` which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working with corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each record as long as shapefiles are provided.
 
 3.	Harmonisation tables – for each project, one harmonisation table must be provided per harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma and/or private data sourced in the project), and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template for harmonisation in the `harmonised taxa` column.
 
@@ -85,8 +85,8 @@ The Workflow will produce several files including temporary output files, “sto
 
 3. Workflow final output: 
     + A ready-to-use, taxonomically harmonised and standardised compilation of fossil pollen data, ready for the analytical stage (.rds format)
-    + Age-depth model of each sequence (pdf format)
-    + Pollen diagram of each sequence (pdf format)
+    + Age-depth model of each record (pdf format)
+    + Pollen diagram of each record (pdf format)
     + Metadata table relaying the main data contributor, contact information, and corresponding publications for citation purposes of the used datasets. 
 
 <br>
@@ -188,7 +188,7 @@ Here we focus on the scripts within the `R/01_Data_processing` folder representi
 
 (V) [Harmonisation: `05_Harmonisation`](#05) - prepare all harmonisation tables and harmonise pollen taxa
 
-(VI)	[Data filtering: `06_Main_filtering`](#06) - filter out levels and sequences based on user-defined criteria
+(VI)	[Data filtering: `06_Main_filtering`](#06) - filter out levels and records based on user-defined criteria
 
 (VII) [Outputs: `07_Outputs`](#07) - save the final output including dataset compilation, pollen diagrams, and metadata information
 
@@ -204,7 +204,7 @@ Here we focus on the scripts within the `R/01_Data_processing` folder representi
 
 * [`02_Extract_samples.R`](#0102) - create a tibble from Neotoma downloaded lists
 
-* [`03_Filter_dep_env.R`](#0103) - get depositional environment data and filter out sequences based on the user preferences
+* [`03_Filter_dep_env.R`](#0103) - get depositional environment data and filter out records based on the user preferences
 
 * [`04_Extract_chron_control_tables.R`](#0104) - get chronologies, including the preferred table with chronology control points
 
@@ -218,35 +218,35 @@ Here we focus on the scripts within the `R/01_Data_processing` folder representi
 
 #### 01_Download_neotoma.R <a name = "0101"></a>
 
-All pollen sequences are downloaded from Neotoma based on the geographical criteria (spatial extent, Fig. 2 - config criteria 1) and the selected data type, in this case: *`pollen`*. 
+All pollen records are downloaded from Neotoma based on the geographical criteria (spatial extent, Fig. 2 - config criteria 1) and the selected data type, in this case: *`pollen`*. 
 
 <br>
 
 #### 02_Extract_samples.R <a name = "0102"></a>
 
-Each sequence is processed using a unique dataset ID (`dataset_id`) with metadata information extracted. Metadata includes information about the name of the sequence, geographical information, and the authors and publication DOI connected to the dataset. The authors and their link to the dataset are saved into a separate Author-Dataset database created specifically for each project. It allows easy extraction of authors and DOI for the final dataset compilation produced by the Workflow.
+Each record is processed using a unique dataset ID (`dataset_id`) with metadata information extracted. Metadata includes information about the name of the record, geographical information, and the authors and publication DOI connected to the dataset. The authors and their link to the dataset are saved into a separate Author-Dataset database created specifically for each project. It allows easy extraction of authors and DOI for the final dataset compilation produced by the Workflow.
 
 <br>
 
 #### 03_Filter_dep_env.R <a name = "0103"></a>
 
-Depositional information from each sequence gives information about the environments where a sequence was extracted. Based on the research question, there could be a preference for certain environments (e.g. terrestrial vs marine). Currently in Neotoma, the data about depositional environments are organised in a hierarchical structure (e.g. “Pond” is nested in “Natural Lake”, which is nested in “Lacustrine”), in which the maximum number of nested layers is five. At the lowest hierarchical level, there are currently over 50 different categories of depositional environments (for fossil pollen sequences). Based on the selected sequences, the Workflow will produce a full list of all depositional environments (and their hierarchical position) presented in the data selection. The user is then requested to define the environments of choice (this is a **“stop-check”** point, Fig.2). Note that excluding depositional environments with the higher hierarchical position will not automatically exclude all depositional environments nested in it.
+Depositional information from each record gives information about the environments where a record was extracted. Based on the research question, there could be a preference for certain environments (e.g. terrestrial vs marine). Currently in Neotoma, the data about depositional environments are organised in a hierarchical structure (e.g. “Pond” is nested in “Natural Lake”, which is nested in “Lacustrine”), in which the maximum number of nested layers is five. At the lowest hierarchical level, there are currently over 50 different categories of depositional environments (for fossil pollen records). Based on the selected records, the Workflow will produce a full list of all depositional environments (and their hierarchical position) presented in the data selection. The user is then requested to define the environments of choice (this is a **“stop-check”** point, Fig.2). Note that excluding depositional environments with the higher hierarchical position will not automatically exclude all depositional environments nested in it.
 
 <br>
 
 #### 04_Extract_chron_control_tables.R <a name = "0104"></a>
 
-Each chronology has a chronology table that contains information about chronology control points used to construct an age-depth model. Some sequences can have multiple chronology tables as some sequences have been used for several projects or recalibrated (updated) by data stewards. These tables are numbered according to the order in which they were created and uploaded. Each chronology comes with the age-unit of the age-depth model output (e.g. “Radiocarbon years BP”, "Calibrated radiocarbon years BP") and the temporal range of the sequence (youngest and oldest age). The chronologies in “Radiocarbon years BP” are often older chronologies as it is now common practice to recalibrate radiocarbon-dated material and produce chronologies expressed in “Calibrated radiocarbon years BP”. Note: The chronologies in “Calibrated radiocarbon years BP” still come with chronology table(s) containing the uncalibrated radiocarbon ages and need to be calibrated by the user if a new age-depth model is desired. The Workflow automatically selects one table per sequence based on the order defined by `chron_order` in the Config file (Fig. 2 - config criteria 2).  Note: if more tables have the same age-unit type (e.g. Calibrated radiocarbon years BP), the Workflow will opt for the more recent table). The user can specify their preference for certain age unit types in the Config file. In addition, only sequences which have at least a certain number of control points (defined by `min_n_of_control_points` in the Config file, Fig. 2 - config criteria 3) will be subsequently used.
+Each chronology has a chronology table that contains information about chronology control points used to construct an age-depth model. Some records can have multiple chronology tables as some records have been used for several projects or recalibrated (updated) by data stewards. These tables are numbered according to the order in which they were created and uploaded. Each chronology comes with the age-unit of the age-depth model output (e.g. “Radiocarbon years BP”, "Calibrated radiocarbon years BP") and the temporal range of the record (youngest and oldest age). The chronologies in “Radiocarbon years BP” are often older chronologies as it is now common practice to recalibrate radiocarbon-dated material and produce chronologies expressed in “Calibrated radiocarbon years BP”. Note: The chronologies in “Calibrated radiocarbon years BP” still come with chronology table(s) containing the uncalibrated radiocarbon ages and need to be calibrated by the user if a new age-depth model is desired. The Workflow automatically selects one table per record based on the order defined by `chron_order` in the Config file (Fig. 2 - config criteria 2).  Note: if more tables have the same age-unit type (e.g. Calibrated radiocarbon years BP), the Workflow will opt for the more recent table). The user can specify their preference for certain age unit types in the Config file. In addition, only records which have at least a certain number of control points (defined by `min_n_of_control_points` in the Config file, Fig. 2 - config criteria 3) will be subsequently used.
 
 <br>
 
 #### 05_Extract_raw_pollen_data.R <a name = "0105"></a>
 
-Each level of each sequence comes with additional information: a) unique sample ID (sample_id), b) information about depth (and estimated age later), and c) pollen counts for each taxon present in that level. The information about levels is split into two different tables (first with depth and ages, and second with pollen counts) linked together by sample ID. 
+Each level of each record comes with additional information: a) unique sample ID (sample_id), b) information about depth (and estimated age later), and c) pollen counts for each taxon present in that level. The information about levels is split into two different tables (first with depth and ages, and second with pollen counts) linked together by sample ID. 
 
-The Workflow will only keep sequences with a minimal number of levels as defined in the Config file (`min_n_levels`, Fig. 2 - config criteria 4). The minimum number of levels is by default selected as three but the user can change this setting.
+The Workflow will only keep records with a minimal number of levels as defined in the Config file (`min_n_levels`, Fig. 2 - config criteria 4). The minimum number of levels is by default selected as three but the user can change this setting.
 
-In the case of data derived from Neotoma, each pollen taxon has information about the ecological group (e.g. palms, mangroves, etc). Based on the selected sequences, the Workflow will produce a full list of all ecological groups after which the user is requested to define which ecological groups to include (a “stop-check”, Fig. 2, see explanation of abbreviation in Table 1)
+In the case of data derived from Neotoma, each pollen taxon has information about the ecological group (e.g. palms, mangroves, etc). Based on the selected records, the Workflow will produce a full list of all ecological groups after which the user is requested to define which ecological groups to include (a “stop-check”, Fig. 2, see explanation of abbreviation in Table 1)
 
 <br>
 
@@ -284,7 +284,7 @@ Our FOSSILPOL Workflow allows the use of private data in combination with the Ne
 ### **Scripts**
 
 * `Run_01_02.R` - run all scripts within this folder
-* [`01_Import_private_data.R`](#0201) -  source private data and filter the sequences in a similar way as Neotoma.
+* [`01_Import_private_data.R`](#0201) -  source private data and filter the records in a similar way as Neotoma.
 
 <br>
 
@@ -321,13 +321,13 @@ The sourcing of private data follows a simple order of actions:
 
 #### 01_Merge_datasets.R <a name = "0301"></a>
 
-After initial data processing, sequences from Neotoma and Private are merged together.  
+After initial data processing, records from Neotoma and Private are merged together.  
 
 <br>
 
 ##### *Detection of duplicates* <a name = "0301-dupl"></a>
 
-There is a possibility that some datasets from the user's private source are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default, Fig. 2 - config criteria 7). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates`. Because comparing all sequences between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 sequences per group). The user can define the number of groups using the `n_subgroups` argument. Next, each sequence from one source is compared to all sequences from the other source as long as they are within 1 degree radius (the assumption here is that duplicated sequences will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated sequences (a “stop-check”, Fig. 2).  For each sequence pair, the user must specify which sequences should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both sequences in). 
+There is a possibility that some datasets from the user's private source are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default, Fig. 2 - config criteria 7). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates`. Because comparing all records between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 records per group). The user can define the number of groups using the `n_subgroups` argument. Next, each record from one source is compared to all records from the other source as long as they are within 1 degree radius (the assumption here is that duplicated records will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated records (a “stop-check”, Fig. 2).  For each record pair, the user must specify which records should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both records in). 
 
 <br>
 
@@ -337,30 +337,30 @@ Several more steps take place to create the fully merged dataset compilation bef
 
 1. All taxon names are transformed into a more computer-friendly format for easier manipulation. The `proc_clean_count_names` function will first transform special characters to text (e.g. `+` to `_plus_`) and then use the janitor package (LINK) to transform into  `snake_case` style. In addition, the user can specify additional specific changes in names (e.g. based on presence of special characters) by adjusting the `user_name_patterns` argument (see example in the script).
 
-2. Individual levels are sorted by their depth for each sequence. This includes subroutines, for example, only keeping levels present in all data tables, filtering out levels without pollen records, and taxa which are not present in any level.
+2. Individual levels are sorted by their depth for each record. This includes subroutines, for example, only keeping levels present in all data tables, filtering out levels without pollen records, and taxa which are not present in any level.
 
-3. Spatial information for each sequence is assigned based on the provided geographical shapefiles. Specifically: 
+3. Spatial information for each record is assigned based on the provided geographical shapefiles. Specifically: 
   
-    + Region information – the shapefile in `Data/Input/Spatial/Regions_shapefile` will assign the regional names for each sequence (see Data input Section above). The user can (and is recommended to) change the spatial delimitation of the data by altering the shapefile. 
+    + Region information – the shapefile in `Data/Input/Spatial/Regions_shapefile` will assign the regional names for each record (see Data input Section above). The user can (and is recommended to) change the spatial delimitation of the data by altering the shapefile. 
   
     + Political delimitation (countries) - obtained from GADM database (www.gadm.org), version 2.8, November 2015.
   
     + Harmonisation region – the shapefile in `Data/Input/Spatial/Harmonisation_regions_shapefile` will assign the harmonisation region (to be able to link the corresponding harmonisation table to use; See Data input Section above). The default shapefile in the Workflow is a copy of the Region information shapefile but should be adjusted by the user to correspond to the area covered by the different harmonisation tables.
   
-    + Calibration curves (normal and post-bomb) - depending on the geographical position of the sequence, a different calibration curve needs to be assigned, as different curves are used for the northern and southern hemispheres, and for terrestrial and marine environments. See more details about calibration curves below. 
+    + Calibration curves (normal and post-bomb) - depending on the geographical position of the record, a different calibration curve needs to be assigned, as different curves are used for the northern and southern hemispheres, and for terrestrial and marine environments. See more details about calibration curves below. 
 
-    + The user can add any additional spatial delimitation (e.g. ecozones). This will require adding the specific shapefile (or TIF file) in `/Data/Input/Spatial/NAME_OF_FOLDER` and adjusting the R code manually (`optional_info_to_assign`) so that the shapefile is sourced, and its information assigned to each sequence (see the example in the script).  
+    + The user can add any additional spatial delimitation (e.g. ecozones). This will require adding the specific shapefile (or TIF file) in `/Data/Input/Spatial/NAME_OF_FOLDER` and adjusting the R code manually (`optional_info_to_assign`) so that the shapefile is sourced, and its information assigned to each record (see the example in the script).  
 
 4. The Workflow will create a new table with age limitations for each region presented in the data, which needs to be edited by the user (a “stop-check”, Fig. 2). For example, `Regional_age_limits` table will have the following values:
-    + `young_age` = youngest age the sequence must have
-    + `old_age` = oldest age the sequence must have
+    + `young_age` = youngest age the record must have
+    + `old_age` = oldest age the record must have
     + `end_of_interest_period` = levels beyond this age will be omitted
 
 <br>
 
 ## IV. Chronologies: 04_Chronologies <a name = "04"></a>
 
-In order to estimate the age of individual levels based on their depth (a “chronology”), an “age-depth model” needs to be constructed. With a successful age-depth model, the ages of each individual level are estimated, and the full age of the sequence is now known. 
+In order to estimate the age of individual levels based on their depth (a “chronology”), an “age-depth model” needs to be constructed. With a successful age-depth model, the ages of each individual level are estimated, and the full age of the record is now known. 
 
 Age-depth modelling can be very computationally heavy and can take a substantial amount of time. In addition, the saved results can result in very large files (>10 GB). Therefore, the Workflow automatically processes several files (rds format):
 
@@ -377,9 +377,9 @@ It may be not preferential to re-run all age-depth models every time the user wa
 
 * `recalib_AD_models` in the Config file can be set to FALSE. This will result in completely omitting the scripts aimed at calculating age-depth models, and therefore this step will be skipped. Note that this will only work if the age-depth models have already been successfully created at least once (AGE-DEPTH MODELS & PREDICTED AGES; see above).
 
-* `calc_AD_models_denovo` in the Config file can be set to FALSE (this is the default). This will result in the Workflow using any old file with successful age-depth models (AGE-DEPTH MODELS) and adding any additional sequences detected in the data to re-calibrate.
+* `calc_AD_models_denovo` in the Config file can be set to FALSE (this is the default). This will result in the Workflow using any old file with successful age-depth models (AGE-DEPTH MODELS) and adding any additional records detected in the data to re-calibrate.
 
-* `predict_ages_denovo` in the Config file can be set to FALSE (this is the default). This will result in the Workflow using the previous successful age-depth models but re-assigning the ages to each level of all related sequences (even for sequences where ages were successfully predicted). This is done, for instance, when the number of levels increased in a sequence between the Workflow run and ages still need to be assigned.
+* `predict_ages_denovo` in the Config file can be set to FALSE (this is the default). This will result in the Workflow using the previous successful age-depth models but re-assigning the ages to each level of all related records (even for records where ages were successfully predicted). This is done, for instance, when the number of levels increased in a record between the Workflow run and ages still need to be assigned.
 
 **IMPORTANT NOTE**: If you select both `calc_AD_models_denovo` and `predict_ages_denovo` as FALSE for your first run of age-depth modelling, you will be asked by the Workflow to temporarily switch both to TRUE. This will happen in the console, you do not have to change anything in the Config file.
 
@@ -400,7 +400,7 @@ It may be not preferential to re-run all age-depth models every time the user wa
 
 #### 01_Prepare_chron_control_tables.R <a name = "0401"></a>
 
-Age-depth models are constructed using `chronology control points` (usually radiocarbon dates) with known depth, estimated age, and associated age uncertainties. Each sequence can have and should ideally have several such points saved in the `chronology control table`. Each chronology control point has the following properties: 
+Age-depth models are constructed using `chronology control points` (usually radiocarbon dates) with known depth, estimated age, and associated age uncertainties. Each record can have and should ideally have several such points saved in the `chronology control table`. Each chronology control point has the following properties: 
 
 (i)	Depth
 
@@ -412,7 +412,7 @@ Age-depth models are constructed using `chronology control points` (usually radi
 
 (v)	The calibration curve used (which is needed to convert the raw radiocarbon ages to calendar ages (Note: radiocarbon “ages” are not true ages)).
 
-This script will take several steps to prepare all sequences for age-depth modelling, specifically:
+This script will take several steps to prepare all records for age-depth modelling, specifically:
 
 1.	Create and attach the necessary calibration curves
 
@@ -426,19 +426,19 @@ This script will take several steps to prepare all sequences for age-depth model
 
 ##### *Calibration curves*  <a name = "0401-curve"></a>
 
-Calibration curves are assigned to each control point based on several criteria. If a control point has a type flagged to be calibrated, a calibration curve is assigned based on the geographical position of the sequence. Note: only chronology control points in uncalibrated radiocarbon ages need recalibration. FOSSILPOL has a shapefile based on figure 7 in Hogg et al (2020) to correctly assigned IntCal20, SHCal20 and a mixed calibration curve to each sequence. We follow this recommendation "...the use of (i) IntCal20 for areas north of the ITCZ in June–August (dashed lines in Figure 7) which receive NH air masses all year round, (ii) SHCal20 for areas south of ITCZ in December–February (dotted lines in Figure 7) which see SH air masses all year round, and (iii) a mixed curve for areas between the two seasonal ITCZ positions shown in Figure 7, which receive northern air masses in December–February and southern air masses in June–August." FOSSILPOL also comes with a mixed curve that was constructed using the rcarbon package with a proportion of curve contribution 1:1. See [link](https://chrono.qub.ac.uk/blaauw/clam.html) for more info on mixed calibration curve use. 
+Calibration curves are assigned to each control point based on several criteria. If a control point has a type flagged to be calibrated, a calibration curve is assigned based on the geographical position of the record. Note: only chronology control points in uncalibrated radiocarbon ages need recalibration. FOSSILPOL has a shapefile based on figure 7 in Hogg et al (2020) to correctly assigned IntCal20, SHCal20 and a mixed calibration curve to each record. We follow this recommendation "...the use of (i) IntCal20 for areas north of the ITCZ in June–August (dashed lines in Figure 7) which receive NH air masses all year round, (ii) SHCal20 for areas south of ITCZ in December–February (dotted lines in Figure 7) which see SH air masses all year round, and (iii) a mixed curve for areas between the two seasonal ITCZ positions shown in Figure 7, which receive northern air masses in December–February and southern air masses in June–August." FOSSILPOL also comes with a mixed curve that was constructed using the rcarbon package with a proportion of curve contribution 1:1. See [link](https://chrono.qub.ac.uk/blaauw/clam.html) for more info on mixed calibration curve use. 
 
-All calibration curves have an age limitation, i.e. each curve can be used only for certain ages. Radiocarbon calibration curves currently do not cover ages older than 55 thousand years. For the younger ages, during the last century, there are issues with the Earth’s atmospheric radiocarbon and a different set of calibration curves needs to be used. This is caused by the deployment of nuclear weapons in the ’50s and ’60s, which caused a spike in atmospheric radiocarbon and resulted in radiocarbon measurements from material in the following decades to return often highly negative ages. Therefore, if the control point has a radiocarbon age younger than 200 yr BP, a “post-bomb calibration curve” is used instead. As with the normal calibration curves, the geographical location of the sequence is taken into account to assign the corresponding post-bomb calibration curve. 
+All calibration curves have an age limitation, i.e. each curve can be used only for certain ages. Radiocarbon calibration curves currently do not cover ages older than 55 thousand years. For the younger ages, during the last century, there are issues with the Earth’s atmospheric radiocarbon and a different set of calibration curves needs to be used. This is caused by the deployment of nuclear weapons in the ’50s and ’60s, which caused a spike in atmospheric radiocarbon and resulted in radiocarbon measurements from material in the following decades to return often highly negative ages. Therefore, if the control point has a radiocarbon age younger than 200 yr BP, a “post-bomb calibration curve” is used instead. As with the normal calibration curves, the geographical location of the record is taken into account to assign the corresponding post-bomb calibration curve. 
 
-Modern radiocarbon dates are calibrated by using one of the post-bomb calibration curves (*nh_zone_1*, *nh_zone_2*, *nh_zone_3*, *sh_zone_1_2*, *sh_zone_3*), following Hua et al., 2013 and [link](http://calib.org/CALIBomb/). The Workflow will automatically assign the corresponding curve based on the geographical location of the sequence (see function `IntCal::copyCalibrationCurve`). If modern radiocarbon dates are detected, the Workflow will then display the detected sequences to the user and apply the conversion according to the post-bomb curves from the *IntCal* package (Blaauw 2021).
+Modern radiocarbon dates are calibrated by using one of the post-bomb calibration curves (*nh_zone_1*, *nh_zone_2*, *nh_zone_3*, *sh_zone_1_2*, *sh_zone_3*), following Hua et al., 2013 and [link](http://calib.org/CALIBomb/). The Workflow will automatically assign the corresponding curve based on the geographical location of the record (see function `IntCal::copyCalibrationCurve`). If modern radiocarbon dates are detected, the Workflow will then display the detected records to the user and apply the conversion according to the post-bomb curves from the *IntCal* package (Blaauw 2021).
 
 <br>
 
 ##### *Types of chronology control points*  <a name = "0401-points"></a>
 
-Each control point in the control table has several properties: unique ID, depth, age, error, thickness, and chron control point type (e.g. radiocarbon, biostratigraphical, annual laminations). Each type of chronology control point has different age uncertainties. For instance, many older sequences relied on indirect dating techniques based on biostratigraphical layers, similar geological levels from other records (e.g. a volcanic event), and pollen-based levels (e.g. the appearance of a key taxon), among others and can have large age uncertainties into thousands of years. Neotoma has over 50 different chronology controls points that fall within the categories of geochronological (e.g. lead-210, radiocarbon, uranium-series),  relative time scale (e.g. MIS5e, Heinrich Stadial 1,  Late Wisconsin event), stratigraphic (e.g. biostratigraphic events such as the introduction of anthropogenic taxa), cultural (e.g. European Settlement Horizon), other absolute dating methods (e.g. annual laminations, collection date), and other dating methods (e.g. extrapolated or guesses). Only the chronology control points in uncalibrated radiocarbon ages require recalibration with the calibration curves as most, if not all, other control points will be in calendar ages and no recalibration should be implemented. 
+Each control point in the control table has several properties: unique ID, depth, age, error, thickness, and chron control point type (e.g. radiocarbon, biostratigraphical, annual laminations). Each type of chronology control point has different age uncertainties. For instance, many older records relied on indirect dating techniques based on biostratigraphical layers, similar geological levels from other records (e.g. a volcanic event), and pollen-based levels (e.g. the appearance of a key taxon), among others and can have large age uncertainties into thousands of years. Neotoma has over 50 different chronology controls points that fall within the categories of geochronological (e.g. lead-210, radiocarbon, uranium-series),  relative time scale (e.g. MIS5e, Heinrich Stadial 1,  Late Wisconsin event), stratigraphic (e.g. biostratigraphic events such as the introduction of anthropogenic taxa), cultural (e.g. European Settlement Horizon), other absolute dating methods (e.g. annual laminations, collection date), and other dating methods (e.g. extrapolated or guesses). Only the chronology control points in uncalibrated radiocarbon ages require recalibration with the calibration curves as most, if not all, other control points will be in calendar ages and no recalibration should be implemented. 
 
-A user has the option to select which control point types should be accepted as-is and which should be calibrated (a “stop-check”, Fig. 2). The Workflow will automatically produce a list of all detected control points from all selected sequences, which includes columns called `include` (the user should indicate if the chronology control point should be included) and `calibrate` (the user should indicate if the point should be recalibrated using the calibration curves).
+A user has the option to select which control point types should be accepted as-is and which should be calibrated (a “stop-check”, Fig. 2). The Workflow will automatically produce a list of all detected control points from all selected records, which includes columns called `include` (the user should indicate if the chronology control point should be included) and `calibrate` (the user should indicate if the point should be recalibrated using the calibration curves).
 
 <br>
 
@@ -448,7 +448,7 @@ The chronology control tables will need to undergo a number of user-defined adju
 
 * Filtering out unwanted control point types selected by user (defined by “stop-check” above)
 
-* Filtering out sequences that do not fulfil the minimal number of control points (defined in the Config file, default = 2, Fig. 2 - config criteria 8)
+* Filtering out records that do not fulfil the minimal number of control points (defined in the Config file, default = 2, Fig. 2 - config criteria 8)
 
 * Fixing instances of missing values. Defined in the Config file, the values `default_thickness` (defined in the Config file, default = 1, Fig. 2 - config criteria 9) and `default_error` (default = 100, Fig. 2 - config criteria 10) will replace missing values (NAs) for thickness and error, specifically.
 
@@ -458,7 +458,7 @@ The chronology control tables will need to undergo a number of user-defined adju
 
 * In several cases, the chronology control point from the core-top has a type specified as `guess`. A user can specify that the type `guess` is only acceptable to a certain depth using the `guess_depth` variable in the Config file (default is 10 cm, Fig. 2 - config criteria 12)
 
-In addition, the number and distribution of such control points can give a good indicator of the temporal uncertainty around levels’ ages (Giesecke et al. 2014 [VHA], Flantua et al. 2016 [CP]). For example, a sequence with few chronology control points within the focus time period, will have large uncertainties of predicted ages. Hence, the information of the quality of chronologies, i.e. taking into account the types and levels of chronology control points, can be a criterion used in the selection of sequences. The value `min_n_of_control_points` (defined in the Config file; default = 2, Fig. 2 - config criteria 8) will serve as a criterion for the prepared chronology control tables, where sequences that do not fulfil such requirements will be filtered out. Note that there is a trade-off between accepting only the tables with a high number of control points per time interval (more robust age-depth model) and the number of sequences that will be able to fulfil strict criteria.
+In addition, the number and distribution of such control points can give a good indicator of the temporal uncertainty around levels’ ages (Giesecke et al. 2014 [VHA], Flantua et al. 2016 [CP]). For example, a record with few chronology control points within the focus time period, will have large uncertainties of predicted ages. Hence, the information of the quality of chronologies, i.e. taking into account the types and levels of chronology control points, can be a criterion used in the selection of records. The value `min_n_of_control_points` (defined in the Config file; default = 2, Fig. 2 - config criteria 8) will serve as a criterion for the prepared chronology control tables, where records that do not fulfil such requirements will be filtered out. Note that there is a trade-off between accepting only the tables with a high number of control points per time interval (more robust age-depth model) and the number of records that will be able to fulfil strict criteria.
 
 <br>
 
@@ -466,7 +466,7 @@ In addition, the number and distribution of such control points can give a good 
 
 There are three ways by which post-bomb radiocarbon dates are reported, namely by 1) modern radiocarbon dates (<0 F14C yr); 2) percent modern carbon (pMC, normalised to 100%); and 3) fraction radiocarbon (F14C, normalised to 1; Reimer et al. 2004). Currently, there is no direct way to know from Neotoma whether the dates are in pMC or F14C. Even if the cases are likely to be few, such dates need to be checked to avoid incorrect calculations. 
 
-The strongest rule of thumb is that normal radiocarbon dates and errors should always be integer (no decimals) and are uploaded so by the data stewards to Neotoma. The second rule of thumb is that pMC control points are characterised by an age value from around 100 with a decimal place. Thus, the Workflow will automatically export suspicious sequences and the user must specify which control points should be back-transformed (a “stop-check”). For those selected by the user to be back-transformed (include == TRUE), the Workflow will first convert the pMC values to “normal” post-bomb radiocarbon ages (negative 14C ages) by using the `IntCal::pMC.age` function, after which normal post-bomb calibration curves are used to calibrate the values to final calendar ages (see above).
+The strongest rule of thumb is that normal radiocarbon dates and errors should always be integer (no decimals) and are uploaded so by the data stewards to Neotoma. The second rule of thumb is that pMC control points are characterised by an age value from around 100 with a decimal place. Thus, the Workflow will automatically export suspicious records and the user must specify which control points should be back-transformed (a “stop-check”). For those selected by the user to be back-transformed (include == TRUE), the Workflow will first convert the pMC values to “normal” post-bomb radiocarbon ages (negative 14C ages) by using the `IntCal::pMC.age` function, after which normal post-bomb calibration curves are used to calibrate the values to final calendar ages (see above).
 
 Although F14C has been recommended by experts for the reporting of post-bomb samples (Reimer et al. 2004 [Radiocarbon], in practice, the bulk of the reporting is done as modern radiocarbon dates followed by pMC to a much lesser extent. The Workflow currently does not deal with F14C as no such cases have been detected to date. As this is not consistent with the rest of the data, back-transformation could be done when working with private data, and the IntCal package (Blaauw 2021) can be used to do so.
 
@@ -482,21 +482,21 @@ If there are many ages at close or similar depths (e.g. annual laminations), ini
 
 ##### *Multi-core computation*  <a name = "0402-core"></a>
 
-Because creating age-depth models for multiple sequences can be computationally demanding, the Workflow uses multi-core (parallel) computation. The Workflow automatically detects the number of cores for the machine on which the code is running (this can be adjusted by specifying the number in `number_of_cores` in the Config file, Fig. 2 - config criteria 14). Several age-depth models are then created at the same time. This is done by splitting the sequences into batches, with each batch containing a certain number of sequences (see `batch size` in Config file, Fig. 2 - config criteria 13; by default it is based on the `number_of_cores`). 
+Because creating age-depth models for multiple records can be computationally demanding, the Workflow uses multi-core (parallel) computation. The Workflow automatically detects the number of cores for the machine on which the code is running (this can be adjusted by specifying the number in `number_of_cores` in the Config file, Fig. 2 - config criteria 14). Several age-depth models are then created at the same time. This is done by splitting the records into batches, with each batch containing a certain number of records (see `batch size` in Config file, Fig. 2 - config criteria 13; by default it is based on the `number_of_cores`). 
 
-Note that there is a possibility that the age-depth model estimation will crash for unforeseen reasons. Therefore, the Workflow is structured in a way that if an estimation of the whole batch crashes (freezes), the Workflow will skip that batch and continue with other batches. The user can specify how long the machine should wait before skipping the batch with the `time_per_sequence` argument in the `chron_recalibrate_ad_models` function.
+Note that there is a possibility that the age-depth model estimation will crash for unforeseen reasons. Therefore, the Workflow is structured in a way that if an estimation of the whole batch crashes (freezes), the Workflow will skip that batch and continue with other batches. The user can specify how long the machine should wait before skipping the batch with the `time_per_record` argument in the `chron_recalibrate_ad_models` function.
 
 For each batch, the Workflow will try to estimate age-depth models three times. The user can specify the number of attempts by changing the `batch_attempts` in the `chron_recalibrate_ad_models` function. If the age-depth modelling is stopped in the process, the Workflow will automatically use the previously successful batches, which are saved automatically. This should help when the user needs to stop the age-depth modelling and resume it at a later time. 
 
-Next, the Workflow continues to another subroutine where age-depth models for sequences from “failed” batches are estimated one by one. Similar to batch estimation, the age-depth model estimation is tried three times for each “crashed” sequence until successful at least once. On some rare occasions, a sequence could cause R to freeze completely and prevents it from skipping to another sequence. In that case, the dataset ID of the dataset that caused the crash will be automatically written in the Crash file (found in `/Data/Input/Chronology_setting/Bchron_crash/`) and omitted from the future run of age-depth models. The user is recommended to do a detailed check of the specific dataset, e.g. the chronology control table for possible inconsistencies or other flaws that could be causing BChron to fail to produce an age-depth model.
+Next, the Workflow continues to another subroutine where age-depth models for records from “failed” batches are estimated one by one. Similar to batch estimation, the age-depth model estimation is tried three times for each “crashed” record until successful at least once. On some rare occasions, a record could cause R to freeze completely and prevents it from skipping to another record. In that case, the dataset ID of the dataset that caused the crash will be automatically written in the Crash file (found in `/Data/Input/Chronology_setting/Bchron_crash/`) and omitted from the future run of age-depth models. The user is recommended to do a detailed check of the specific dataset, e.g. the chronology control table for possible inconsistencies or other flaws that could be causing BChron to fail to produce an age-depth model.
 
 <br>
 
 ##### *Iterations*  <a name = "0402-cit"></a>
 
-In the Config file, the number of iterations is set to 50k by default, discarding the first 10k iterations (*burn-in*) and keeping every iteration beyond the burn-in with a step size of 40 (*thinning*) (Fig. 2 - config criteria 15,16,17). The user can change the number of iterations by altering the `iteration_multiplier` in the Config file (Fig. 2 - config criteria 18). This will result in changing the total interactions but keeping the ratios of burn-ins and thinning. Thus 1000 ((50k - 10k) / 40) posterior values are drawn. The default number of iterations should produce a robust estimation but they can be increased by the user if preferred (by increasing the `iteration_multiplier`). Note that increasing the `iteration_multiplier` will automatically increase the time that the program will wait for estimation of an age-depth model before skipping it (see `time_per_sequence` above).
+In the Config file, the number of iterations is set to 50k by default, discarding the first 10k iterations (*burn-in*) and keeping every iteration beyond the burn-in with a step size of 40 (*thinning*) (Fig. 2 - config criteria 15,16,17). The user can change the number of iterations by altering the `iteration_multiplier` in the Config file (Fig. 2 - config criteria 18). This will result in changing the total interactions but keeping the ratios of burn-ins and thinning. Thus 1000 ((50k - 10k) / 40) posterior values are drawn. The default number of iterations should produce a robust estimation but they can be increased by the user if preferred (by increasing the `iteration_multiplier`). Note that increasing the `iteration_multiplier` will automatically increase the time that the program will wait for estimation of an age-depth model before skipping it (see `time_per_record` above).
 
-The user should keep in mind that creating age-depth models for hundreds of sequences using a high number of iterations is computationally demanding and can take a significant amount of time in the order of tens of hours or several days. 
+The user should keep in mind that creating age-depth models for hundreds of records using a high number of iterations is computationally demanding and can take a significant amount of time in the order of tens of hours or several days. 
 
 <br>
 
@@ -514,7 +514,7 @@ The visual representation of all age-depth models is saved as output for visual 
 
 #### 05_Merge_chron_output.R <a name = "0405"></a>
 
-The successfully predicted ages are linked with all the sequences from various sources (Sections I-III). The individual levels of each sequence are then ordered by the predicted ages and the same order of levels is then applied to the tables with the pollen counts.
+The successfully predicted ages are linked with all the records from various sources (Sections I-III). The individual levels of each record are then ordered by the predicted ages and the same order of levels is then applied to the tables with the pollen counts.
 
 <br>
 
@@ -535,7 +535,7 @@ The goal of taxonomic harmonisation is to standardise all taxa synonyms to the s
 
 #### 01_Harmonisation.R <a name = "0501"></a>
 
-First, the Workflow will check the `harmonisation regions` present in the data, defined by the shapefile (see Data input and Section III), and confirm that there is one harmonisation table per region (a “stop-check”, see Fig. 2). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the sequences from within that region. 
+First, the Workflow will check the `harmonisation regions` present in the data, defined by the shapefile (see Data input and Section III), and confirm that there is one harmonisation table per region (a “stop-check”, see Fig. 2). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the records from within that region. 
 
 Each harmonisation table is created so each taxon can have two columns: 
 
@@ -551,17 +551,17 @@ With these tables, each dataset is harmonised so that all taxa that belong to th
 
 ## VI. Data filtering: 06_Main_filtering <a name = "06"></a>
 
-Before obtaining the final harmonised comprehensive dataset compilation, data need to be further trimmed down by filtering out unwanted levels and sequences. All of these filtering criteria can be adjusted by the user in the Config file:
+Before obtaining the final harmonised comprehensive dataset compilation, data need to be further trimmed down by filtering out unwanted levels and records. All of these filtering criteria can be adjusted by the user in the Config file:
 
 * `filter_by_pollen_sum` (Fig. 2 - config criteria 20) - if `TRUE`, the Workflow will use the quantity of counted pollen grains at each level as a factor in determining the quality of the level.
 
-* `filter_by_age_limit` (Fig. 2 - config criteria 24) - if `TRUE`, the Workflow will filter out sequences that do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see Section III).
+* `filter_by_age_limit` (Fig. 2 - config criteria 24) - if `TRUE`, the Workflow will filter out records that do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see Section III).
 
 * `filter_by_extrapolation`  (Fig. 2 - config criteria 25) - if `TRUE`, the Workflow will filter out levels based on the number of years between their age and the last chronology control point used for age-depth modelling.
 
 * `filter_by_interest_region` (Fig. 2 - config criteria 27) - if `TRUE`, the Workflow will filter out levels that are older than `end_of_interest_period` (defined in `Regional_age_limits` table; see Section III) to subsequently reduce processing time during follow-up analyses.
 
-* `filter_by_number_of_levels` (Fig. 2 - config criteria 28) - if `TRUE`, the Workflow will filter out sequences based on the number of levels.
+* `filter_by_number_of_levels` (Fig. 2 - config criteria 28) - if `TRUE`, the Workflow will filter out records based on the number of levels.
 
 In addition, two more options can be turned on by the user:
 
@@ -572,7 +572,7 @@ In addition, two more options can be turned on by the user:
 ### **Scripts**
 
 * `Run_01_06.R` - run all scripts within this folder
-* [`01_Level_filtering.R`](#0601) -  filter out levels and sequences based on the user-defined criteria predefined in the Config file
+* [`01_Level_filtering.R`](#0601) -  filter out levels and records based on the user-defined criteria predefined in the Config file
 
 <br>
 
@@ -586,15 +586,15 @@ In addition, two more options can be turned on by the user:
 
 ##### *Pollen count sum* <a name = "0401-polsum"></a>
 
-The number of counted pollen grains at each level can be a factor in determining the quality of the level. To obtain a reliable representation of the vegetation, researchers often aim to count more than 300 pollen grains (following (Moore et al., 1991), but other recommendations may have been followed (>150; (Djamali & Cilleros, 2020) and will vary with region (Birks & Birks, 1980). For instance, counts in arctic sequences may only reach c. 100 grains per level, whereas counts in Mediterranean sites can be as high as 1000 to achieve a representative ‘sample’ of the regional pollen pool (Birks & Birks, 1980), p. 165). Low numbers (<100) can have different reasons, such as natural depositional phenomena causing poor pollen preservation, low local pollen production in high arctic or alpine environments, or low pollen counts by the data contributor due to time constraints.  
+The number of counted pollen grains at each level can be a factor in determining the quality of the level. To obtain a reliable representation of the vegetation, researchers often aim to count more than 300 pollen grains (following (Moore et al., 1991), but other recommendations may have been followed (>150; (Djamali & Cilleros, 2020) and will vary with region (Birks & Birks, 1980). For instance, counts in arctic records may only reach c. 100 grains per level, whereas counts in Mediterranean sites can be as high as 1000 to achieve a representative ‘sample’ of the regional pollen pool (Birks & Birks, 1980), p. 165). Low numbers (<100) can have different reasons, such as natural depositional phenomena causing poor pollen preservation, low local pollen production in high arctic or alpine environments, or low pollen counts by the data contributor due to time constraints.  
 
-The user can select two different quantities of total pollen grains per level: a) minimum number (`min_n_grains`, Fig. 2 - config criteria 21) and b) acceptable number (`target_n_grains`, Fig. 2 - config criteria 22). All levels with total pollen grains below the minimum number will be filtered out. In addition, the whole sequence will only be accepted if X% (set by `percentage_samples`; default = 50, Fig. 2 - config criteria 23) of all levels fulfils at least the acceptable number of pollen grains.  This filtration criterion will only be used if `filter_by_pollen_sum` == `TRUE`.
+The user can select two different quantities of total pollen grains per level: a) minimum number (`min_n_grains`, Fig. 2 - config criteria 21) and b) acceptable number (`target_n_grains`, Fig. 2 - config criteria 22). All levels with total pollen grains below the minimum number will be filtered out. In addition, the whole record will only be accepted if X% (set by `percentage_samples`; default = 50, Fig. 2 - config criteria 23) of all levels fulfils at least the acceptable number of pollen grains.  This filtration criterion will only be used if `filter_by_pollen_sum` == `TRUE`.
 
 <br>
 
 ##### *Age criteria* <a name = "0401-age"></a>
 
-As projects differ in their temporal focus, only a subset of sequences will be of interest to the particular project. Therefore, sequences that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE` in the Config file.
+As projects differ in their temporal focus, only a subset of records will be of interest to the particular project. Therefore, records that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE` in the Config file.
 
 <br>
 
@@ -606,13 +606,13 @@ Levels between chronology control points have a certain degree of temporal uncer
 
 ##### *Interest period* <a name = "0401-interest"></a>
 
-The individual levels of a sequence outside of the “interest period” (`end_of_interest_period` specified by the `Regional_age_limits` table) will be filtered out as they do not provide additional information. This filtration criterion will only be used if ` filter_by_interest_region` == `TRUE` in the Config file.
+The individual levels of a record outside of the “interest period” (`end_of_interest_period` specified by the `Regional_age_limits` table) will be filtered out as they do not provide additional information. This filtration criterion will only be used if ` filter_by_interest_region` == `TRUE` in the Config file.
 
 <br>
 
 ##### *Number of levels* <a name = "0401-levels"></a>
 
-The total number of levels in a sequence might be an important criterion for further usage of the sequence in specific analysis. Sequences might have been sampled at low resolution (large space between levels such as > 30 cm) leaving substantial unassessed gaps – and thus time periods – between levels. In addition, sequences with few levels will likely contribute poorly to studies focused on specific time periods (many non-value levels) and can cause unnecessary outlier values. Therefore, the user can select the minimum number of levels (`min_n_levels`, Fig. 2 - config criteria 29) which sequences must have at the end of the filtration subroutine. This filtration criterion will only be used if `filter_by_number_of_levels` == `TRUE` in the Config file.
+The total number of levels in a record might be an important criterion for further usage of the record in specific analysis. records might have been sampled at low resolution (large space between levels such as > 30 cm) leaving substantial unassessed gaps – and thus time periods – between levels. In addition, records with few levels will likely contribute poorly to studies focused on specific time periods (many non-value levels) and can cause unnecessary outlier values. Therefore, the user can select the minimum number of levels (`min_n_levels`, Fig. 2 - config criteria 29) which records must have at the end of the filtration subroutine. This filtration criterion will only be used if `filter_by_number_of_levels` == `TRUE` in the Config file.
 
 <br>
 
@@ -621,7 +621,7 @@ The total number of levels in a sequence might be an important criterion for fur
 ### **Scripts**
 
 * `Run_01_07.R` - run all scripts within this folder
-* [`01_Pollen_diagrams.R`](#0701) - save pollen diagrams for all sequences
+* [`01_Pollen_diagrams.R`](#0701) - save pollen diagrams for all records
 * [`02_Save_assembly.R`](#0702) - save data assembly with selected variables (columns)
 * [`03_Save_references.R`](#0703) - save reference and metatable 
 
@@ -633,9 +633,9 @@ The total number of levels in a sequence might be an important criterion for fur
 
 #### 01_Pollen_diagrams.R <a name = "0701"></a>
 
-Pollen diagrams for all sequences will be created using the rioja R package (Juggins, 2020). The harmonised data will be automatically transformed into relative proportion for plotting purposes. The pollen diagrams will be saved in the `/Outputs/Figures/Pollen_diagrams/` folder and split into sub-folders defined by Region. 
+Pollen diagrams for all records will be created using the rioja R package (Juggins, 2020). The harmonised data will be automatically transformed into relative proportion for plotting purposes. The pollen diagrams will be saved in the `/Outputs/Figures/Pollen_diagrams/` folder and split into sub-folders defined by Region. 
 
-The `plot_all_pollen_diagrams` function will automatically produce a PDF of the pollen diagram split into several A4 pages ready to be printed out. The y-axis is, by default, the age of the levels, but it can be altered to depth (by the `y_var` argument). The maximum number of taxa per page can be altered by the `max_taxa` argument (default = 20). In addition, the function will automatically omit very rare taxa. Specifically, the `min_n_occur` argument will determine the minimum number of occurrences per sequence each taxon has to have to be plotted.
+The `plot_all_pollen_diagrams` function will automatically produce a PDF of the pollen diagram split into several A4 pages ready to be printed out. The y-axis is, by default, the age of the levels, but it can be altered to depth (by the `y_var` argument). The maximum number of taxa per page can be altered by the `max_taxa` argument (default = 20). In addition, the function will automatically omit very rare taxa. Specifically, the `min_n_occur` argument will determine the minimum number of occurrences per record each taxon has to have to be plotted.
 
 <br>
 
@@ -650,7 +650,7 @@ The user can select which columns (variables) should be present in the final dat
 #### 03_Save_references.R <a name = "0703"></a>
 
 First, the Workflow will output a “metadata table” (`data_assembly_meta.csv`) that contains:
-*	the list of all sequences in the final dataset compilation 
+*	the list of all records in the final dataset compilation 
 *	information about geographical location 
 *	depositional environment 
 *	assigned continental region
@@ -658,7 +658,7 @@ First, the Workflow will output a “metadata table” (`data_assembly_meta.csv`
 *	final number of levels 
 *	number of chronology control points used for age-depth modelling 
 *	assigned calibration curve 
-*	age limits of each sequence 
+*	age limits of each record 
 *	data source (Neotoma or private)
 *	DOI (from Neotoma). 
 
