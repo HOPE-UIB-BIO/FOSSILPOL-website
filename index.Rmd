@@ -46,10 +46,10 @@ The project consists of several sections:
 <br>
 
 ## Versions
-The version of the FOSSILPOL workflow: **0.0.1**
+The version of the FOSSILPOL workflow: **0.0.2**
 
-The version of the R-Fossilpol package: **0.0.1**
+The version of the R-Fossilpol package: **0.0.2**
 
-The version of the FOSSILPOL website: **0.0.1**
+The version of the FOSSILPOL website: **0.0.2**
 
 
