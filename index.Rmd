@@ -7,9 +7,11 @@ This website presents all information needed about the FOSSILPOL workflow that a
 <br>
 
 ## Authors
-The FOSSILPOL workflow has been developed during the ERC project called the "Humans on Planet Earth" (HOPE) team at the University of Bergen:
-Suzette G.A. Flantua#, Ondrej Mottl#, Vivian Felde#, Kuber P. Bhatta#, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
-\# shared first authors
+The FOSSILPOL workflow has been developed during the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en):
+
+Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
+
+\* shared first authors
 
 <br>
 
@@ -21,7 +23,7 @@ The project consists of several sections:
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
-* **[{RFossilpol} R-package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow.
+* **[`{RFossilpol}` package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow.
 
 * **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html)** - A main hub of all information about FOSSILPOL project, including step-by-step guide for users of FOSSILPOL with description of the most important functions and user criteria throughout the workflow.
 
