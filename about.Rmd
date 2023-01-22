@@ -79,10 +79,10 @@ project
 │   │   │   │   04_Extract_chron_control_tables.R
 │   │   │   │   05_Extract_raw_pollen_data.R
 │   │   │   
-│   │   └───02_Private_source
+│   │   └───02_Other_source
 │   │   │   │
 │   │   │   │   Run_01_02.R
-│   │   │   │   01_Import_private_data.R
+│   │   │   │   01_Import_other_data.R
 │   │   │
 │   │   └───03_Merging_and_geography
 │   │   │   │

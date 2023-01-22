@@ -16,8 +16,8 @@ The FOSSILPOL Workflow is structured in a modular manner where all steps are org
       + [`03_Filter_dep_env.R`](#0103)
       + [`04_Extract_chron_control_tables.R`](#0104)
       + [`05_Extract_raw_pollen_data.R`](#0105)
-    + [II. Data sourcing: `02_Private_source`](#02)
-      + [`01_Import_private_data.R`](#0201)
+    + [II. Data sourcing: `02_Other_source`](#02)
+      + [`01_Import_other_data.R`](#0201)
     + [III. Initial data processing: `03_Merging_and_geography`](#03)
       + [`01_Merge_datasets.R`](#0301)
         + [Detection of duplicates](#0301-dupl)
@@ -58,7 +58,7 @@ The FOSSILPOL Workflow is structured in a modular manner where all steps are org
 
 # Data input<a name = "data-input"></a> 
 
-The Workflow is set up in a way that data from Neotoma are the primary data. However, additional data sources (`private`) can be used in parallel by using our predefined format (see Section **Data sourcing**). The user thus has the flexibility to either source data from Neotoma or another data source as long as a consistent formatting file is used which we provide in this Workflow. 
+The Workflow is set up in a way that data from Neotoma are the primary data. However, additional data sources can be used in parallel (see Section **Data sourcing**). The user thus has the flexibility to either source data from Neotoma or another data source. 
 
 Three additional data inputs are required for the initial set-up of the Workflow:
 
@@ -66,7 +66,7 @@ Three additional data inputs are required for the initial set-up of the Workflow
 
 2. Geographical shapefiles – several shapefiles, which define the geographical information and harmonisation region for each record, must be provided by the user. Firstly, the Workflow is conceptualised for a global project, so the general structure of data processing is done “per continent”, but the user can use any other regionalisation of interest. The Workflow comes with a default shapefile roughly delimiting continents, but it can be adjusted or replaced to fit project needs. Secondly, we provide a `harmonisation region shapefile` which is a copy of the continental regions by default, but we strongly recommend adjusting the harmonisation regions for each specific project and working with corresponding taxonomic harmonisation tables. Finally, any other geographical information can also be added for each record as long as shapefiles are provided.
 
-3.	Harmonisation tables – for each project, one harmonisation table must be provided per harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma and/or private data sourced in the project), and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template for harmonisation in the `harmonised taxa` column.
+3.	Harmonisation tables – for each project, one harmonisation table must be provided per harmonisation region (delimited by the corresponding harmonisation region shapefile, see above). A harmonisation table must have two columns: i) `original taxa` with taxonomic names originally present in Neotoma and/or other data source in the project, and ii) `harmonised taxa` with the final taxonomic names. The Workflow will detect if a harmonisation table has been provided by the user, or otherwise create a new table with all detected “raw” taxa names for each harmonisation region. The latter can consequently serve as a template for harmonisation in the `harmonised taxa` column.
 
 <br>
 
@@ -121,7 +121,7 @@ data_storage_path
 │   │   │
 │   │   └───Potential_duplicates
 │   │   │
-│   │   └───Private
+│   │   └───Other
 │   │   │
 │   │   └───Regional_age_limits
 │   │   
@@ -155,7 +155,7 @@ data_storage_path
 │       │   │
 │       │   └───Neotoma_meta
 │       │
-│       └───Private
+│       └───Other
 │ 
 └───Outputs
     │
@@ -180,7 +180,7 @@ Here we focus on the scripts within the `R/01_Data_processing` folder representi
 
 (I)   [Data sourcing: `01_Neotoma_source`](#01)- retrieve and process data from Neotoma 
 
-(II)	[Data sourcing: `02_Private_source`](#02) - process data from private datasets (optional)
+(II)	[Data sourcing: `02_Other_source`](#02) - process data from other data source (optional)
 
 (III)   [Initial data processing: `03_Merging_and_geography`](#03) - merge data sources, filter out duplicates, and assign values based on geographical location
 
@@ -277,14 +277,14 @@ VASC          | Vascular plants
 
 <br>
 
-## II. Data sourcing: `02_Private_source`<a name = "02"></a>
+## II. Data sourcing: `02_Other_source`<a name = "02"></a>
 
-Our FOSSILPOL Workflow allows the use of private data in combination with the Neotoma data, as long as it is prepared following our provided [template](https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112). Any data can be used as long as it contains the following required information: a) meta information, b) depositional information, c) chronology information, d) level information, and e) pollen counts information. Including private data is fully optional and can be skipped as indicated by `private_data` = TRUE/FALSE in the Config file.
+Our FOSSILPOL Workflow allows the use of other data source in combination with the Neotoma data, as long as it is prepared following our provided [template](https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112). Any data can be used as long as it contains the following required information: a) meta information, b) depositional information, c) chronology information, d) level information, and e) pollen counts information. Including other data source is fully optional and can be skipped as indicated by `use_other_datasource` = TRUE/FALSE in the Config file.
 
 ### **Scripts**
 
 * `Run_01_02.R` - run all scripts within this folder
-* [`01_Import_private_data.R`](#0201) -  source private data and filter the records in a similar way as Neotoma.
+* [`01_Import_other_data.R`](#0201) -  source other data source and filter the records in a similar way as Neotoma.
 
 <br>
 
@@ -292,13 +292,13 @@ Our FOSSILPOL Workflow allows the use of private data in combination with the Ne
 
 <br>
 
-#### 01_Import_private_data.R <a name = "0201"></a>
+#### 01_Import_other_data.R <a name = "0201"></a>
 
-The sourcing of private data follows a simple order of actions: 
+The sourcing of other data sources follows a simple order of actions: 
 
 1. Data files need to be prepared by the user following the template.
 
-2. Data are extracted and formatted to be compatible with Neotoma data using the `import_datasets_from_folder` function. The user can specify which folder contains the prepared data files with the argument `dir` (default = `Data/Input/Private/`). In addition, the user can specify the `suffix` argument to keep track of the source of the data. 
+2. Data are extracted and formatted to be compatible with Neotoma data using the `import_datasets_from_folder` function. The user can specify which folder contains the prepared data files with the argument `dir` (default = `Data/Input/Other/`). In addition, the user can specify the `suffix` argument to keep track of the source of the data. 
 
 3. Authors of data are extracted and added to the Author-Dataset database (see above).
 
@@ -321,13 +321,13 @@ The sourcing of private data follows a simple order of actions:
 
 #### 01_Merge_datasets.R <a name = "0301"></a>
 
-After initial data processing, records from Neotoma and Private are merged together.  
+After initial data processing, records from Neotoma and Other are merged together.  
 
 <br>
 
 ##### *Detection of duplicates* <a name = "0301-dupl"></a>
 
-There is a possibility that some datasets from the user's private source are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default, Fig. 2 - config criteria 7). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates`. Because comparing all records between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 records per group). The user can define the number of groups using the `n_subgroups` argument. Next, each record from one source is compared to all records from the other source as long as they are within 1 degree radius (the assumption here is that duplicated records will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated records (a “stop-check”, Fig. 2).  For each record pair, the user must specify which records should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both records in). 
+There is a possibility that some datasets from the other data sources are already in Neotoma. To avoid duplication within the final dataset compilation, the Workflow will compare datasets from both sources and identify potential duplicates. This step is optional but recommended to follow. To do so, the user needs to specify that `detect_duplicates` == TRUE in the Config file (this is set as default, Fig. 2 - config criteria 7). The Workflow will start a simple subroutine using the function `proc_filter_out_duplicates`. Because comparing all records between groups to each other is relatively computationally demanding, the function will split the data into several groups using their geographical location (ca. 100 records per group). The user can define the number of groups using the `n_subgroups` argument. Next, each record from one source is compared to all records from the other source as long as they are within 1 degree radius (the assumption here is that duplicated records will be in a similar location). The user can define the maximum distance using the `max_degree_distance` argument. Finally, the Workflow will output a list of potential duplicated records (a “stop-check”, Fig. 2).  For each record pair, the user must specify which records should be deleted by writing `1` or `2` in the `delete` column (leaving `0` will leave both records in). 
 
 <br>
 
@@ -468,7 +468,7 @@ There are three ways by which post-bomb radiocarbon dates are reported, namely b
 
 The strongest rule of thumb is that normal radiocarbon dates and errors should always be integer (no decimals) and are uploaded so by the data stewards to Neotoma. The second rule of thumb is that pMC control points are characterised by an age value from around 100 with a decimal place. Thus, the Workflow will automatically export suspicious records and the user must specify which control points should be back-transformed (a “stop-check”). For those selected by the user to be back-transformed (include == TRUE), the Workflow will first convert the pMC values to “normal” post-bomb radiocarbon ages (negative 14C ages) by using the `IntCal::pMC.age` function, after which normal post-bomb calibration curves are used to calibrate the values to final calendar ages (see above).
 
-Although F14C has been recommended by experts for the reporting of post-bomb samples (Reimer et al. 2004 [Radiocarbon], in practice, the bulk of the reporting is done as modern radiocarbon dates followed by pMC to a much lesser extent. The Workflow currently does not deal with F14C as no such cases have been detected to date. As this is not consistent with the rest of the data, back-transformation could be done when working with private data, and the IntCal package (Blaauw 2021) can be used to do so.
+Although F14C has been recommended by experts for the reporting of post-bomb samples (Reimer et al. 2004 [Radiocarbon], in practice, the bulk of the reporting is done as modern radiocarbon dates followed by pMC to a much lesser extent. The Workflow currently does not deal with F14C as no such cases have been detected to date. As this is not consistent with the rest of the data, back-transformation could be done when working with other data sources, and the IntCal package (Blaauw 2021) can be used to do so.
 
 <br>
 
@@ -659,14 +659,14 @@ First, the Workflow will output a “metadata table” (`data_assembly_meta.csv`
 *	number of chronology control points used for age-depth modelling 
 *	assigned calibration curve 
 *	age limits of each record 
-*	data source (Neotoma or private)
+*	data source (Neotoma or other)
 *	DOI (from Neotoma). 
 
 This list can be altered by changing the final variables (see previous Section).
 
 Second, the Workflow will output a “reference table” (`authors_meta.csv`) containing information about the datasets used, the main data contributor, and their contact information. 
 
-If an affiliation is provided with the private data, the “affiliation table” (`affiliation_table`) is also exported linking affiliations and their authors.
+If an affiliation is provided with the data from sources other than Neotoma, the “affiliation table” (`affiliation_table`) is also exported linking affiliations and their authors.
 
 Finally, the Workflow will produce `reproducibility_bundle.zip`, which is a zip file of the Config file, all “stop-checks” CSV tables, and all shapefiles. The idea is that such zip files can be shared when publishing any results gathered in a project created using the FOSSILPOL Workflow to increase the reproducibility of work. 
 All of these outputs can be found in the `/Outputs/Tables/Meta_and_references/` folder.
