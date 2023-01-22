@@ -41,9 +41,7 @@ The project consists of several sections:
 
 * [A step-by-step guide](step_by_step_guide.html) - Detailed information about individual steps of the data processing
 
-* [Contribute](contributing.html) - Information about potential collaboration and issue reporting
-
-* [Project future updates](road_map.html) - Information about updates to the software and project
+* [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration 
 
 <br>
 
