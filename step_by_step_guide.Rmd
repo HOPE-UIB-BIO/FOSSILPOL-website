@@ -281,7 +281,10 @@ VASC          | Vascular plants
 
 ## II. Data sourcing: `02_Other_source`<a name = "02"></a>
 
-Our FOSSILPOL Workflow allows the use of other data source in combination with the Neotoma data, as long as it is prepared following our provided [file template](https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112). Any data can be used as long as it contains the following required information: a) meta information, b) depositional information, c) chronology information, d) level information, and e) pollen counts information. Including other data source is fully optional and can be skipped as indicated by `use_other_datasource` = `TRUE`/`FALSE` in the Config file.
+Our FOSSILPOL Workflow allows the use of other data source in combination with the Neotoma data. Including other data source is fully optional and can be skipped as indicated by `use_other_datasource` = `TRUE`/`FALSE` in the Config file.
+
+Any data can be used as long as it contains the following required information: a) meta information, b) depositional information, c) chronology information, d) level information, and e) pollen counts information. In order to prepare data for usage, user have to download [file template](https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112) specially prepared for this. Each pollen record needs to stored as separate file with **unique** name. We recommend e.g., `private_data_(insert_site_name).xlsx`. The *site name* in the filename is crusial as it will be compared againts all other pollen records in Neotoma. All files must be stored in `/Data/Input/Other/` (or specified by `dir_files` argument, see below).
+ 
 
 ### **Scripts**
 
@@ -298,11 +301,16 @@ Our FOSSILPOL Workflow allows the use of other data source in combination with t
 
 The sourcing of other data sources follows a simple order of actions: 
 
-1. Data files need to be prepared by the user following the template.
+1. Data files need to be prepared by the user following the template one record per file.
 
-2. Data are extracted and formatted to be compatible with Neotoma data using the `import_datasets_from_folder` function. The user can specify which folder contains the prepared data files with the argument `dir` (default = `Data/Input/Other/`). In addition, the user can specify the `suffix` argument to keep track of the source of the data. 
+2. Data are extracted and formatted to be compatible with Neotoma data using the `RFossilpol::import_datasets_from_folder()` function, with the following arguments: 
+   + `dir_files` - The user can specify which folder contains the prepared data (default = `Data/Input/Other/`
+   + `suffix` - argument to keep track of the source of the data. Default is set to `"other"`, which mean that datasets can be easily identifiedas their name will be `(dataset id)_other`
+   + `source_of_data` - will flag the source of each dataset in the compilation in meta-data overview (see [section VII](#07)). Default is set to `"personal_data"`
+   + `data_publicity` - will flag the data publicity of each dataset in the compilation in meta-data overview (see [section VII - Outputs](#07)). Default is set to `"restricted"`
+   + `pollen_percentage` - are pollen counts measured as proportions (e.g., from scanning of pollen diagrams). Deafult set to `FALSE`
 
-3. Authors of data are extracted and added to the Author-Dataset database (see above).
+3. Authors of data are extracted and added to the [Author-Dataset database](#0102) used in Author-dataset atribution (see [section VII - Outputs](#07)).
 
 4.	Data are treated in a similar way as data from Neotoma, in terms of filtering by geographical location, number of levels ([Fig. 2](#fig_2) - config criteria **5**,**6**), and depositional environments ([***stop-check***](#data-stor) point, [Fig. 2](#fig_2)).
 
