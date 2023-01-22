@@ -52,7 +52,7 @@ The FOSSILPOL Workflow is structursed in a modular manner where all steps are or
 <br>
 
 ## Figure 1<a name = "fig_1"></a>
-![Workflow_MainText_Summary](figures/Workflow_MainText_Summary.drawio.png)
+![](figures/Workflow_MainText_Summary.png)
 
 <br>
 
@@ -71,7 +71,7 @@ Three additional data inputs are required for the initial set-up of the Workflow
 <br>
 
 ## Figure 2<a name = "fig_2"></a>
-![Workflow_config_Summary](figures/Workflow_Detailed.drawio.png)
+![](figures/Workflow_Detailed.png)
 
 <br>
 

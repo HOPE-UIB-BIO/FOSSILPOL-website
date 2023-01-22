@@ -19,7 +19,7 @@ The FOSSILPOL workflow has been developed during the ERC project called the [*Hu
 <br></br>
 
 ## Figure 1<a name = "fig_1"></a>
-![Workflow_MainText_Summary](figures/Workflow_MainText_Summary.drawio.png)
+![](figures/Workflow_MainText_Summary.png)
 
 <br>
 
