@@ -7,7 +7,5 @@ navbar:
       href: about.html
     - text: "A step-by-step guide"
       href: step_by_step_guide.html
-    - text: "Contribute"
-      href: contributing.html
-    - text: "Project future updates"
-      href: road_map.html
+    - text: "Get in touch!"
+      href: get_in_touch.html
