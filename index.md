@@ -1,8 +1,6 @@
-# FOSSILPOL project <img src="figures/fossilpol_logo.png" align="right" width="400" />
+# FOSSILPOL project<img src="figures/fossilpol_logo.png" align="right" width="400" />
 
 This website presents all information needed about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
-
-<br>
 
 ## Authors
 
@@ -11,8 +9,6 @@ The FOSSILPOL workflow has been developed during the ERC project called the [*Hu
 Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
 
 \* shared first authors
-
-<br>
 
 ## Project sections
 
@@ -32,8 +28,6 @@ The project consists of several sections:
 
 * **[Future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Over of the future updates we plan to do on the FOSSILPOL workflow and R-package.
 
-<br>
-
 ## Website pages
 
 * [General information](about.html) - Information about how to obtain, set up, and run FOSSILPOL project
@@ -41,8 +35,6 @@ The project consists of several sections:
 * [A step-by-step guide](step_by_step_guide.html) - Detailed information about individual steps of the data processing
 
 * [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration
-
-<br>
 
 ## Versions
 
