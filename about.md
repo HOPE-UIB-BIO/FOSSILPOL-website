@@ -1,27 +1,25 @@
 # FOSSILPOL project<img src="figures/fossilpol_logo.png" align="right" width="200" />
 
-## Table of Contents
-
 - [FOSSILPOL project](#fossilpol-project)
-  - [Table of Contents](#table-of-contents)
-- [General information](#general-information)
-- [How to obtain the workflow](#how-to-obtain-the-workflow)
-  - [Code block 1](#code-block-1)
-  - [Set up](#set-up)
-  - [Cascade of R scripts](#cascade-of-r-scripts)
-    - [Code block 2](#code-block-2)
+  - [General information](#general-information)
+    - [Figure 1](#figure-1)
+  - [How to obtain the workflow](#how-to-obtain-the-workflow)
+    - [Code block 1](#code-block-1)
+    - [Set up](#set-up)
+    - [Cascade of R scripts](#cascade-of-r-scripts)
+      - [Code block 2](#code-block-2)
 
-# General information<a name = "general"></a>
+## General information
 
-Here we present the guide on how to obtain and setup the FOSSILPOL workflow which is an [R](https://en.wikipedia.org/wiki/R_(programming_language))-based modular workflow to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses at macroecological scales ([Fig. 1](#fig_1)). The general guide is described in the manuscript titled *A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*, currently in review in [Global Ecology and Biogeography](https://onlinelibrary.wiley.com/journal/14668238).
+Here we present the guide on how to obtain and setup the FOSSILPOL workflow which is an [R](https://en.wikipedia.org/wiki/R_(programming_language))-based modular workflow to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses at macroecological scales ([Fig. 1](#figure-1figure-1)). The general guide is described in the manuscript titled *A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*, currently in review in [Global Ecology and Biogeography](https://onlinelibrary.wiley.com/journal/14668238).
 
 The FOSSILPOL workflow is coded as an [RStudio project](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) (in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language))), which should be customised by the user for their specific research project.
 
 The FOSSILPOL workflow has been developed during the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en).
 
-![Figure 1](figures/Workflow_MainText_Summary.png)<a name = "fig_1"></a>
+### Figure 1![Figure 1](figures/Workflow_MainText_Summary.png)
 
-# How to obtain the workflow<a name = "get"></a>
+## How to obtain the workflow
 
 The FOSSILPOL workflow (referred to as "the Workflow" from here on) is accessible in two ways:
   
@@ -31,7 +29,7 @@ The FOSSILPOL workflow (referred to as "the Workflow" from here on) is accessibl
 
 The R project consists of codes with individual scripts and functions. All scripts are stored in the `R/` folder. After obtaining the workflow, the FOSSILPOL R project will have the following structure:
 
-## Code block 1<a name = "codeblock_1"></a>
+### Code block 1
 
 ```{r}
 project
@@ -135,7 +133,7 @@ project
     │   settings.dcf
 ```
 
-## Set up<a name = "setup"></a>
+### Set up
 
 Once a user obtains their own version of the Workflow, there are several steps to be done before using it:
 
@@ -153,13 +151,13 @@ Once a user obtains their own version of the Workflow, there are several steps t
 
 - If desired, the user can run additional project-specific scripts (not provided) in the `02_Main_analyses` and `03_Supplementary_analyses` folders to analyse the data compilation.
 
-## Cascade of R scripts<a name = "cascade"></a>
+### Cascade of R scripts
 
-This Workflow is constructed using a *script cascade*. This means that the `Master_run_01.R`, located within `R/01_Data_processing/` folder, executes all scripts within sub-folders of the `R/01_Data_processing/`  folder, which in turn, executes all their sub-folders (e.g., `R/01_Data_processing/01_Neotoma_source/Run_01_01.R` executes `R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R`, `R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R`, ...). See [Code block 2](#codeblock_2).
+This Workflow is constructed using a *script cascade*. This means that the `Master_run_01.R`, located within `R/01_Data_processing/` folder, executes all scripts within sub-folders of the `R/01_Data_processing/`  folder, which in turn, executes all their sub-folders (e.g., `R/01_Data_processing/01_Neotoma_source/Run_01_01.R` executes `R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R`, `R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R`, ...). See [Code block 2](#code-block-2).
 
 Therefore, a user can run the data processing section of the project executing `R/01_Data_processing/Master_run_01.R`script, or run individual sections by executing individual scripts within sections. An alternative example is that the user can run the Workflow subsection as a whole by running `R/01_Data_processing/01_Neotoma_source/Run_01_01.R`, and not `R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R`,  and then `R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R`, etc.
 
-### Code block 2<a name = "codeblock_2"></a>
+#### Code block 2
 
 ```{r}
 R
