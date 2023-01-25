@@ -135,15 +135,15 @@ project
 
 ### Set up
 
-Once a user obtains their own version of the Workflow, there are several steps to be done before using it:
+Once a user obtains their version of the Workflow, there are several steps to be done before using it:
 
 - Update [R](https://en.wikipedia.org/wiki/R_(programming_language)) and [R-studio IDE](https://posit.co/products/open-source/rstudio/). There are many guides on how to do so (e.g. [here](https://jennhuck.github.io/workshops/install_update_R.html))
 
-- Execute all individual steps with the `___Init_project___.R` script. This will result in the preparation of all R-packages using the [`{renv}` package](https://rstudio.github.io/renv/articles/renv.html), which is an R dependency management of your projects. Mainly it will install two main R-packages [`{RFossilpol}`](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package) and [`{RUtilpol}`](https://github.com/HOPE-UIB-BIO/R-Utilpol-package) and all their dependencies. {RFossilpol} has been developed specifically for the workflow and the latest release is automatically installed in the project set-up stage. This is important as the package version should aling with the Workflow version. Therefore, we do not recommend updating the package after installation. Note that installing all packages can take a substantial amount of time.
+- Execute all individual steps with the `___Init_project___.R` script. This will result in the preparation of all R-packages using the [`{renv}` package](https://rstudio.github.io/renv/articles/renv.html), which is an R dependency management of your projects. Mainly it will install two main R-packages [`{RFossilpol}`](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package) and [`{RUtilpol}`](https://github.com/HOPE-UIB-BIO/R-Utilpol-package) and all their dependencies. {RFossilpol} has been developed specifically for the workflow and the latest release is automatically installed in the project set-up stage. This is important as the package version should align with the Workflow version. Therefore, we do not recommend updating the package after installation. Note that installing all packages can take a substantial amount of time.
 
 - Set up your preferences by editing the `00_Config_file.R` script (referred to as "*Config file*" from here on). The Config file is a script where all settings and criteria used throughout the project are predefined by the user before running the Workflow. In addition, it prepares the current session by loading the required packages and saving all settings throughout the project. Points in the Config file that require the user's attention are flagged by "**[USER]**", meaning that these are criteria that need to be checked by the user. More info on the Config file is given in the website section [A step-by-step guide](step_by_step_guide.html). The crucial points are:
 
-  - `data_storage_path` within section "*4. Define the directories (for big files)*" - as the Workflow produces several large files, a user can specify the directory where such files will be placed. Note that the default place is within the project.
+  - `data_storage_path` within section "*2. Current date and working directory*" - as the Workflow produces several large files, a user can specify the directory where such files will be placed. Note that the default place is within the project.
 
   - section "*5. Define variables*" - there are many variables important for data selection and filtering of the final data assembly.
 
