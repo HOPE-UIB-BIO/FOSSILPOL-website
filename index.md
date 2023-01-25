@@ -1,12 +1,11 @@
----
-title: "FOSSILPOL project"
----
+# FOSSILPOL project <img src="figures/fossilpol_logo.png" align="right" width="400" />
 
 This website presents all information needed about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
 
 <br>
 
 ## Authors
+
 The FOSSILPOL workflow has been developed during the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en):
 
 Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
@@ -19,7 +18,7 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access manuscript in Global Ecology and Biogeography (currently under review) 
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access manuscript in Global Ecology and Biogeography (currently under review)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
@@ -41,15 +40,14 @@ The project consists of several sections:
 
 * [A step-by-step guide](step_by_step_guide.html) - Detailed information about individual steps of the data processing
 
-* [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration 
+* [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration
 
 <br>
 
 ## Versions
+
 The version of the FOSSILPOL workflow: **0.0.2**
 
 The version of the `{RFossilpol}` R-package: **0.0.2**
 
 The version of the FOSSILPOL website: **0.0.2**
-
-
