@@ -42,4 +42,4 @@ The version of the FOSSILPOL workflow: **0.0.2**
 
 The version of the `{RFossilpol}` R-package: **0.0.2**
 
-The version of the FOSSILPOL website: **0.0.2**
+The version of the FOSSILPOL website: **0.0.3**
