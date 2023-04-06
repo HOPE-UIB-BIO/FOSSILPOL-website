@@ -11,9 +11,9 @@
 
 
 
-<title>FOSSILPOL workflow</title>
+<title>about</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -248,10 +249,7 @@ $(document).ready(function () {
   <a href="step_by_step_guide.html">A step-by-step guide</a>
 </li>
 <li>
-  <a href="contributing.html">Contribute</a>
-</li>
-<li>
-  <a href="road_map.html">Project future updates</a>
+  <a href="get_in_touch.html">Get in touch!</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -265,63 +263,84 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">FOSSILPOL workflow</h1>
 
 </div>
 
 
-<div id="table-of-contents" class="section level2">
-<h2>Table of Contents</h2>
-<ol style="list-style-type: decimal">
-<li><a href="#general">General information</a></li>
-<li><a href="#get">How to obtain the workflow</a></li>
-<li><a href="#setup">Set up</a></li>
-<li><a href="#cascade">Cascade of scripts</a></li>
-</ol>
-</div>
-<div id="general-information" class="section level1">
-<h1>General information <a name = "general"></a></h1>
-<p>Here we present the detailed technical guide for the FOSSILPOL
-workflow which is an R-based modular workflow to process global
-palaeoecological pollen data (Fig. 1). The general guide is described in
-the manuscript titled “<em>A guide to process and standardise global
-palaeoecological pollen datasets for large-scale synthesis</em>”,
-currently in review in <a
-href="https://onlinelibrary.wiley.com/journal/14668238">GEB</a>.</p>
-<p>The goal of the FOSSILPOL workflow is to process multiple fossil
-pollen sequences to create a comprehensive, standardised dataset
-compilation, ready for multi-sequence and multi-proxy analyses. The
-FOSSILPOL workflow is coded as an RStudio project (in the R
-environment), which should be customised by the user for their specific
-research project.</p>
+<div id="fossilpol-project" class="section level1">
+<h1>FOSSILPOL
+project<img src="figures/fossilpol_logo.png" align="right" width="200" /></h1>
+<ul>
+<li><a href="#fossilpol-project">FOSSILPOL project</a>
+<ul>
+<li><a href="#general-information">General information</a>
+<ul>
+<li><a href="#figure-1">Figure 1</a></li>
+</ul></li>
+<li><a href="#how-to-obtain-the-workflow">How to obtain the workflow</a>
+<ul>
+<li><a href="#code-block-1">Code block 1</a></li>
+<li><a href="#set-up">Set up</a></li>
+<li><a href="#cascade-of-r-scripts">Cascade of R scripts</a>
+<ul>
+<li><a href="#code-block-2">Code block 2</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="general-information" class="section level2">
+<h2>General information</h2>
+<p>Here we present the guide on how to obtain and set up the FOSSILPOL
+workflow which is an <a
+href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a>-based
+modular workflow to process multiple fossil pollen records to create a
+comprehensive, standardised dataset compilation, ready for multi-record
+and multi-proxy analyses at macroecological scales (<a
+href="#figure-1figure-1">Fig. 1</a>). The general guide is described in
+the manuscript titled <em>A guide to the processing and standardisation
+of global palaeoecological data for large-scale syntheses using fossil
+pollen</em>, currently in review in <a
+href="https://onlinelibrary.wiley.com/journal/14668238">Global Ecology
+and Biogeography</a>.</p>
+<p>The FOSSILPOL workflow is coded as an <a
+href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">RStudio
+project</a> (in the <a
+href="https://en.wikipedia.org/wiki/R_(programming_language)">R
+programming language</a>), which should be customised by the user for
+their specific research project.</p>
 <p>The FOSSILPOL workflow has been developed during the ERC project
-called the “Humans on Planet Earth” (HOPE) team at the University of
-Bergen. <br></br></p>
-<p><strong>Figure 1</strong> <img
-src="figures/Workflow_MainText_Summary.drawio.png"
-alt="Workflow_MainText_Summary" /></p>
-<p><br></p>
+called the <a
+href="https://www.uib.no/en/rg/EECRG/107501/hope"><em>Humans on Planet
+Earth</em> (HOPE)</a> team at the <a
+href="https://www.uib.no/en">University of Bergen</a>.</p>
+<div id="figure-1figure-1" class="section level3">
+<h3>Figure 1<img src="figures/Workflow_MainText_Summary.png"
+alt="Figure 1" /></h3>
 </div>
-<div id="how-to-obtain-the-workflow" class="section level1">
-<h1>How to obtain the workflow <a name = "get"></a></h1>
+</div>
+<div id="how-to-obtain-the-workflow" class="section level2">
+<h2>How to obtain the workflow</h2>
 <p>The FOSSILPOL workflow (referred to as “the Workflow” from here on)
 is accessible in two ways:</p>
 <ol style="list-style-type: decimal">
-<li><p>If a user has a GitHub account, the easiest way is to create your
-own GitHub repo using this <a
+<li><p>If a user has a <a href="https://github.com/">GitHub account</a>,
+the easiest way is to create your own GitHub repo using this <a
 href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow">GitHub
 template</a>. More details about how to use GitHub templates are on <a
 href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub
 Docs</a>.</p></li>
-<li><p>A user can obtain the newest release of the Workflow as a zip
-file from ZENODO [link].</p></li>
+<li><p>A user can download the latest <em>Release</em> of the Workflow
+as a zip file from the <a
+href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases">FOSSILPOL
+Workflow Release page</a>.</p></li>
 </ol>
 <p>The R project consists of codes with individual scripts and
-functions. All scripts are stored in the <code>R</code> folder. After
+functions. All scripts are stored in the <code>R/</code> folder. After
 obtaining the workflow, the FOSSILPOL R project will have the following
 structure:</p>
-<p><strong>Code block 1</strong></p>
-<pre><code>project
+<div id="code-block-1" class="section level3">
+<h3>Code block 1</h3>
+<pre class="{r}"><code>project
 │
 │   README.md
 │   Rprofile
@@ -366,10 +385,10 @@ structure:</p>
 │   │   │   │   04_Extract_chron_control_tables.R
 │   │   │   │   05_Extract_raw_pollen_data.R
 │   │   │   
-│   │   └───02_Private_source
+│   │   └───02_Other_source
 │   │   │   │
 │   │   │   │   Run_01_02.R
-│   │   │   │   01_Import_private_data.R
+│   │   │   │   01_Import_other_data.R
 │   │   │
 │   │   └───03_Merging_and_geography
 │   │   │   │
@@ -390,7 +409,7 @@ structure:</p>
 │   │   │   │   Run_01_05.R
 │   │   │   │   01_Harmonisation.R
 │   │   │
-│   │   └───06_Main_filtrering
+│   │   └───06_Main_filtering
 │   │   │   │
 │   │   │   │   Run_01_06.R
 │   │   │   │   01_Level_filtering.R
@@ -420,70 +439,79 @@ structure:</p>
     │   activate.R
     │   library_list.lock
     │   settings.dcf</code></pre>
-<p><br></br></p>
-<div id="set-up" class="section level2">
-<h2>Set up <a name = "setup"></a></h2>
-<p>Once a user obtains their own version of the Workflow, there are
-several steps to be done before using it:</p>
+</div>
+<div id="set-up" class="section level3">
+<h3>Set up</h3>
+<p>Once a user obtains their version of the Workflow, there are several
+steps to be done before using it:</p>
 <ul>
-<li><p>Update R and R-studio. There are many guides on how to do so
-(e.g. <a
+<li><p>Update <a
+href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a> and
+<a href="https://posit.co/products/open-source/rstudio/">R-studio
+IDE</a>. There are many guides on how to do so (e.g. <a
 href="https://jennhuck.github.io/workshops/install_update_R.html">here</a>)</p></li>
 <li><p>Execute all individual steps with the
 <code>___Init_project___.R</code> script. This will result in the
-preparation of all packages using the <code>renv</code> package, which
-is an R dependency management of your projects (more info about
-<code>renv</code> <a
-href="https://rstudio.github.io/renv/articles/renv.html">here</a>). This
-step can take a substantial amount of time. For any issues with
-<code>___Init_project___.R</code>, see the <em><a
-href="contributing.html#issues">Issue</a></em> section on the FOSSILPOL
-website.</p></li>
+preparation of all R-packages using the <a
+href="https://rstudio.github.io/renv/articles/renv.html"><code>{renv}</code>
+package</a>, which is an R dependency management of your projects.
+Mainly it will install two main R-packages <a
+href="https://github.com/HOPE-UIB-BIO/R-Fossilpol-package"><code>{RFossilpol}</code></a>
+and <a
+href="https://github.com/HOPE-UIB-BIO/R-Utilpol-package"><code>{RUtilpol}</code></a>
+and all their dependencies. {RFossilpol} has been developed specifically
+for the workflow and the latest release is automatically installed in
+the project set-up stage. This is important as the package version
+should align with the Workflow version. Therefore, we do not recommend
+updating the package after installation. Note that installing all
+packages can take a substantial amount of time.</p></li>
 <li><p>Set up your preferences by editing the
-<code>00_Config_file.R</code> script (referred to as <em>“Config
-file”</em> from here on). The Config file is a script where all settings
+<code>00_Config_file.R</code> script (referred to as “<em>Config
+file</em>” from here on). The Config file is a script where all settings
 and criteria used throughout the project are predefined by the user
 before running the Workflow. In addition, it prepares the current
 session by loading the required packages and saving all settings
 throughout the project. Points in the Config file that require the
-user’s attention are flagged by “<strong>[USER]</strong>” , meaning that
+user’s attention are flagged by “<strong>[USER]</strong>”, meaning that
 these are criteria that need to be checked by the user. More info on the
-Config file is given in the website section “A step-by-step guide to
-data processing”. The crucial points are:</p>
+Config file is given in the website section <a
+href="step_by_step_guide.html">A step-by-step guide</a>. The crucial
+points are:</p>
 <ul>
-<li><p><code>data_storage_path</code> within <em>section 4</em> - as the
-Workflow produces several large files, a user can specify the directory
-where such files will be placed. Note that the default place is within
-the project.</p></li>
-<li><p><em>section 5</em> - there are many variables important for data
-selection and filtering of the final data assembly.</p></li>
+<li><p><code>data_storage_path</code> within section “<em>2. Current
+date and working directory</em>” - as the Workflow produces several
+large files, a user can specify the directory where such files will be
+placed. Note that the default place is within the project.</p></li>
+<li><p>section “<em>5. Define variables</em>” - there are many variables
+important for data selection and filtering of the final data
+assembly.</p></li>
 </ul></li>
 <li><p>Run <code>R/01_Data_processing/Master_run_01.R</code> to run the
-whole data processing part of the project (be ready for
-<strong>“stop-checks”</strong>, see below). Alternatively, the user can
-run each script individually. After all “stop-checks” are resolved, the
-Workflow can be run as a whole to produce the standardised dataset
-compilation, ready for multi-sequence and multi-proxy analyses.</p></li>
+whole data processing part of the project (be ready for <a
+href="step_by_step_guide.html#data-stor"><strong>“stop-checks”</strong></a>).
+Alternatively, the user can run each script individually. After all
+<em>stop-checks</em> are resolved, the Workflow can be run as a whole to
+produce the standardised dataset compilation, ready for multi-record and
+multi-proxy analyses.</p></li>
 <li><p>If desired, the user can run additional project-specific scripts
 (not provided) in the <code>02_Main_analyses</code> and
 <code>03_Supplementary_analyses</code> folders to analyse the data
-compilation. <br></br></p></li>
+compilation.</p></li>
 </ul>
 </div>
-<div id="cascade-of-r-scripts" class="section level2">
-<h2>Cascade of R scripts <a name = "cascade"></a></h2>
-<p>This Workflow is constructed using a “script cascade”. This means
-that the <code>Master_run_01.R</code>, located within
-<code>R /01_Data_processing/</code> folder, executes all scripts within
-sub-folders of the <code>R /01_Data_processing/</code> folder, which in
+<div id="cascade-of-r-scripts" class="section level3">
+<h3>Cascade of R scripts</h3>
+<p>This Workflow is constructed using a <em>script cascade</em>. This
+means that the <code>Master_run_01.R</code>, located within
+<code>R/01_Data_processing/</code> folder, executes all scripts within
+sub-folders of the <code>R/01_Data_processing/</code> folder, which in
 turn, executes all their sub-folders (e.g.,
 <code>R/01_Data_processing/01_Neotoma_source/Run_01_01.R</code> executes
 <code>R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R</code>,
-,
 <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>,
-…). See Code block 2.</p>
+…). See <a href="#code-block-2">Code block 2</a>.</p>
 <p>Therefore, a user can run the data processing section of the project
-executing <code>R/01_Data_processing/Master_run_01.R</code>script, or
+by executing <code>R/01_Data_processing/Master_run_01.R</code> script or
 run individual sections by executing individual scripts within sections.
 An alternative example is that the user can run the Workflow subsection
 as a whole by running
@@ -492,8 +520,9 @@ as a whole by running
 and then
 <code>R/01_Data_processing/01_Neotoma_source /02_Extract_samples.R</code>,
 etc.</p>
-<p><strong>Code block 2</strong></p>
-<pre><code>R
+<div id="code-block-2" class="section level4">
+<h4>Code block 2</h4>
+<pre class="{r}"><code>R
 │
 └───01_Data_processing
         │
@@ -509,6 +538,8 @@ etc.</p>
                 │   04_Extract_chron_control_tables.R
                 │   05_Extract_raw_pollen_data.R
 </code></pre>
+</div>
+</div>
 </div>
 </div>
 

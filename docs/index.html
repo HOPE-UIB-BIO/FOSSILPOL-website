@@ -11,9 +11,9 @@
 
 
 
-<title>FOSSILPOL project</title>
+<title>index</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -248,10 +249,7 @@ $(document).ready(function () {
   <a href="step_by_step_guide.html">A step-by-step guide</a>
 </li>
 <li>
-  <a href="contributing.html">Contribute</a>
-</li>
-<li>
-  <a href="road_map.html">Project future updates</a>
+  <a href="get_in_touch.html">Get in touch!</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -265,80 +263,85 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">FOSSILPOL project</h1>
 
 </div>
 
 
+<div id="fossilpol-project" class="section level1">
+<h1>FOSSILPOL
+project<img src="figures/fossilpol_logo.png" align="right" width="400" /></h1>
 <p>This website presents all information needed about the FOSSILPOL
 workflow that aims to process and standardise global palaeoecological
 pollen data.</p>
-<p><br></p>
 <div id="authors" class="section level2">
 <h2>Authors</h2>
 <p>The FOSSILPOL workflow has been developed during the ERC project
-called the “Humans on Planet Earth” (HOPE) team at the University of
-Bergen: Suzette G.A. Flantua#, Ondrej Mottl#, Vivian Felde#, Kuber P.
-Bhatta#, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B.
-Birks # shared first authors</p>
-<p><br></p>
+called the <a
+href="https://www.uib.no/en/rg/EECRG/107501/hope"><em>Humans on Planet
+Earth</em> (HOPE)</a> team at the <a
+href="https://www.uib.no/en">University of Bergen</a>:</p>
+<p>Suzette G.A. Flantua*, Ondrej Mottl*, Vivian Felde*, Kuber P.
+Bhatta*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B.
+Birks</p>
+<p>* shared first authors</p>
 </div>
 <div id="project-sections" class="section level2">
 <h2>Project sections</h2>
 <p>The project consists of several sections:</p>
 <ul>
-<li><p><strong>A guide to process and standardise global
-palaeoecological pollen datasets for large-scale synthesis</strong> - A
-manuscript in review in Global Ecology and Biogeography</p></li>
+<li><p><strong><a href="">A guide to the processing and standardisation
+of global palaeoecological data for large-scale syntheses using fossil
+pollen</a></strong> - An open-access manuscript in Global Ecology and
+Biogeography (currently under review)</p></li>
 <li><p><strong><a
 href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow">FOSSILPOL
-workflow</a></strong> - A tool to process multiple fossil pollen
-sequences to create a comprehensive, standardised dataset compilation,
-ready for multi-sequence and multi-proxy analyses (coded in the R
+workflow</a></strong> - A tool to process multiple fossil pollen records
+to create a comprehensive, standardised dataset compilation, ready for
+multi-record and multi-proxy analyses (coded in the R
 environment)</p></li>
 <li><p><strong><a
-href="https://github.com/HOPE-UIB-BIO/R-Fossilpol-package">R-Fossilpol
-package</a></strong> - An R-package package developed specifically to
-provide tools for the FOSSILPOL workflow.</p></li>
+href="https://github.com/HOPE-UIB-BIO/R-Fossilpol-package"><code>{RFossilpol}</code>
+package</a></strong> - An R-package developed specifically to provide
+tools and functions for the FOSSILPOL workflow.</p></li>
 <li><p><strong><a
-href="https://hope-uib-bio.github.io/FOSSILPOL-website/">Technical guide
-to FOSSILPOL: The workflow to process global palaeoecological pollen
-data</a></strong> - A detailed technical information for users of
-FOSSILPOL published as a website.</p></li>
+href="https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html">Website</a></strong>
+- A main hub of all information about the FOSSILPOL project, including a
+step-by-step guide for users of FOSSILPOL with a description of the most
+important functions and user criteria throughout the workflow.</p></li>
 <li><p><strong><a
 href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia">Scandinavia
 example</a></strong> - Example of the FOSSILPOL workflow applied to
-fossil pollen sequences in northen Europe</p></li>
+fossil pollen records in northern Europe</p></li>
 <li><p><strong><a
 href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues">Issue
 tracker</a></strong> - Specific GitHub repository to manage all Issues
 detected in the FOSSILPOL workflow</p></li>
 <li><p><strong><a
 href="https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1">Future
-updates</a></strong> - Planned future updates</p></li>
+updates</a></strong> - Overview of the future updates we plan to do on
+the FOSSILPOL workflow and R-package.</p></li>
 </ul>
-<p><br></p>
 </div>
 <div id="website-pages" class="section level2">
 <h2>Website pages</h2>
 <ul>
 <li><p><a href="about.html">General information</a> - Information about
-how to obtain, set up, and run FOSSILPOL project</p></li>
+how to obtain, set up, and run the FOSSILPOL project</p></li>
 <li><p><a href="step_by_step_guide.html">A step-by-step guide</a> -
 Detailed information about individual steps of the data
 processing</p></li>
-<li><p><a href="contributing.html">Contribute</a> - Information about
-potential collaboration and issue reporting</p></li>
-<li><p><a href="road_map.html">Project future updates</a> - Planned
-future updates</p></li>
+<li><p><a href="get_in_touch.html">Get in touch!</a> - Information about
+the community, future updates, issue reporting, and potential
+collaboration</p></li>
 </ul>
-<p><br></p>
 </div>
 <div id="versions" class="section level2">
 <h2>Versions</h2>
-<p>The version of the FOSSILPOL workflow: <strong>0.0.1</strong></p>
-<p>The version of the R-Fossilpol package: <strong>0.0.1</strong></p>
-<p>The version of the FOSSILPOL website: <strong>0.0.1</strong></p>
+<p>The version of the FOSSILPOL workflow: <strong>0.0.2</strong></p>
+<p>The version of the <code>{RFossilpol}</code> R-package:
+<strong>0.0.2</strong></p>
+<p>The version of the FOSSILPOL website: <strong>0.0.2</strong></p>
+</div>
 </div>
 
 
