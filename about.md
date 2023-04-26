@@ -147,7 +147,7 @@ Once a user obtains their version of the Workflow, there are several steps to be
 
   - section "*5. Define variables*" - these are the variables that are important for data selection and filtering to obtain the final data compilation.
 
-- Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for [**"stop-checks"**](step_by_step_guide.html#data-stor)). Alternatively, the user can run each script individually. After all *stop-checks* are resolved, the Workflow can be run as a whole to produce the finalm standardised dataset compilation, ready for multi-record and multi-proxy analyses.
+- Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for [**"stop-checks"**](step_by_step_guide.html#data-stor)). Alternatively, the user can run each script individually. After all *stop-checks* are resolved, the Workflow can be run as a whole to produce the final standardised dataset compilation, ready for multi-record and multi-proxy analyses.
 
 - If desired, the user can run additional project-specific scripts (not provided) in the `02_Main_analyses` and `03_Supplementary_analyses` folders to analyse the data compilation.
 
