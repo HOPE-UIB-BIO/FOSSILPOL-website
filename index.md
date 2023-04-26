@@ -1,6 +1,6 @@
 # FOSSILPOL project<img src="figures/fossilpol_logo.png" align="right" width="400" />
 
-This website presents relevant information about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
+This website presents all information needed about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
 
 ## Authors
 
@@ -14,7 +14,7 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access manuscript in Global Ecology and Biogeography (currently under review)
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access publication in Global Ecology and Biogeography (Flantua et al. 2023, in press)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
@@ -22,7 +22,7 @@ The project consists of several sections:
 
 * **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow
 
-* **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - An example of the applicability of the FOSSILPOL workflow using fossil pollen records from northern Europe
+* **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - A case study example of the FOSSILPOL workflow being applied to fossil pollen records from northern Europe
 
 * **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - Specific GitHub repository to manage all Issues detected in the FOSSILPOL workflow
 
