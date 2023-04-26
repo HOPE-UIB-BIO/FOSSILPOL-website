@@ -11,11 +11,11 @@
 
 ## General information
 
-Here we present a guide on how to obtain and set up the FOSSILPOL workflow which is an [R](https://en.wikipedia.org/wiki/R_(programming_language))-based modular workflow to process multiple fossil pollen records to create a comprehensive standardised dataset compilation, ready for multi-record and multi-proxy analyses atvarious spatial and temporal scales ([Fig. 1](#figure-1figure-1)). The general guide is described in the manuscript titled *A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*, currently in review in [Global Ecology and Biogeography](https://onlinelibrary.wiley.com/journal/14668238).
+Here we present a guide on how to obtain and set up the FOSSILPOL workflow which is an [R](https://en.wikipedia.org/wiki/R_(programming_language))-based modular workflow to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses at various spatial and temporal scales ([Fig. 1](#figure-1figure-1)). The general guide is described in the publication titled *A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*, by Flantua, S.G.A., Mottl, O., Felde, V.A., Bhatta, K.P., Birks, H.H., Grytnes, J-A., Seddon, A.W.R., Birks H.J.B. (in press) in [Global Ecology and Biogeography](https://onlinelibrary.wiley.com/journal/14668238).
 
-The FOSSILPOL workflow is coded as an [RStudio project](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) (in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language))), which can be customised by the user as per their specific research project.
+The FOSSILPOL workflow is coded as an [RStudio project](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) (in the [R programming language](https://en.wikipedia.org/wiki/R_(programming_language))), which should be customised by the user as per their specific research project.
 
-The FOSSILPOL workflow has been developed for processing the fossil pollen data in the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en).
+The FOSSILPOL workflow has been developed for processing fossil pollen data in the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en).
 
 ### Figure 1![Figure 1](figures/Workflow_MainText_Summary.png)
 
@@ -145,9 +145,9 @@ Once a user obtains their version of the Workflow, there are several steps to be
 
   - `data_storage_path` within section "*2. Current date and working directory*" - as the Workflow produces several large files, a user can specify the directory where such files will be stored. Note that the default place is within the project.
 
-  - section "*5. Define variables*" - these are the variables that are important for data selection and filtering during the final data assembly.
+  - section "*5. Define variables*" - these are the variables that are important for data selection and filtering to obtain the final data compilation.
 
-- Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for [**"stop-checks"**](step_by_step_guide.html#data-stor)). Alternatively, the user can run each script individually. After all *stop-checks* are resolved, the Workflow can be run as a whole to produce the standardised dataset compilation, ready for the analyses.
+- Run `R/01_Data_processing/Master_run_01.R` to run the whole data processing part of the project (be ready for [**"stop-checks"**](step_by_step_guide.html#data-stor)). Alternatively, the user can run each script individually. After all *stop-checks* are resolved, the Workflow can be run as a whole to produce the finalm standardised dataset compilation, ready for multi-record and multi-proxy analyses.
 
 - If desired, the user can run additional project-specific scripts (not provided) in the `02_Main_analyses` and `03_Supplementary_analyses` folders to analyse the data compilation.
 
