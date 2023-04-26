@@ -4,7 +4,7 @@ This website presents all information needed about the FOSSILPOL workflow that a
 
 ## Authors
 
-The FOSSILPOL workflow has been developed during the data processing for the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en):
+The FOSSILPOL workflow has been developed during the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en):
 
 Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
 
