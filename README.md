@@ -1,4 +1,8 @@
-# FOSSILPOL-website <img src="figures/fossilpol_logo.png" align="right" width="400" />
+# FOSSILPOL website <img src="figures/fossilpol_logo.png" align="right" width="400" />
+
+<!-- badges: start -->
+[![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
+<!-- badges: end -->
 
 This repo is a part of the **FOSSILPOL** project. Learn more about the project on the [project websites](https://hope-uib-bio.github.io/FOSSILPOL-website/)
 
