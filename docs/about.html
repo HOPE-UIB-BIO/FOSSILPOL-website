@@ -290,26 +290,27 @@ project<img src="figures/fossilpol_logo.png" align="right" width="200" /></h1>
 </ul>
 <div id="general-information" class="section level2">
 <h2>General information</h2>
-<p>Here we present the guide on how to obtain and set up the FOSSILPOL
+<p>Here we present a guide on how to obtain and set up the FOSSILPOL
 workflow which is an <a
 href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a>-based
 modular workflow to process multiple fossil pollen records to create a
 comprehensive, standardised dataset compilation, ready for multi-record
-and multi-proxy analyses at macroecological scales (<a
+and multi-proxy analyses at various spatial and temporal scales (<a
 href="#figure-1figure-1">Fig. 1</a>). The general guide is described in
-the manuscript titled <em>A guide to the processing and standardisation
+the publication titled <em>A guide to the processing and standardisation
 of global palaeoecological data for large-scale syntheses using fossil
-pollen</em>, currently in review in <a
-href="https://onlinelibrary.wiley.com/journal/14668238">Global Ecology
-and Biogeography</a>.</p>
+pollen</em>, by Flantua, S.G.A., Mottl, O., Felde, V.A., Bhatta, K.P.,
+Birks, H.H., Grytnes, J-A., Seddon, A.W.R., Birks H.J.B. (in press) in
+<a href="https://onlinelibrary.wiley.com/journal/14668238">Global
+Ecology and Biogeography</a>.</p>
 <p>The FOSSILPOL workflow is coded as an <a
 href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">RStudio
 project</a> (in the <a
 href="https://en.wikipedia.org/wiki/R_(programming_language)">R
-programming language</a>), which should be customised by the user for
+programming language</a>), which should be customised by the user as per
 their specific research project.</p>
-<p>The FOSSILPOL workflow has been developed during the ERC project
-called the <a
+<p>The FOSSILPOL workflow has been developed for processing fossil
+pollen data in the ERC project called the <a
 href="https://www.uib.no/en/rg/EECRG/107501/hope"><em>Humans on Planet
 Earth</em> (HOPE)</a> team at the <a
 href="https://www.uib.no/en">University of Bergen</a>.</p>
@@ -468,31 +469,31 @@ packages can take a substantial amount of time.</p></li>
 <li><p>Set up your preferences by editing the
 <code>00_Config_file.R</code> script (referred to as “<em>Config
 file</em>” from here on). The Config file is a script where all settings
-and criteria used throughout the project are predefined by the user
-before running the Workflow. In addition, it prepares the current
-session by loading the required packages and saving all settings
+(configurations) and criteria used throughout the project are predefined
+by the user before running the Workflow. In addition, it prepares the
+current session by loading the required packages and saving all settings
 throughout the project. Points in the Config file that require the
 user’s attention are flagged by “<strong>[USER]</strong>”, meaning that
-these are criteria that need to be checked by the user. More info on the
-Config file is given in the website section <a
+these are criteria that need to be checked by the user. More information
+on the Config file is given in the website section <a
 href="step_by_step_guide.html">A step-by-step guide</a>. The crucial
 points are:</p>
 <ul>
 <li><p><code>data_storage_path</code> within section “<em>2. Current
 date and working directory</em>” - as the Workflow produces several
 large files, a user can specify the directory where such files will be
-placed. Note that the default place is within the project.</p></li>
-<li><p>section “<em>5. Define variables</em>” - there are many variables
-important for data selection and filtering of the final data
-assembly.</p></li>
+stored. Note that the default place is within the project.</p></li>
+<li><p>section “<em>5. Define variables</em>” - these are the variables
+that are important for data selection and filtering to obtain the final
+data compilation.</p></li>
 </ul></li>
 <li><p>Run <code>R/01_Data_processing/Master_run_01.R</code> to run the
 whole data processing part of the project (be ready for <a
 href="step_by_step_guide.html#data-stor"><strong>“stop-checks”</strong></a>).
 Alternatively, the user can run each script individually. After all
 <em>stop-checks</em> are resolved, the Workflow can be run as a whole to
-produce the standardised dataset compilation, ready for multi-record and
-multi-proxy analyses.</p></li>
+produce the final standardised dataset compilation, ready for
+multi-record and multi-proxy analyses.</p></li>
 <li><p>If desired, the user can run additional project-specific scripts
 (not provided) in the <code>02_Main_analyses</code> and
 <code>03_Supplementary_analyses</code> folders to analyse the data
