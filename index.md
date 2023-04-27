@@ -14,17 +14,17 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access publication in Global Ecology and Biogeography (Flantua et al. 2023, in press)
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access publication in *Global Ecology and Biogeography* (Flantua et al. 2023, in press)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
 * **[`{RFossilpol}` package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow
 
-* **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow
+* **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow
 
 * **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - A case study example of the FOSSILPOL workflow being applied to fossil pollen records from northern Europe
 
-* **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - Specific GitHub repository to manage all Issues detected in the FOSSILPOL workflow
+* **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues)** - Specific GitHub repository to manage all Issues detected in the FOSSILPOL workflow
 
 * **[Future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Overview of the future updates we plan to do on the FOSSILPOL workflow and R-package
 
@@ -38,8 +38,8 @@ The project consists of several sections:
 
 ## Versions
 
-The version of the FOSSILPOL workflow: **0.0.2**
+* FOSSILPOL workflow: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-workflow?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases)
 
-The version of the `{RFossilpol}` R-package: **0.0.2**
+* `{RFossilpol}` R-package: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
 
-The version of the FOSSILPOL website: **0.0.3**
+* FOSSILPOL website: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
