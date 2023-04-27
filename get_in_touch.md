@@ -22,7 +22,7 @@ To open a new Issue:
 
 1. Click on the green **New issue** button in the upper right corner, and select **Bug report**.
 
-2. Describe your problem in as much detail as possible. The issue should state what the problem is, what the expected behaviour should be, and, maybe, suggest a solution. Note that you can also attach files or images to the issue.
+2. Describe your problem in as much detail as possible. The issue should state what the problem is, what the expected behaviour should be, and, maybe, suggest a solution. Note that you can also attach files (e.g. sample data, R code, etc.) or images to the issue.
 
 3. Select a suitable `label`:label: from the drop-down menu called **Labels**.
 
@@ -56,7 +56,7 @@ See the planned future updates in the **[project future updates](https://github.
 
 * "in consideration" - the feature might be implemented but it is not a priority
 
-If there is a feature you would like to implement, please first check the [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) and look if someone already suggested it and ***upvote*** it, if it is already there. Before each version release, we will implement the most upvoted feature.
+If there is a feature you would like to implement, please first check the [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) and look if someone already suggested it and ***up-vote*** it, if it is already there. Before each version release, we will implement the most up-voted feature.
 
 We aim to regularly update the list.
 
@@ -73,10 +73,10 @@ feature, jump to the [Issues section](#it-does-not-work).
 
 ### Git + GitHub
 
-We use the [Git](https://git-scm.com/) version control system to manage the development with the repository hosted on [GitHub](https://github.com). If you are new to Git or GitHub, please read through the
+We use the [Git](https://git-scm.com/) version control system to manage the developments in the repository hosted on [GitHub](https://github.com). If you are new to Git or GitHub, please read through the
 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/) to get up to speed.
 
-If you're already familiar with Git and GitHub, please read
+If you are already familiar with Git and GitHub, please read
 [Submitting Pull Requests](#submitting-pull-requests).
 
 ### Coding Style Guidelines
@@ -87,7 +87,7 @@ on the web, we do maintain some uniformity.
 If we missed mentioning a particular case, you should always follow the below
 procedure:
 
-* See how it's done in the codebase.
+* See how it is done in the codebase.
 * See what [Advanced R by Hadley Wickham](http://adv-r.had.co.nz/Style.html) convention says and choose something that is close to the codebase.
 * If all else fails, ask on [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions) :)
 
@@ -97,17 +97,17 @@ All changes to FOSSILPOL must be in the form of a **pull request** (also known a
 
 Here is the recommended process:
 
-1. Fork the repo so that you can make your changes without affecting the original project until you're ready to merge them. Check out the [Guide to forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo#fork-an-example-repository)
+1. Fork the repo so that you can make your changes without affecting the original project until you are ready to merge them. Check out the [Guide to forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo#fork-an-example-repository)
 
 2. Check out the branch (named the next version; if there is one).
 
 3. Commit your updates once you are happy with them. See contributing [guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) for commit messages.
 
-4. When you're finished with the changes, create a PR
+4. When you are finished with the changes, create a PR
    * Click the "Ready for review" so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
    * Don't forget to [link PR to the Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
-   * Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so the branch can be updated for a merge. Once you submit your PR, a HOPE team member will review your proposal. We may ask questions or request additional information.
-   * We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, and then commit them to your branch.
+   * Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so that the branch can be updated for a merge. Once you submit your PR, a HOPE team member will review your proposal. We may ask questions or request additional information.
+   * We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can apply suggested changes directly through the user interface (UI). You can make any other changes in your fork, and then commit them to your branch.
 As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#resolving-conversations)
    * If you run into any merge issues, check out this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
 

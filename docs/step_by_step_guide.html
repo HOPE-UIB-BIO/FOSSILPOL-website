@@ -13,7 +13,7 @@
 
 <title>A step-by-step guide to data processing with FOSSILPOL</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -325,9 +325,9 @@ href="#id_01_import_other_datar"><em>01_Import_other_data.R</em></a></li>
 </ul></li>
 </ul></li>
 <li><a
-href="#iii-initial-data-processing-03_merging_and_geography"><strong>III.
+href="#iii-initial-data-processing-03_merging_and_geographic_delineation"><strong>III.
 Initial data processing:
-<code>03_Merging_and_geography</code></strong></a>
+<code>03_Merging_and_geographic_delineation</code></strong></a>
 <ul>
 <li><a href="#initial-data-processing---scripts">Initial data processing
 - Scripts</a></li>
@@ -422,7 +422,7 @@ href="#id_03_save_referencesr"><em>03_Save_references.R</em></a></li>
 </ul>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
-<p>The FOSSILPOL Workflow is structursed in a modular manner where all
+<p>The FOSSILPOL Workflow is structured in a modular manner, where all
 steps are organised sequentially and guided by one main configuration
 file (<em>Config file</em>) where all criteria and setup configurations
 are pre-defined by the user.</p>
@@ -436,11 +436,10 @@ alt="Figure 1" /></h3>
 <p>The FOSSILPOL workflow is set up in a way that data from <a
 href="https://www.neotomadb.org/">Neotoma Paleoecological Database</a>
 (“<em>Neotoma</em>” hereafter) are the primary data input. However,
-other data sources can be used in parallel by using our predefined
+other data sources can also be used in parallel by using our predefined
 format (<a href="#figure-2figure-2">Fig. 2</a>). The user thus has the
 flexibility to source data from either Neotoma or from another data
-source as long as the consistent formatting file provided in our
-predefined format is used (see <a
+source as long as our predefined format file is used (see <a
 href="#ii-data-sourcing-02_other_source">other data sourcing</a>).</p>
 <p>Three additional data inputs are required for the initial set-up of
 the Workflow:</p>
@@ -452,37 +451,37 @@ technical settings (e.g. location of the data storage) to specific
 requirements (e.g. filtering criteria) for records to be included. An
 overview of where the config critera are used through the Workflow is
 summaried in (<a href="#figure-2figure-2">Fig. 2</a>).</p></li>
-<li><p><strong>Geographical shapefiles</strong> - The workflow is
+<li><p><strong>Geographical shapefiles</strong> - the workflow is
 internally set-up in a way that data are processed by geographical
 regions and shapefiles are used to assign relevant geographical
 information to the records to process. First, the Workflow is
 conceptualised for a global project, so the general structure of data
 processing is done <em>per continent</em> (i.e. <code>region</code> =
-“<em>continent</em>”), but the user can use any other regionalisation of
+“<em>continent</em>”), but the user can use any other delineation of
 interest. The Workflow comes with a default shapefile roughly delimiting
-continents, but it can be adjusted or replaced to fit project needs.
+continents, but it can be adjusted or replaced as per project needs.
 Second, the taxonomic harmonisation of records is structured by
 <em>harmonisation regions</em> provided by
 <code>harmonisation region shapefile</code>. By default, this shapefile
 is a copy of the continental shapefile, but as harmonisation tables are
 region-specific (see next data input item) this shapefile needs to be
 adjusted to represent the geographical delimitation of the harmonisation
-regions used. Finally, if the user is interested in other
-biogeographical, climatic, or ecological units of interest to be linked
-to each record (e.g. ecozones, biome type, climate zones), then
-additional shapefiles (or TIF files) can be added to the workflow (see
-<a href="step_by_step_guide.html#0301-add">details here</a>).</p></li>
+regions used. Finally, if the user is interested in other biogeographic,
+climatic, or ecological units of interest to be linked to each record
+(e.g. ecozones, biome type, climate zones), then additional shapefiles
+(or TIF files) can be added to the workflow (see <a
+href="step_by_step_guide.html#0301-add">details here</a>).</p></li>
 <li><p><strong>Harmonisation tables</strong> - in each project, one
 harmonisation table must be provided per harmonisation region (delimited
 by the corresponding harmonisation region shapefile, see above). A
 harmonisation table always comes with two columns: i)
 <code>original taxa</code>(original taxa) with taxonomic names
 originally present in Neotoma and/or other data source in the project,
-and ii) <code>level_1</code> (harmonised taxa) with the final taxonomic
-names. The Workflow will detect if a harmonisation table has been
-provided by the user, or otherwise create a new table with all detected
-<em>raw</em> taxa names for each harmonisation region. The latter can
-consequently serve as a template for harmonisation in the
+and ii) <code>level_1</code> (harmonised taxa) with the standardised
+taxonomic names. The Workflow will detect if a harmonisation table has
+been provided by the user, or otherwise create a new table with all
+detected <em>raw</em> taxa names for each harmonisation region. The
+latter can consequently serve as a template for harmonisation in the
 <code>level_1</code> column (see <a
 href="step_by_step_guide.html#05">details here</a>).</p></li>
 </ol>
@@ -502,8 +501,7 @@ in a way that temporary (in-progress) data files are saved at various
 stages of the Workflow. Each file will contain the date of creation for
 easier organisation. When run multiple times, the Workflow will
 automatically detect if there are any changes in a selected file and
-only overwrite it, if an updated file can be produced (this is powered
-by <a
+only overwrite it, if an updated file is produced (this is powered by <a
 href="https://github.com/HOPE-UIB-BIO/R-Utilpol-package"><code>{RUtilpol}</code>
 package</a>). This also means that the user does not have to re-run the
 whole Workflow but can re-run only specific parts. As the total size of
@@ -515,7 +513,7 @@ Config file). With such specification, and after running the
 structure created (see <a href="#code-block-3">Code block
 3</a>).</p></li>
 <li><p><strong><em>stop-checks</em> CSV tables</strong>: while running
-the workflow, there will be several times, that a user will be asked to
+the Workflow, there will be several times that a user will be asked to
 check and, where necessary, adjust the produced CSV tables to
 subsequently continue with the Workflow (i.e. re-run script). This is
 done to oblige the user to check the produced intermediate results
@@ -525,21 +523,21 @@ compilation obtained from Neotoma. A user then has to edit the mentioned
 CSV table and specify, which ecological groups should be kept
 (<code>include</code> = <code>TRUE</code>) and which should be filtered
 out (<code>include</code> = <code>FALSE</code>). Note that there are
-several stop-checks throughout the workflow (see overview in <a
+several stop-checks throughout the Workflow (see overview in <a
 href="#figure-2figure-2">Fig. 2</a>).</p></li>
-<li><p><strong>Workflow output</strong> (<code>Outputs/</code>, See <a
+<li><p><strong>Workflow output</strong> (<code>Outputs/</code>, see <a
 href="#vii-outputs-07_outputs">Section VII</a> for more
 information):</p>
 <ul>
-<li>A ready-to-use, taxonomically harmonised and standardised
+<li>a ready-to-use, taxonomically harmonised and temporally standardised
 compilation of fossil pollen data, ready for the analytical stage (rds
 format)</li>
-<li>Plots of modelled age-depth curves for each record (pdf format)</li>
-<li>Pollen diagram of each record (pdf format)</li>
-<li>Metadata table relaying the main data contributor, contact
+<li>plots of modelled age-depth curves for each record (pdf format)</li>
+<li>pollen diagram of each record (pdf format)</li>
+<li>metadata table relaying the main data contributor, contact
 information, and corresponding publications for citation purposes of the
 used datasets (PDF).</li>
-<li>Reproducibility bundle, a zip file with contains all important
+<li>reproducibility bundle, a zip file with contains all important
 sections for a reproducibility of the whole project.<br />
 </li>
 <li>overview figures of the spatial and temporal distribution of the
@@ -632,8 +630,8 @@ respectively (PDF).</li>
 <h2>Data processing</h2>
 <p>Here we focus on the scripts within the
 <code>R/01_Data_processing</code> folder representing all steps needed
-for data processing from obtaining data to the final dataset
-compilation, organised in the following Sections:</p>
+for data processing (from obtaining data to the final dataset
+compilation), organised in the following Sections:</p>
 <ol style="list-style-type: upper-roman">
 <li><p><strong><a href="#i-data-sourcing-01_neotoma_source">Data
 sourcing: <code>01_Neotoma_source</code></a></strong> - retrieve and
@@ -642,9 +640,10 @@ process data from Neotoma</p></li>
 sourcing: <code>02_Other_source</code></a></strong> - process data from
 other data source (optional)</p></li>
 <li><p><strong><a
-href="#iii-initial-data-processing-03_merging_and_geography">Initial
-data processing: <code>03_Merging_and_geography</code></a></strong> -
-merge data sources, filter out duplicates, and assign values based on
+href="#iii-initial-data-processing-03_merging_and_geographic_delineation">Initial
+data processing:
+<code>03_Merging_and_geographic_delineation</code></a></strong> - merge
+data sources, filter out duplicates, and assign values based on
 geographical location</p></li>
 <li><p><strong><a href="#iv-chronologies-04_chronologies">Chronologies:
 <code>04_Chronologies</code></a></strong> - prepare chronology control
@@ -652,7 +651,7 @@ tables, calculate age-depth models, and predict ages for levels</p></li>
 <li><p><strong><a
 href="#v-harmonisation-05_harmonisation">Harmonisation:
 <code>05_Harmonisation</code></a></strong> - prepare all harmonisation
-tables and harmonise pollen taxa</p></li>
+tables and harmonise pollen taxa (morphotypes)</p></li>
 <li><p><strong><a href="#vi-data-filtering-06_main_filtering">Data
 filtering: <code>06_Main_filtering</code></a></strong> - filter out
 levels and records based on user-defined criteria</p></li>
@@ -674,7 +673,7 @@ href="#id_01_download_neotomar"><code>01_Download_neotoma.R</code></a>-
 download the pollen data from the Neotoma database</p></li>
 <li><p><a
 href="#id_02_extract_samplesr"><code>02_Extract_samples.R</code></a> -
-create a table from Neotoma downloaded lists and download author
+create a table from Neotoma´s downloaded lists and download author
 information</p></li>
 <li><p><a
 href="#id_03_filter_dep_envr"><code>03_Filter_dep_env.R</code></a> - get
@@ -698,10 +697,10 @@ class="section level4">
 <p>All pollen records are downloaded from Neotoma based on the
 geographical criteria (spatial extent, <a href="#figure-2figure-2">Fig.
 2</a> - config criteria <strong>1</strong>) and the selected data type,
-in this case: <code>"pollen"</code>. Note that more complex spatial
-extent, like polygon, can be used with the <code>loc</code> agrument in
-<code>RFossilpol::proc_neo_get_all_neotoma_datasets()</code>(see usage
-of <code>loc</code> in <code>neotoma2</code> example <a
+in this case: <code>"pollen"</code>. Note that a more complex spatial
+extent, like a polygon, can be used with the <code>loc</code> argument
+in <code>RFossilpol::proc_neo_get_all_neotoma_datasets()</code>(see
+usage of <code>loc</code> in <code>neotoma2</code> example <a
 href="https://github.com/NeotomaDB/EPD_binder/blob/main/slides/slides2.pdf">here</a>).</p>
 </div>
 <div id="extract_samples.r" class="section level5">
@@ -720,15 +719,15 @@ compilation produced by the Workflow.</p>
 <p>Depositional information from each record gives information about the
 environments where a record was extracted. Based on the research
 question, there could be a preference for certain environments
-(e.g. terrestrial vs marine). Currently in Neotoma, the data about
+(e.g. terrestrial vs. marine). Currently in Neotoma, the data about
 depositional environments are organised in a hierarchical structure
 (e.g. “<em>Pond</em>” is nested in “<em>Natural Lake</em>”, which is
 nested in “<em>Lacustrine</em>”), in which the maximum number of nested
 layers is five. At the lowest hierarchical level, there are currently
 over 50 different categories of depositional environments (for fossil
 pollen records). Based on the selected records, the Workflow will
-produce a full list of all depositional environments (and their
-hierarchical position) presented in the data selection. The user is then
+produce a list of all depositional environments (and their hierarchical
+position) present in the user´s data selection. The user is then
 requested to define the environments of choice (this is a <a
 href="#data-storage"><strong><em>stop-check</em></strong></a> point, <a
 href="#figure-2figure-2">Fig. 2</a>). Note that excluding depositional
@@ -738,16 +737,16 @@ nested in it.</p>
 </div>
 <div id="extract_chron_control_tables.r" class="section level5">
 <h5><em>04_Extract_chron_control_tables.R</em></h5>
-<p>Each chronology has a chronology table that contains information
-about chronology control points used to construct an age-depth model.
-Some records can have multiple chronology tables as some records have
-been used for several projects or recalibrated (updated) by data
-stewards. These tables are numbered according to the order in which they
-were created and uploaded. Each chronology comes with the age-unit of
-the age-depth model output (e.g. “<em>Radiocarbon years BP</em>”,
-“<em>Calibrated radiocarbon years BP</em>”) and the temporal range of
-the record (youngest and oldest age). The chronologies in
-“<em>Radiocarbon years BP</em>” are often older chronologies as it is
+<p>Chronology data for each record is available in a table that contains
+information about chronology control points used to construct an
+age-depth model. Some records can have multiple chronology tables as
+some records have been used for several projects or recalibrated
+(updated) by data stewards. These tables are numbered according to the
+order in which they were created and uploaded. Each chronology comes
+with the age-unit of the age-depth model output (e.g. “<em>Radiocarbon
+years BP</em>”, “<em>Calibrated radiocarbon years BP</em>”) and the
+temporal range of the record (youngest and oldest age). The chronologies
+in “<em>Radiocarbon years BP</em>” are often older chronologies as it is
 now common practice to recalibrate radiocarbon-dated material and
 produce chronologies expressed in “<em>Calibrated radiocarbon years
 BP</em>”. Note: The chronologies in “<em>Calibrated radiocarbon years
@@ -758,9 +757,9 @@ per record based on the order defined by <code>chron_order</code> in the
 Config file (<a href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>2</strong>). Note: if more tables have the same age-unit type
 (e.g. Calibrated radiocarbon years BP), the Workflow will opt for the
-more recent table. The user can specify their preference for certain age
-unit types in the Config file. In addition, only records which have at
-least a certain number of control points (defined by
+more recent table. The user can specify their preference for certain
+age-unit types in the Config file. In addition, only records which have
+at least a certain number of control points (defined by
 <code>min_n_of_control_points</code> in the Config file, <a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>3</strong>) will be subsequently used.</p>
@@ -778,7 +777,7 @@ as defined in the Config file (<code>min_n_levels</code>, <a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>4</strong>). The minimum number of levels is by default selected
 as three but the user can change this setting.</p>
-<p>In the case of data derived from Neotoma, each pollen taxon has
+<p>In the case of data sourced from Neotoma, each pollen taxon has
 information about the ecological group (e.g. palms, mangroves, etc).
 Based on the selected records, the Workflow will produce a full list of
 all ecological groups after which the user is requested to define which
@@ -896,21 +895,21 @@ clade</td>
 <h3><strong>II. Data sourcing:
 <code>02_Other_source</code></strong></h3>
 <p>Our FOSSILPOL Workflow allows the use of other data source in
-combination with the Neotoma data. Including other data source is fully
+combination with the Neotoma data. Including other data sources is fully
 optional and can be skipped as indicated by
 <code>use_other_datasource</code> = <code>TRUE</code>/<code>FALSE</code>
 in the Config file.</p>
 <p>Any data can be used as long as it contains the following required
-information: a) meta information, b) depositional information, c)
-chronology information, d) level information, and e) pollen counts
-information. In order to prepare data for usage, user have to download
-<a
+information: a) metadata, b) depositional environment, c) chronology, d)
+level (age-depth), and e) pollen counts. In order to prepare data for
+usage, the user needs to download <a
 href="https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112">file
-template</a> specially prepared for this. Each pollen record needs to
-stored as separate file with <strong>unique</strong> name. We recommend
-e.g., <code>private_data_(insert_site_name).xlsx</code>. The <em>site
-name</em> in the filename is crusial as it will be compared againts all
-other pollen records in Neotoma. All files must be stored in
+template</a> specially prepared for this. Each pollen record needs to be
+stored as a separate file with <strong>unique</strong> name. We
+recommend e.g., <code>private_data_(insert_site_name).xlsx</code>. The
+<em>site name</em> in the filename is crucial as it will be compared
+against all other pollen records in Neotoma to test for potential
+duplicates in a later stage of the Workflow. All files must be stored in
 <code>/Data/Input/Other/</code> (or specified by <code>dir_files</code>
 argument, see below).</p>
 <div id="data-sourcing-other---scripts" class="section level4">
@@ -919,7 +918,7 @@ argument, see below).</p>
 <li><code>Run_01_02.R</code> - run all scripts within this folder</li>
 <li><a
 href="#id_01_import_other_datar"><code>01_Import_other_data.R</code></a>
-- source other data source and filter the records in a similar way as
+- source other data sources and filter the records in a similar way as
 Neotoma.</li>
 </ul>
 </div>
@@ -937,11 +936,11 @@ one record per file.</p></li>
 data using the <code>RFossilpol::import_datasets_from_folder()</code>
 function, with the following arguments:</p>
 <ul>
-<li><code>dir_files</code> - The user can specify which folder contains
-the prepared data (default = <code>Data/Input/Other/</code></li>
+<li><code>dir_files</code> - user can specify which folder contains the
+prepared data (default = <code>Data/Input/Other/</code></li>
 <li><code>suffix</code> - argument to keep track of the source of the
-data. Default is set to <code>"other"</code>, which mean that datasets
-can be easily identifiedas their name will be
+data. Default is set to <code>"other"</code>, which means that datasets
+can be easily identified as their name will be
 <code>(dataset id)_other</code></li>
 <li><code>source_of_data</code> - will flag the source of each dataset
 in the compilation in meta-data overview (see <a
@@ -951,14 +950,14 @@ href="#vii-outputs-07_outputs">section VII</a>). Default is set to
 dataset in the compilation in meta-data overview (see <a
 href="#vii-outputs-07_outputs">section VII - Outputs</a>). Default is
 set to <code>"restricted"</code></li>
-<li><code>pollen_percentage</code> - are pollen counts measured as
-proportions (e.g., from scanning of pollen diagrams). Deafult set to
-<code>FALSE</code></li>
+<li><code>pollen_percentage</code> - pollen counts measured as
+proportions (e.g., from scanning of pollen diagrams) can be flagged
+here. Default set to <code>FALSE</code></li>
 </ul></li>
-<li><p>Authors of data are extracted and added to the <a
+<li><p>Names of data contributors are extracted and added to the <a
 href="#id_02_extract_samplesr">Author-Dataset database</a> used in
-Author-dataset atribution (see <a href="#vii-outputs-07_outputs">section
-VII - Outputs</a>).</p></li>
+Author-dataset attribution (see <a
+href="#vii-outputs-07_outputs">section VII - Outputs</a>).</p></li>
 <li><p>Data are treated in a similar way as data from Neotoma, in terms
 of filtering by geographical location, number of levels (<a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
@@ -969,10 +968,11 @@ href="#figure-2figure-2">Fig. 2</a> - config criteria
 </div>
 </div>
 </div>
-<div id="iii.-initial-data-processing-03_merging_and_geography"
+<div
+id="iii.-initial-data-processing-03_merging_and_geographic_delineation"
 class="section level3">
 <h3><strong>III. Initial data processing:
-<code>03_Merging_and_geography</code></strong></h3>
+<code>03_Merging_and_geographic_delineation</code></strong></h3>
 <div id="initial-data-processing---scripts" class="section level4">
 <h4>Initial data processing - Scripts</h4>
 <ul>
@@ -988,8 +988,8 @@ class="section level4">
 <h4>Initial data processing - Description of individual scripts</h4>
 <div id="merge_datasets.r" class="section level5">
 <h5><em>01_Merge_datasets.R</em></h5>
-<p>After initial data processing, records from Neotoma and Other are
-merged together.</p>
+<p>After initial data processing, records from Neotoma and Other sources
+are merged together.</p>
 <div id="detection-of-duplicates" class="section level6">
 <h6>Detection of duplicates</h6>
 <p>There is a possibility that some datasets from the other data sources
@@ -1002,22 +1002,22 @@ follow. To do so, the user needs to specify that
 criteria <strong>7</strong>). The Workflow will start a simple
 subroutine using the function
 <code>RFossilpol::proc_filter_out_duplicates()</code>. Because comparing
-all records between groups to each other is relatively computationally
-demanding, the function will split the data into several groups using
-their geographical location (ca. 100 records per group). The user can
-define the number of groups using the <code>n_subgroups</code> argument.
-Next, each record from one source is compared to all records from the
-other source as long as they are within 1 degree radius (the assumption
-here is that duplicated records will be in a similar location). The user
-can define the maximum distance using the
-<code>max_degree_distance</code> argument. Finally, the Workflow will
-output a list of potential duplicated records (a <a
+all records within each data source to each other is relatively
+computationally demanding, the function will split the data into several
+groups using their geographical location (ca. 100 records per group).
+The user can define the number of groups using the
+<code>n_subgroups</code> argument. Next, each record from one source is
+compared to all records from the other source as long as they are within
+1 degree radius (the assumption here is that duplicated records will be
+in a similar location). The user can define the maximum distance using
+the <code>max_degree_distance</code> argument. Finally, the Workflow
+will output a list of potential duplicated records (a <a
 href="#data-storage"><strong><em>stop-check</em></strong></a> point, <a
 href="#figure-2figure-2">Fig. 2</a>). For each record-pair, the user
 must specify, which records should be deleted by writing <code>1</code>
 (deleting the Neotoma) or <code>2</code> (deleting the other data
-source) in the <code>delete</code> column (leaving <code>0</code> will
-leave both records in).</p>
+source) in the <code>delete</code> column of the created list (leaving
+<code>0</code> will leave both records in).</p>
 </div>
 <div id="additional-data-preparation" class="section level6">
 <h6>Additional data preparation</h6>
@@ -1037,17 +1037,17 @@ style</a>. In addition, the user can specify additional specific changes
 in names (e.g. based on presence of special characters) by adjusting the
 <code>user_name_patterns</code> argument (see example in the script).
 During this cleaning of taxa names, the Workflow will save
-<code>taxa_refrence_table</code> for back trackability to Neotoma
-taxonomy. The <code>taxa_refrence_table</code> is a CSV file saved in to
-same folder as harmonisation tables
+<code>taxa_refrence_table</code> for back traceability to Neotoma
+taxonomy. The <code>taxa_reference_table</code> is a CSV file saved in
+the same folder as the harmonisation tables
 (<code>Data/Input/Harmonisation_tables/</code>). More about <a
 href="#v-harmonisation-05_harmonisation">harmonisation
 process</a>.</p></li>
-<li><p>Individual levels are sorted by their depth for each record by
-<code>RFossilpol::proc_prepare_raw_count_levels()</code>. This includes
-subroutines, for example, only keeping levels present in all data
-tables, filtering out levels without pollen records, and taxa which are
-not present in any level.</p></li>
+<li><p>Individual levels (sample depths) are sorted by their depth for
+each record by <code>RFossilpol::proc_prepare_raw_count_levels()</code>.
+This includes subroutines, for example, only keeping levels present in
+all data tables, filtering out levels without pollen data, and taxa
+which are not present in any level.</p></li>
 <li><p>Spatial information for each record is assigned based on the
 provided geographical shapefiles. Specifically:</p>
 <ul>
@@ -1055,8 +1055,8 @@ provided geographical shapefiles. Specifically:</p>
 <code>Data/Input/Spatial/Regions_shapefile</code> will assign the
 regional names for each record (see <a href="#data-input">Data input
 Section</a>). The user can (and is recommended to) change the spatial
-delimitation of the data by altering the shapefile.</p></li>
-<li><p><strong>Political delimitation (countries)</strong> - obtained
+delineation of the data by altering or replacing the shapefile.</p></li>
+<li><p><strong>Political delineation (countries)</strong> - obtained
 from <a href="www.gadm.org">GADM database</a>, version 2.8, November
 2015.</p></li>
 <li><p><strong>Harmonisation region</strong> - the shapefile in
@@ -1073,7 +1073,7 @@ calibration curve needs to be assigned, as different curves are used for
 the northern and southern hemispheres, and for terrestrial and marine
 environments. See more details about <a
 href="#calibration-curves">calibration curves</a>.</p></li>
-<li><p><strong>Aditional</strong> - The user can add any additional
+<li><p><strong>Additional</strong> - The user can add any additional
 spatial delimitation (e.g. ecozones). This will require adding the
 specific shapefile (or TIF file) in
 <code>/Data/Input/Spatial/NAME_OF_FOLDER</code> and adjusting the R code
@@ -1100,10 +1100,10 @@ omitted</li>
 </div>
 <div id="iv.-chronologies-04_chronologies" class="section level3">
 <h3><strong>IV. Chronologies: <code>04_Chronologies</code></strong></h3>
-<p>To estimate the age of individual levels based on their depth, a
-chronology or age-depth model needs to be constructed. An age-depth
-model will provide age estimates of each individual level and the full
-age range of the record.</p>
+<p>To estimate the age of individual levels based on their depth, an
+age-depth model needs to be constructed based on the chronology data of
+the record. An age-depth model will provide age estimates of each
+individual level and the full age range of the record.</p>
 <p>Age-depth modelling can be very computationally heavy and can take a
 substantial amount of time. Therefore, the Workflow automatically
 processes several files (rds format):</p>
@@ -1140,15 +1140,15 @@ exists).</p></li>
 <li><p><code>calc_AD_models_denovo</code> in the Config file can be set
 to <code>FALSE</code> (this is the default). When set to
 <code>TRUE</code>, the Workflow will <strong>not</strong> use the
-<em>Age-depth-models</em> files (successful age-depth models) and to
+<em>Age-depth-models</em> files (successful age-depth models) and will
 re-calibrate everything “<em>de novo</em>”.</p></li>
-<li><p><code>predict_ages_denovo</code> in the Config file can be set to
-<code>FALSE</code> (this is the default). When set to <code>TRUE</code>,
-the Workflow will use all the age-depth model files but re-assigning the
-ages to each level of all related records (even for records where ages
-were successfully predicted). This is done, for instance, when the
-number of levels increased in a record between the Workflow run and ages
-still need to be assigned.</p></li>
+<li><p><code>predict_ages_denovo</code> in the Config file is set to
+<code>FALSE</code> as the default. When set to <code>TRUE</code>, the
+Workflow will use all the age-depth model files but re-assign the ages
+to each level of all related records (even for records where ages were
+successfully predicted). This is done, for instance, when the number of
+levels in a record increased since the last Workflow run and these
+levels still need to have ages assigned.</p></li>
 </ul>
 <p><strong>IMPORTANT NOTE</strong>: If you select both
 <code>calc_AD_models_denovo</code> and <code>predict_ages_denovo</code>
@@ -1183,20 +1183,17 @@ class="section level4">
 <h5><em>01_Prepare_chron_control_tables.R</em></h5>
 <p>Age-depth models are constructed using <em>chronology control
 points</em> (usually radiocarbon dates) with known depth, estimated age,
-and associated age uncertainties. Each record can have and should
-ideally have several such points saved in the <em>chronology control
-table</em>. Each chronology control point has the following
-properties:</p>
+and associated age uncertainties. Each record can and should ideally
+have several such points saved in the <em>chronology control table</em>.
+Each chronology control point has the following properties:</p>
 <ul>
 <li>Depth</li>
 <li>Estimated age</li>
 <li>Error of the estimated age</li>
 <li>Type of the chronology control point</li>
-<li>The calibration curve used
-<ul>
-<li>(which is needed to convert the raw radiocarbon ages to calendar
-ages (Note: radiocarbon <em>ages</em> are not true ages)).</li>
-</ul></li>
+<li>The calibration curve used (which is needed to convert the raw
+radiocarbon ages to calendar ages (Note: radiocarbon <em>ages</em> are
+not true calendar ages!)).</li>
 </ul>
 <p>This script will take several steps to prepare all records for
 age-depth modelling, specifically:</p>
@@ -1209,21 +1206,22 @@ carbon (if necessary))</li>
 <div id="calibration-curves" class="section level6">
 <h6>Calibration curves</h6>
 <p>Calibration curves are assigned to each control point based on
-several criteria. If a control point has a type flagged to be
-calibrated, a calibration curve is assigned based on the geographical
-position of the record. Note: only chronology control points in
-uncalibrated radiocarbon ages need recalibration. FOSSILPOL has a
-shapefile based on figure 7 in Hogg et al (2020) to correctly assigned
-IntCal20, SHCal20 and a mixed calibration curve to each record. We
-follow this recommendation “<em>…the use of (i) IntCal20 for areas north
-of the ITCZ in June-August (dashed lines in Figure 7) which receive NH
-air masses all year round, (ii) SHCal20 for areas south of ITCZ in
-December-February (dotted lines in Figure 7) which see SH air masses all
-year round, and (iii) a mixed curve for areas between the two seasonal
-ITCZ positions shown in Figure 7, which receive northern air masses in
-December-February and southern air masses in June-August.</em>”
-FOSSILPOL also comes with a mixed curve that was constructed using the
-<a href="https://github.com/ahb108/rcarbon"><code>{rcarbon}</code>
+several criteria. If a control point has a type flagged to be calibrated
+(see next section), a calibration curve is assigned based on the
+geographical position of the record. Note: only chronology control
+points of uncalibrated radiocarbon ages need recalibration. FOSSILPOL
+has a shapefile based on figure 7 in Hogg et al (2020) to correctly
+assigned IntCal20, SHCal20 and a mixed calibration curve to each record.
+We follow this recommendation “<em>…the use of (i) IntCal20 for areas
+north of the ITCZ in June-August (dashed lines in Figure 7) which
+receive NH air masses all year round, (ii) SHCal20 for areas south of
+ITCZ in December-February (dotted lines in Figure 7) which see SH air
+masses all year round, and (iii) a mixed curve for areas between the two
+seasonal ITCZ positions shown in Figure 7, which receive northern air
+masses in December-February and southern air masses in
+June-August.</em>” FOSSILPOL also comes with a mixed curve that was
+constructed using the <a
+href="https://github.com/ahb108/rcarbon"><code>{rcarbon}</code>
 package</a> with a proportion of curve contribution 1:1. See <a
 href="https://chrono.qub.ac.uk/blaauw/clam.html">more info</a> on mixed
 calibration curve use.</p>
@@ -1237,9 +1235,10 @@ This is caused by the deployment of nuclear weapons in the ’50s and
 radiocarbon measurements from material in the following decades to
 return often highly negative ages. Therefore, if the control point has a
 radiocarbon age younger than 200 yr BP, a <em>post-bomb calibration
-curve</em> is used instead. As with the normal calibration curves, the
-geographical location of the record is taken into account to assign the
-corresponding post-bomb calibration curve.</p>
+curve</em> is used instead (see further below). As with the normal
+calibration curves, the geographical location of the record is taken
+into account to assign the corresponding post-bomb calibration
+curve.</p>
 <p>Modern radiocarbon dates are calibrated by using one of the post-bomb
 calibration curves (<code>nh_zone_1</code>, <code>nh_zone_2</code>,
 <code>nh_zone_3</code>, <code>sh_zone_1_2</code>,
@@ -1257,44 +1256,45 @@ package</a>.</p>
 <div id="types-of-chronology-control-points" class="section level6">
 <h6>Types of chronology control points</h6>
 <p>Each control point in the control table has several properties:
-unique ID, depth, age, error, thickness, and chron control point type
-(e.g. radiocarbon, biostratigraphical, annual laminations). Each type of
-chronology control point has different age uncertainties. For instance,
-many older records relied on indirect dating techniques based on
-biostratigraphical layers, similar geological levels from other records
-(e.g. a volcanic event), and pollen-based levels (e.g. the appearance of
-a key taxon), among others and can have large age uncertainties into
-thousands of years. Neotoma has over 50 different chronology controls
-points that fall within the categories of geochronological
-(e.g. lead-210, radiocarbon, uranium-series), relative time scale
-(e.g. MIS5e, Heinrich Stadial 1, Late Wisconsin event), stratigraphic
-(e.g. biostratigraphic events such as the introduction of anthropogenic
-taxa), cultural (e.g. European Settlement Horizon), other absolute
-dating methods (e.g. annual laminations, collection date), and other
-dating methods (e.g. extrapolated or guesses). Only the chronology
+unique ID, depth, age, error, thickness, and chronology control point
+type (e.g. radiocarbon, biostratigraphic, annual laminations, tephra).
+Each type of chronology control point has different age uncertainties.
+For instance, many older records relied on indirect dating techniques
+based on biostratigraphic layers, similar geological levels from other
+records (e.g. a volcanic event), and pollen-based levels (e.g. the
+appearance of a key taxon), among others and can have large age
+uncertainties into thousands of years. Neotoma has over 50 different
+chronology controls points that fall within the categories of
+geochronological (e.g. lead-210, radiocarbon, uranium-series), relative
+time scale (e.g. MIS5e, Heinrich Stadial 1, Late Wisconsin event),
+stratigraphic (e.g. biostratigraphic events such as the introduction of
+anthropogenic taxa), cultural (e.g. European Settlement Horizon), other
+absolute dating methods (e.g. annual laminations, collection date), and
+other dating methods (e.g. extrapolated or guesses). Only the chronology
 control points in uncalibrated radiocarbon ages require recalibration
 with the calibration curves as most, if not all, other control points
 will be in calendar ages and no recalibration should be implemented.</p>
 <p>A user has the option to select which control point types should be
-accepted as-is and which should be calibrated (a <a
+accepted “as-is” and which should be calibrated (a <a
 href="#data-storage"><strong><em>stop-check</em></strong></a> point, <a
 href="#figure-2figure-2">Fig. 2</a>). The Workflow will automatically
 produce a list of all detected control points from all selected records,
-which includes columns called <code>include</code> (the user should
-indicate if the chronology control point should be included) and
-<code>calibrate</code> (the user should indicate if the point should be
-recalibrated using the calibration curves, mostly radiocarbon).</p>
+which includes columns called <code>include</code> and
+<code>calibrate</code>. In the first, the user should indicate if the
+chronology control point should be included. In latter, the user should
+indicate if the point should be recalibrated using the calibration
+curves, here uncalibrated radiocarbon ages.</p>
 </div>
 <div id="chronology-table-preparation" class="section level6">
 <h6>Chronology table preparation</h6>
 <p>The chronology control tables will need to undergo a number of
 user-defined adjustments:</p>
 <ul>
-<li><p>Filtering out unwanted control point types selected by user
+<li><p>filtering out unwanted control point types selected by user
 (defined by <a
 href="#data-storage"><strong><em>stop-check</em></strong></a> point, see
 above)</p></li>
-<li><p>Filtering out records that do not fulfil the minimal number of
+<li><p>filtering out records that do not fulfil the minimal number of
 control points (defined by <code>min_n_of_control_points</code> in the
 Config file, default = 2, <a href="#figure-2figure-2">Fig. 2</a> -
 config criteria <strong>8</strong>). The value
@@ -1304,21 +1304,21 @@ such requirements will be filtered out. Note that there is a trade-off
 between accepting only the tables with a high number of control points
 per time interval (more robust age-depth model) and the number of
 records that will be able to fulfil strict criteria.</p></li>
-<li><p>Fixing instances of missing values. Defined in the Config file,
+<li><p>fixing instances of missing values. Defined in the Config file,
 the values <code>default_thickness</code> (defined in the Config file,
 default = <code>1</code>, <a href="#figure-2figure-2">Fig. 2</a> -
 config criteria <strong>9</strong>) and <code>default_error</code>
 (default = <code>100</code>, <a href="#figure-2figure-2">Fig. 2</a> -
 config criteria <strong>10</strong>) will replace missing values
 (<code>NA</code>) for thickness and error, specifically.</p></li>
-<li><p>Filtering out control points with an error that is considered too
+<li><p>filtering out control points with an error that is considered too
 big. Any control point with an error bigger than
 <code>max_age_error</code> (defined in the Config file; default =
 <code>3000</code> yr, <a href="#figure-2figure-2">Fig. 2</a> - config
 criteria <strong>11</strong>) will be filtered out.</p></li>
-<li><p>Removing control points that are duplicated in terms of age
+<li><p>removing control points that are duplicated in terms of age
 and/or depth.</p></li>
-<li><p>In several cases, the chronology control point from the core-top
+<li><p>in several cases, the chronology control point from the core-top
 has a type specified as <code>guess</code>. A user can specify that the
 type <code>guess</code> is only acceptable to a certain depth using the
 <code>guess_depth</code> variable in the Config file (default is
@@ -1328,7 +1328,7 @@ criteria <strong>12</strong>)</p></li>
 <p>In addition, the number and distribution of such control points can
 give a good indicator of the temporal uncertainty around levels’ ages
 (Giesecke et al. 2014 [VHA], Flantua et al. 2016 [CP]). For example, a
-record with few chronology control points within the focus time period,
+record with few chronology control points within the focus time period
 will have large uncertainties of predicted ages. Hence, the information
 of the quality of chronologies, i.e. taking into account the types and
 levels of chronology control points, can be a criterion used in the
@@ -1398,15 +1398,15 @@ with each batch containing a certain number of records (see
 <code>batch size</code> in Config file, <a href="#figure-2figure-2">Fig.
 2</a> - config criteria <strong>13</strong>; by default it is based on
 the <code>number_of_cores</code>). If <code>number_of_cores</code> is
-selected (or detected) as <code>1</code>, the Workflow will no tuse the
-batch aproach (as obsolete) and estimate the age-depth models one-by-one
-(see below).</p>
+selected (or detected) as <code>1</code>, the Workflow will not use the
+batch approach (as obsolete) and estimate the age-depth models
+one-by-one (see below).</p>
 <p>Note that there is a possibility that the age-depth model estimation
-will crash for unforeseen reasons. Therefore, the Workflow is structured
-in a way that if an estimation of the whole batch crashes (freezes), the
-Workflow will skip that batch and continue with other batches. The user
-can specify how long the machine should wait before skipping the batch
-with the <code>time_per_record</code> argument in the
+will crash (freeze) for unforeseen reasons. Therefore, the Workflow is
+structured in a way that if an estimation of the whole batch crashes,
+the Workflow will skip that batch and continue with other batches. The
+user can specify how long the machine should wait before skipping the
+batch with the <code>time_per_record</code> argument in the
 <code>RFossilpol::chron_recalibrate_ad_models()</code> function.</p>
 <p>For each batch, the Workflow will try to estimate age-depth models
 three times. The user can specify the number of attempts by changing the
@@ -1433,7 +1433,7 @@ table for possible inconsistencies or other flaws that could be causing
 <div id="iterations" class="section level6">
 <h6>Iterations</h6>
 <p>In the Config file, the number of iterations is set to
-<code>50 000</code> by default, discarding the first <code>10 000</code>
+<code>50,000</code> by default, discarding the first <code>10,000</code>
 iterations (<em>burn-in</em>) and keeping every iteration beyond the
 burn-in with a step size of <code>40</code> (<em>thinning</em>) (<a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
@@ -1494,29 +1494,29 @@ present or the past.</p>
 <div id="merge_chron_output.r" class="section level5">
 <h5><em>05_Merge_chron_output.R</em></h5>
 <p>The successfully predicted ages are linked with all the records from
-various sources (Sections I-III). The individual levels of each record
-are then ordered by the predicted ages and the same order of levels is
-then applied to the tables with the pollen counts.</p>
+the various sources (Sections I-III). The individual levels of each
+record are then ordered by the predicted ages and the same order of
+levels is then applied to the tables with the pollen counts.</p>
 </div>
 </div>
 </div>
 <div id="v.-harmonisation-05_harmonisation" class="section level3">
 <h3><strong>V. Harmonisation:
 <code>05_Harmonisation</code></strong></h3>
-<p>The goal of taxonomic harmonisation is to standardise all taxons
-synonyms to the same morphotypes (i.e. the same set of taxon names are
-used for all pollen records) and thus reduce the effect of taxonomic
-uncertainty and nomenclatural complexity (See relevant literature in our
-manuscript in review in GEB). For this purpose, a <em>harmonisation
-table</em>, groups the morphotypes (type synonyms) into the highest
-taxonomic level that is most likely to be identified by most of the
-pollen analyst.</p>
+<p>The goal of taxonomic harmonisation is to standardise all site-level
+names to the same pollen morphotypes (set of pollen and spore
+morphotypes used for all pollen records) and thus reduce the effect of
+taxonomic uncertainty and nomenclatural complexity (See relevant
+literature in Appendix 1 of Flantua et al. 2023, GEB). For this purpose,
+a <em>harmonisation table</em> can be created that groups the
+morphotypes into the highest taxonomic level that is most likely to be
+identified by most of the pollen analysts.</p>
 <div id="harmonisation---scripts" class="section level4">
 <h4>Harmonisation - Scripts</h4>
 <ul>
 <li><code>Run_01_05.R</code> - run all scripts within this folder</li>
 <li><a href="#id_01_harmonisationr"><code>01_Harmonisation.R</code></a>
-- Prepare all harmonisation tables and harmonise the raw counts.</li>
+- prepare all harmonisation tables and harmonise the raw counts.</li>
 </ul>
 </div>
 <div id="harmonisation---description-of-individual-scripts"
@@ -1533,32 +1533,36 @@ href="#data-storage"><strong><em>stop-check</em></strong></a> point, <a
 href="#figure-2figure-2">Fig. 2</a>). If any table is missing (or the
 Workflow is run for the first time), the Workflow will automatically
 create a harmonisation table per harmonisation region, with all the raw
-taxa names from all the records from within that region.</p>
-<p>Each harmonisation table is created so each taxon can have two
+taxa names from all the records from within that region. Note that we
+refer here to “taxon names” for simplicity but the identification is
+often done at the level of family or genus, and are best referred to as
+morphotypes.</p>
+<p>Each harmonisation table is created so that each taxon can have two
 columns:</p>
 <ol style="list-style-type: lower-roman">
-<li><p><code>taxon_name</code> which is the original name of the taxa
-formatted into a more computer-friendly format
+<li><p><code>taxon_name</code> which is the original name of the taxon
+(morphotype) formatted into a more computer-friendly format
 (<em>snake_case</em>)</p></li>
 <li><p><code>level 1</code>, which should be used to merge various taxa
-into higher taxonomical units, specific for the project.</p></li>
+(morphotypes) into harmonised taxonomic units, specific for the
+project.</p></li>
 </ol>
-<p>Note that in order to link th names to the original display in
-Neotoma, user can use the <code>taxa_refrence_table</code> (see <a
+<p>Note that in order to link the names to the original display in
+Neotoma, user can use the <code>taxa_reference_table</code> (see <a
 href="#additional-data-preparation">name cleaning process</a>).</p>
 <p>The user can also define which taxa should be completely removed
 during the harmonisation process (marked as <code>delete</code>), in
-case of a taxonomic mistake or palaeoecological proxy not of interest,
+case of a taxonomic mistake or a palaeoecological proxy not of interest,
 e.g. spores). The user can add additional columns
 (e.g. <code>level_2</code>) and then specify which levels should be
 included by altering the argument <code>harm_name</code> when using the
 <code>RFossilpol::harmonise_all_regions()</code> function.</p>
 <p>With these tables, each dataset is harmonised so that all taxa that
-belong to the same harmonised taxa are summed together in each level
-(this process is applicable for both count and percentage data). This
-process includes automatic detection of successful pollen harmonisation
-by checking the total number of pollen grains before and after
-harmonisation (it can be turned off by changing the argument
+belong to the same harmonised taxa (morphotypes) are summed together in
+each level - this process is applicable for both count and percentage
+data. This process includes automatic detection of successful pollen
+harmonisation by checking the total number of pollen grains before and
+after harmonisation (it can be turned off by changing the argument
 <code>pollen_grain_test</code> to <code>FALSE</code> when using the
 <code>RFossilpol::harmonise_all_regions()</code> function).</p>
 </div>
@@ -1585,7 +1589,7 @@ href="#figure-2figure-2">Fig. 2</a> - config criteria
 out records that do not span the user-defined time period (defined by
 <code>young_age</code> and <code>old_age</code> in
 <code>Regional_age_limits</code> table; see <a
-href="#iii-initial-data-processing-03_merging_and_geography">Section
+href="#iii-initial-data-processing-03_merging_and_geographic_delineation">Section
 III</a>).</p></li>
 <li><p><code>filter_by_extrapolation</code> (<a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
@@ -1598,7 +1602,7 @@ href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>27</strong>) - if <code>TRUE</code>, the Workflow will filter
 out levels that are older than <code>end_of_interest_period</code>
 (defined in <code>Regional_age_limits</code> table; see <a
-href="#iii-initial-data-processing-03_merging_and_geography">Section
+href="#iii-initial-data-processing-03_merging_and_geographic_delineation">Section
 III</a>) to subsequently reduce processing time during follow-up
 analyses.</p></li>
 <li><p><code>filter_by_number_of_levels</code> (<a
@@ -1606,7 +1610,7 @@ href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>28</strong>) - if <code>TRUE</code>, the Workflow will filter
 out records based on the number of levels.</p></li>
 </ul>
-<p>In addition, two more options can be turned on by the user:</p>
+<p>In addition, two more options can be activated by the user:</p>
 <ul>
 <li><p><code>use_age_quantiles</code> (<a href="#figure-2figure-2">Fig.
 2</a> - config criteria <strong>30</strong>) - if <code>TRUE</code>, the
@@ -1647,9 +1651,9 @@ class="section level4">
 <p>The number of counted pollen grains at each level is an index of data
 quality. To obtain a reliable representation of the vegetation,
 researchers often aim to count more than <code>300</code> pollen grains
-(following Moore et al., 1991), but other recommendations may have been
-followed (&gt;<code>150</code>; e.g. Djamali &amp; Cilleros, 2020) and
-will vary with region and by scientific question (Birks &amp; Birks,
+(following Moore et al., 1991), but other recommendations may also have
+been followed (&gt;<code>150</code>; e.g. Djamali &amp; Cilleros, 2020)
+and will vary with region and by scientific question (Birks &amp; Birks,
 1980). For example, to achieve a representative sample of the regional
 pollen pool, counts in Arctic records may only reach c. <code>100</code>
 grains per level, whereas counts in Mediterranean sites can be as high
@@ -1662,7 +1666,7 @@ local pollen production in arctic or alpine environments. Given that
 statistical inferential power is proportional to sample size, we
 recommend defining a minimum number of total pollen grains in each
 level. Subsequently, whole records can be selected on the proportion of
-levels with a 344 selected minimum number of pollen grains counted per
+levels with a selected minimum number of pollen grains counted per
 level.</p>
 <p>The user can select two different quantities of total pollen grains
 per level: a) minimum number (<code>min_n_grains</code>, <a
@@ -1685,7 +1689,7 @@ will be of interest to the particular project. Therefore, records that
 do not span a certain age period (from <code>young_age</code> to
 <code>old_age</code>; specified by the <code>Regional_age_limits</code>
 table, see <a
-href="#iii-initial-data-processing-03_merging_and_geography">Section
+href="#iii-initial-data-processing-03_merging_and_geographic_delineation">Section
 III</a>) will be filtered out. This filtration criterion will only be
 used if <code>filter_by_age_limit</code> == <code>TRUE</code> in the
 Config file.</p>
@@ -1700,9 +1704,10 @@ increasingly large uncertainty as the amount of extrapolation increases.
 To limit the use of levels based on large extrapolations, we recommend
 selecting a maximum extrapolation age, i.e. levels older than the
 selected age criterion (e.g. <code>5000</code> yr) from the last
-chronology control point are filtered out. In order to limit the use of
-levels based on large extrapolations, the user can select the maximum
-extrapolation age (<code>maximum_age_extrapolation</code>, <a
+chronology control point are filtered out.</p>
+<p>In order to limit the use of levels based on large extrapolations,
+the user can select the maximum extrapolation age
+(<code>maximum_age_extrapolation</code>, <a
 href="#figure-2figure-2">Fig. 2</a> - config criteria
 <strong>26</strong>), i.e. levels older than the selected criterion from
 the last chronology control point will be filtered out. This filtration
@@ -1724,16 +1729,14 @@ in the Config file.</p>
 criterion for further use of such a record in a specific analysis.
 Records might have been sampled at low resolution (e.g. depth intervals
 &gt; 30 cm) leaving substantial unassessed gaps - and thus time periods
-- between levels. In addition, records with few levels will contribute
-poorly to studies focused on specific time periods and can result in
-outlier values. Therefore, we recommend selecting a minimum number of
-levels within the time period of interest and use this as an additional
-criterion to filter out unwanted records. In addition, records with few
-levels will likely contribute poorly to studies focused on specific time
-periods (many non-value levels) and can cause unnecessary outlier
-values. Therefore, the user can select the minimum number of levels
+- between levels. In addition, records with few levels will likely
+contribute poorly to studies focused on specific time periods (many
+non-value levels) and can cause unnecessary outlier values. Therefore,
+we recommend selecting a minimum number of levels within the time period
+of interest and use this as an additional criterion to filter out
+unwanted records. The user can select the minimum number of levels
 (<code>min_n_levels</code>, <a href="#figure-2figure-2">Fig. 2</a> -
-config criteria <strong>29</strong>) which records must have at the end
+config criteria <strong>29</strong>) that records must have at the end
 of the filtration subroutine. This filtration criterion will only be
 used if <code>filter_by_number_of_levels</code> == <code>TRUE</code> in
 the Config file.</p>
@@ -1770,8 +1773,8 @@ saved in the <code>/Outputs/Figures/Pollen_diagrams/</code> folder and
 split into sub-folders defined by <em>Region</em> (e.g., continent).</p>
 <p>The <code>RFossilpol::plot_all_pollen_diagrams()</code> function will
 automatically produce a PDF of the pollen diagram split into several A4
-pages ready to be printed out. The y-axis is, by default, the age of the
-levels, but it can be altered to depth (by the <code>y_var</code>
+pages and ready to be printed out. The y-axis is, by default, the age of
+the levels, but it can be altered to depth (by the <code>y_var</code>
 argument set to <code>"age"</code> or <code>"depth"</code>). The maximum
 number of taxa per page can be altered by the <code>max_taxa</code>
 argument (default = <code>20</code>). In addition, the function will
@@ -1789,72 +1792,76 @@ href="https://tibble.tidyverse.org/"><code>{tibble}</code> package</a>
 from <a href="https://www.tidyverse.org/">tidyverse</a>) in
 <code>rds</code> format.</p>
 <p>The user can select which columns (variables) should be present in
-the final data by selecting <code>select_final_variables</code> ==
-<code>TRUE</code> in the Config file. In that case, the Workflow will
-interactively (in the R console) ask the user to specify if each
-variable should be included (Yes/No).</p>
+the final data compilation by selecting
+<code>select_final_variables</code> == <code>TRUE</code> in the Config
+file. Here, the Workflow will interactively (in the R console) ask the
+user to specify if each variable should be included (Yes/No).</p>
 </div>
 <div id="save_references.r" class="section level5">
 <h5><em>03_Save_references.R</em></h5>
-<p>The workflow will save all important information used for referencing
-the dataset compilation. All of outputs can be found in the
+<p>The workflow will save all metadata and citation information needed
+to create the dataset compilation. All outputs can be found in the
 <code>/Outputs/Meta_and_references/</code> folder. The
 function<code>RFossilpol::proc_save_references()</code> will do this
-automatically but it can be specified by the used, e.g., the user can
-specify which references should be saved using the
-<code>user_sel_variables</code> argument. By default those contain:</p>
+automatically but it can be specified by the user, i.e. the user can
+specify what information should be saved using the
+<code>user_sel_variables</code> argument. By default this information
+contains:</p>
 <ul>
 <li><p><code>"meta_table"</code> - a <em>metadata table</em>
-(<code>data_assembly_meta.csv</code>) contains by default (note that
-this list may be altered by changing the final variables by
-<code>select_final_variables</code>):</p>
+(<code>data_assembly_meta.csv</code>) contains the following variables
+by default (note that this list may be altered by changing the final
+variables by <code>select_final_variables</code>):</p>
 <ul>
 <li>the list of all records in the final dataset compilation</li>
-<li>information about geographical location</li>
+<li>geographical location</li>
 <li>depositional environment</li>
 <li>assigned continental region</li>
 <li>assigned harmonisation region</li>
 <li>final number of levels</li>
 <li>number of chronology control points used for age-depth
 modelling</li>
-<li>assigned calibration curve</li>
-<li>age limits of each record data source (Neotoma or other)</li>
+<li>assigned calibration curve(s)</li>
+<li>age limits of each record of each data source (Neotoma or other data
+source)</li>
 <li>DOI (from Neotoma).</li>
 </ul></li>
 <li><p><code>"author_table"</code> - a <em>reference table</em>
 (<code>authors_meta.csv</code>) containing information about the
 datasets used, the main data contributor, and their contact
 information.</p></li>
-<li><p><code>"affiliation_table"</code> - If an affiliation is provided
+<li><p><code>"affiliation_table"</code> - if an affiliation is provided
 with the data from sources other than Neotoma, the <em>affiliation
 table</em> (<code>affiliation_table</code>) is also exported linking
 affiliations and their authors.</p></li>
 <li><p><code>"graphical_summary"</code> - a PDF
-(<code>graphical_summary*.pdf</code>) with three panel figure using
+(<code>graphical_summary*.pdf</code>) with three panel figures using
 <code>RFossilpol::plot_graphical_summary()</code> function (note that
 additional arguments can be passed to this function, see
 <code>?RFossilpol::plot_graphical_summary</code> for more
 information):</p>
 <ul>
 <li><ol style="list-style-type: upper-alpha">
-<li>Map - map of geographical location with each record represented as a
+<li>map - map of geographical location with each record represented as a
 point</li>
 </ol></li>
 <li><ol start="2" style="list-style-type: upper-alpha">
-<li>Count of data - A lollipop plot with a number of records in each
-group</li>
+<li>count of data records- a lollipop plot with the number of records in
+each geographical group when assigned</li>
 </ol></li>
 <li><ol start="3" style="list-style-type: upper-alpha">
-<li>age length - age limits of records, with ech record represented by a
-single line</li>
+<li>age length - age limits of records, with each record represented by
+a single line</li>
 </ol></li>
 </ul></li>
-<li><p><code>"reproducibility_bundle"</code> - a a zip file
+<li><p><code>"reproducibility_bundle"</code> - a zip file
 (<code>reproducibility_bundle.zip</code>) of the Config file, all <a
 href="#data-storage"><strong><em>stop-check</em></strong></a> CSV
-tables, and all shapefiles. The idea is that such zip files can be
-shared when publishing any results gathered in a project created using
-the FOSSILPOL Workflow to increase the reproducibility of work.</p></li>
+tables, and all shapefiles. The idea is to increase the reproducibility
+of the user´s workflow where ideally this zip file can be shared when
+publishing a publication with a project created using the FOSSILPOL
+Workflow. For reviewing purposes, the zip file can be shared and
+detailed feedback can be provided before publication.</p></li>
 </ul>
 </div>
 </div>
@@ -1863,20 +1870,27 @@ the FOSSILPOL Workflow to increase the reproducibility of work.</p></li>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>
+<li><p>Birks, H.J.B., Birks, H.H. (1980) Quaternary palaeoecology. E.
+Arnold, London. 289 pages.</p></li>
 <li><p>Djamali, M., Cilleros, K. (2020) Statistically significant
 minimum pollen count in Quaternary pollen analysis; the case of
 pollen-rich lake sediments. Review of Palaeobotany and Palynology 275,
 pp.104156. ff10.1016/j.revpalbo.2019.104156</p></li>
-<li><p>Giesecke, T., Davis, B., Brewer, S. et al. (2014) Towards mapping
-the late Quaternary vegetation change of Europe. Vegetation History and
-Archaeobotany 23, 75-86. <a
-href="https://doi.org/10.1007/s00334-012-0390-y"
-class="uri">https://doi.org/10.1007/s00334-012-0390-y</a></p></li>
 <li><p>Flantua, S. G. A., Blaauw, M., &amp; Hooghiemstra, H. (2016).
 Geochronological database and classification system for age
 uncertainties in Neotropical pollen records. Climate of the Past, 12(2),
 387-414. <a href="https://doi.org/10.5194/cp-12-387-2016"
 class="uri">https://doi.org/10.5194/cp-12-387-2016</a></p></li>
+<li><p>Flantua, S.G.A., Mottl, O., Felde, V.A., Bhatta, K.P., Birks,
+H.H., Grytnes, J-A., Seddon, A.W.R., Birks H.J.B. (in press) A guide to
+the processing and standardisation of global palaeoecological data for
+large-scale syntheses using fossil pollen. Global Ecology and
+Biogeography.</p></li>
+<li><p>Giesecke, T., Davis, B., Brewer, S. et al. (2014) Towards mapping
+the late Quaternary vegetation change of Europe. Vegetation History and
+Archaeobotany 23, 75-86. <a
+href="https://doi.org/10.1007/s00334-012-0390-y"
+class="uri">https://doi.org/10.1007/s00334-012-0390-y</a></p></li>
 <li><p>Reimer, P. J., Brown, T.A., Reimer, R.W. (2004) Discussion:
 Reporting and Calibration of Post-Bomb 14C Data Radiocarbon 46,
 1299-1304. <a href="https://doi.org/10.1017/S0033822200033154"

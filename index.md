@@ -14,19 +14,19 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access manuscript in Global Ecology and Biogeography (currently under review)
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access publication in Global Ecology and Biogeography (Flantua et al. 2023, in press)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
-* **[`{RFossilpol}` package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow.
+* **[`{RFossilpol}` package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow
 
-* **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow.
+* **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website/step_by_step_guide.html)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow
 
-* **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - Example of the FOSSILPOL workflow applied to fossil pollen records in northern Europe
+* **[Scandinavia example](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** - A case study example of the FOSSILPOL workflow being applied to fossil pollen records from northern Europe
 
 * **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues)** - Specific GitHub repository to manage all Issues detected in the FOSSILPOL workflow
 
-* **[Future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Overview of the future updates we plan to do on the FOSSILPOL workflow and R-package.
+* **[Future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** - Overview of the future updates we plan to do on the FOSSILPOL workflow and R-package
 
 ## Website pages
 
@@ -42,4 +42,4 @@ The version of the FOSSILPOL workflow: **0.0.2**
 
 The version of the `{RFossilpol}` R-package: **0.0.2**
 
-The version of the FOSSILPOL website: **0.0.2**
+The version of the FOSSILPOL website: **0.0.3**
