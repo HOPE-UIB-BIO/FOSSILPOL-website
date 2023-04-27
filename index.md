@@ -42,4 +42,4 @@ The project consists of several sections:
 
 * `{RFossilpol}` R-package: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
 
-* FOSSILPOL website: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
+* FOSSILPOL website: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/releases)
