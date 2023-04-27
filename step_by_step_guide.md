@@ -466,7 +466,7 @@ The successfully predicted ages are linked with all the records from the various
 
 ### **V. Harmonisation: `05_Harmonisation`**
 
-The goal of taxonomic harmonisation is to standardise all site-level names to the same pollen morphotypes (set of pollen and spore morphotypes used for all pollen records) and thus reduce the effect of taxonomic uncertainty and nomenclatural complexity (See relevant literature in Appendix 1 of Flantua et al. 2023, GEB).  For this purpose, a *harmonisation table* can be created that groups the morphotypes into the highest taxonomic level that is most likely to be identified by most of the pollen analysts. 
+The goal of taxonomic harmonisation is to standardise all site-level names to the same pollen morphotypes (set of pollen and spore morphotypes used for all pollen records) and thus reduce the effect of taxonomic uncertainty and nomenclatural complexity (See relevant literature in Appendix 1 of Flantua et al. 2023, GEB).  For this purpose, a *harmonisation table* can be created that groups the morphotypes into the highest taxonomic level that is most likely to be identified by most of the pollen analysts.
 
 #### Harmonisation - Scripts
 
@@ -477,7 +477,7 @@ The goal of taxonomic harmonisation is to standardise all site-level names to th
 
 ##### *01_Harmonisation.R*
 
-First, the Workflow will check the *harmonisation regions* present in the data, defined by the shapefile (see [Data input](#data-input) and [Section III](#additional-data-preparation)), and confirm that there is one harmonisation table per region (a [***stop-check***](#data-storage) point, [Fig. 2](#figure-2figure-2)). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the records from within that region. Note that we refer here to "taxon names" for simplicity but the identification is often done at the level of family or genus, and are best referred to as morphotypes. 
+First, the Workflow will check the *harmonisation regions* present in the data, defined by the shapefile (see [Data input](#data-input) and [Section III](#additional-data-preparation)), and confirm that there is one harmonisation table per region (a [***stop-check***](#data-storage) point, [Fig. 2](#figure-2figure-2)). If any table is missing (or the Workflow is run for the first time), the Workflow will automatically create a harmonisation table per harmonisation region, with all the raw taxa names from all the records from within that region. Note that we refer here to "taxon names" for simplicity but the identification is often done at the level of family or genus, and are best referred to as morphotypes.
 
 Each harmonisation table is created so that each taxon can have two columns:
 
@@ -497,11 +497,11 @@ To obtain a comprehensive dataset compilation of multiple fossil pollen records,
 
 - `filter_by_pollen_sum` ([Fig. 2](#figure-2figure-2) - config criteria **20**) - if `TRUE`, the Workflow will use the quantity of counted pollen grains at each level as a factor in determining the quality of the level.
 
-- `filter_by_age_limit` ([Fig. 2](#figure-2figure-2) - config criteria **24**) - if `TRUE`, the Workflow will filter out records that do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see [Section III](#iii-initial-data-processing-03_merging_and_geography)).
+- `filter_by_age_limit` ([Fig. 2](#figure-2figure-2) - config criteria **24**) - if `TRUE`, the Workflow will filter out records that do not span the user-defined time period (defined by `young_age` and `old_age` in `Regional_age_limits` table; see [Section III](#iii-initial-data-processing-03_merging_and_geographic_delineation)).
 
 - `filter_by_extrapolation`  ([Fig. 2](#figure-2figure-2) - config criteria **25**) - if `TRUE`, the Workflow will filter out levels based on the number of years between their age and the last chronology control point used for age-depth modelling (`chron_control_limits`).
 
-- `filter_by_interest_region` ([Fig. 2](#figure-2figure-2) - config criteria **27**) - if `TRUE`, the Workflow will filter out levels that are older than `end_of_interest_period` (defined in `Regional_age_limits` table; see [Section III](#iii-initial-data-processing-03_merging_and_geography)) to subsequently reduce processing time during follow-up analyses.
+- `filter_by_interest_region` ([Fig. 2](#figure-2figure-2) - config criteria **27**) - if `TRUE`, the Workflow will filter out levels that are older than `end_of_interest_period` (defined in `Regional_age_limits` table; see [Section III](#iii-initial-data-processing-03_merging_and_geographic_delineation)) to subsequently reduce processing time during follow-up analyses.
 
 - `filter_by_number_of_levels` ([Fig. 2](#figure-2figure-2) - config criteria **28**) - if `TRUE`, the Workflow will filter out records based on the number of levels.
 
@@ -528,7 +528,7 @@ The user can select two different quantities of total pollen grains per level: a
 
 ###### Age criteria
 
-As projects differ in their temporal focus, only a subset of records will be of interest to the particular project. Therefore, records that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table, see [Section III](#iii-initial-data-processing-03_merging_and_geography)) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE` in the Config file.
+As projects differ in their temporal focus, only a subset of records will be of interest to the particular project. Therefore, records that do not span a certain age period (from `young_age` to `old_age`; specified by the `Regional_age_limits` table, see [Section III](#iii-initial-data-processing-03_merging_and_geographic_delineation)) will be filtered out. This filtration criterion will only be used if `filter_by_age_limit` == `TRUE` in the Config file.
 
 ###### Level age extrapolation
 
@@ -592,11 +592,11 @@ The workflow will save all metadata and citation information needed to create th
   - B) count of data records- a lollipop plot with the number of records in each geographical group when assigned
   - C) age length - age limits of records, with each record represented by a single line
 
-- `"reproducibility_bundle"` - a zip file (`reproducibility_bundle.zip`) of the Config file, all [***stop-check***](#data-storage) CSV tables, and all shapefiles. The idea is to increase the reproducibility of the user´s workflow where ideally this zip file can be shared when publishing a publication with a project created using the FOSSILPOL Workflow. For reviewing purposes, the zip file can be shared and detailed feedback can be provided before publication. 
+- `"reproducibility_bundle"` - a zip file (`reproducibility_bundle.zip`) of the Config file, all [***stop-check***](#data-storage) CSV tables, and all shapefiles. The idea is to increase the reproducibility of the user´s workflow where ideally this zip file can be shared when publishing a publication with a project created using the FOSSILPOL Workflow. For reviewing purposes, the zip file can be shared and detailed feedback can be provided before publication.
 
 ## References
 
-- Birks, H.J.B., Birks, H.H. (1980) Quaternary palaeoecology. E. Arnold, London. 289 pages. 
+- Birks, H.J.B., Birks, H.H. (1980) Quaternary palaeoecology. E. Arnold, London. 289 pages.
 
 - Djamali, M., Cilleros, K. (2020) Statistically significant minimum pollen count in Quaternary pollen analysis; the case of pollen-rich lake sediments. Review of Palaeobotany and Palynology 275, pp.104156. ff10.1016/j.revpalbo.2019.104156
 
