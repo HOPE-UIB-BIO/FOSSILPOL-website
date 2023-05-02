@@ -14,7 +14,7 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen]()** - An open-access publication in *Global Ecology and Biogeography* (Flantua et al. 2023, in press)
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen](https://onlinelibrary.wiley.com/doi/10.1111/geb.13693)** - An open-access publication in *Global Ecology and Biogeography* (Flantua et al. 2023)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
