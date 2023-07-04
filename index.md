@@ -1,4 +1,4 @@
-# FOSSILPOL project<img src="figures/fossilpol_logo.png" align="right" width="400" />
+# FOSSILPOL project<img src="figures/Logo FOSSILPOL big - 600ppi.png" align="right" width="400" />
 
 This website presents all information needed about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
 

@@ -1,4 +1,4 @@
-# FOSSILPOL project<img src="figures/fossilpol_logo.png" align="right" width="200" />
+# FOSSILPOL project<img src="figures/Logo FOSSILPOL regular - 600ppi.png" align="right" width="200" />
 
 - [FOSSILPOL project](#fossilpol-project)
   - [General information](#general-information)
@@ -17,7 +17,13 @@ The FOSSILPOL workflow is coded as an [RStudio project](https://support.posit.co
 
 The FOSSILPOL workflow has been developed for processing fossil pollen data in the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en).
 
-### Figure 1![Figure 1](figures/Workflow_MainText_Summary.png)
+The FOSSILPOL logo and Figure 1 have been created by amazing [MilanTvM](www.milantvm.com)
+
+<br>
+
+### Figure 1![Figure 1](figures/Workflow complete - 600ppi.png)
+
+<br>
 
 ## How to obtain the workflow
 
