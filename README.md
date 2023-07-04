@@ -1,4 +1,4 @@
-# FOSSILPOL website <img src="figures/fossilpol_logo.png" align="right" width="400" />
+# FOSSILPOL website <img src="figures/Logo FOSSILPOL regular - 600ppi.png" align="right" width="400" />
 
 <!-- badges: start -->
 [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/releases)

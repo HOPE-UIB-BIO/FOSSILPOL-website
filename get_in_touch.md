@@ -1,6 +1,4 @@
----
-title: Get in touch
----
+# Get in touch <img src="figures/Logo FOSSILPOL regular - 600ppi.png" align="right" width="200" />
 
 We would love to build a community around FOSSILPOL and there are various ways to get in touch and grow together.
 

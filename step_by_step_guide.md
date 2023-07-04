@@ -1,6 +1,4 @@
----
-title: A step-by-step guide to data processing with FOSSILPOL
----
+# A step-by-step guide to data processing with FOSSILPOL <img src="figures/Logo FOSSILPOL regular - 600ppi.png" align="right" width="200" />
 
 - [Summary](#summary)
   - [Figure 1](#figure-1)
@@ -67,7 +65,7 @@ title: A step-by-step guide to data processing with FOSSILPOL
 
 The FOSSILPOL Workflow is structured in a modular manner, where all steps are organised sequentially and guided by one main configuration file (*Config file*) where all criteria and setup configurations are pre-defined by the user.
 
-### Figure 1![Figure 1](figures/Workflow_MainText_Summary.png)
+### Figure 1![Figure 1](figures/Workflow complete - 600ppi.png)
 
 ## Data input
 
