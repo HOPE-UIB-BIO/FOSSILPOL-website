@@ -17,7 +17,7 @@ The FOSSILPOL workflow is coded as an [RStudio project](https://support.posit.co
 
 The FOSSILPOL workflow has been developed for processing fossil pollen data in the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en).
 
-The FOSSILPOL logo and Figure 1 have been created by amazing [MilanTvM](www.milantvm.com)
+The FOSSILPOL logo and Figure 1 have been created by amazing [MilanTvM](https:/www.milantvm.com)
 
 <br>
 
