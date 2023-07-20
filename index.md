@@ -36,6 +36,8 @@ The project consists of several sections:
 
 * [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration
 
+* [Other materials](other_materials.html) - Additional materials related to the FOSSILPOL project.
+
 ## Versions
 
 * FOSSILPOL workflow: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-workflow?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases)

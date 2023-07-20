@@ -9,3 +9,5 @@ navbar:
       href: step_by_step_guide.html
     - text: "Get in touch!"
       href: get_in_touch.html
+    - text: "Other materials"
+      href: other_materials.html
