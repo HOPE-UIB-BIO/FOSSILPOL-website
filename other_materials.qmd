@@ -1,3 +1,9 @@
+---
+date: 2022/02/22
+date-format: long
+date-modified: last-modified
+---
+
 # Other materials
 
 We will be placing additional material (e.g., presentations, posters) about the FOSSILPOL project here.

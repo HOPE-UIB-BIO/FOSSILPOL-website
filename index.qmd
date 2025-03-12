@@ -1,8 +1,19 @@
-# FOSSILPOL project<img src="figures/Logo FOSSILPOL big - 600ppi.png" align="right" width="400" />
+---
+date: 2022/02/22
+date-format: long
+date-modified: last-modified
+---
+
+# FOSSILPOL project
+
+:::: {.columns}
+
+::: {.column width="55%"}
+## Summary
 
 This website presents all information needed about the FOSSILPOL workflow that aims to process and standardise global palaeoecological pollen data.
 
-## Authors
+### Authors
 
 The FOSSILPOL workflow has been developed during the ERC project called the [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) team at the [University of Bergen](https://www.uib.no/en):
 
@@ -10,15 +21,33 @@ Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilar
 
 \* shared first authors
 
+[Ondřej Mottl](https://ondrejmottl.github.io/) is the main maintainer of the FOSSILPOL project
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+
+<br>
+<br>
+<br>
+
+![](/figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png)
+:::
+
+::::
+
 ## Project sections
 
 The project consists of several sections:
 
-* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen](https://onlinelibrary.wiley.com/doi/10.1111/geb.13693)** - An open-access publication in *Global Ecology and Biogeography* (Flantua et al. 2023)
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen](https://doi.org/10.1111/geb.13693)** - An open-access publication in *Global Ecology and Biogeography* (Flantua et al. 2023)
 
 * **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** - A tool to process multiple fossil pollen records to create a comprehensive, standardised dataset compilation, ready for multi-record and multi-proxy analyses (coded in the R environment)
 
-* **[`{RFossilpol}` package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow
+* **[{RFossilpol} package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** - An R-package developed specifically to provide tools and functions for the FOSSILPOL workflow
 
 * **[Website](https://hope-uib-bio.github.io/FOSSILPOL-website)** - A main hub of all information about the FOSSILPOL project, including a step-by-step guide for users of FOSSILPOL with a description of the most important functions and user criteria throughout the workflow
 
@@ -30,18 +59,18 @@ The project consists of several sections:
 
 ## Website pages
 
-* [General information](about.html) - Information about how to obtain, set up, and run the FOSSILPOL project
+* [General information](about.qmd) - Information about how to obtain, set up, and run the FOSSILPOL project
 
-* [A step-by-step guide](step_by_step_guide.html) - Detailed information about individual steps of the data processing
+* [A step-by-step guide](step_by_step_guide.qmd) - Detailed information about individual steps of the data processing
 
-* [Get in touch!](get_in_touch.html) - Information about the community, future updates, issue reporting, and potential collaboration
+* [Get in touch!](get_in_touch.qmd) - Information about the community, future updates, issue reporting, and potential collaboration
 
-* [Other materials](other_materials.html) - Additional materials related to the FOSSILPOL project.
+* [Other materials](other_materials.qmd) - Additional materials related to the FOSSILPOL project.
 
-## Versions
+## Current versions
 
 * FOSSILPOL workflow: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-workflow?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases)
 
-* `{RFossilpol}` R-package: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
+* {RFossilpol} R-package: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
 
 * FOSSILPOL website: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/releases)

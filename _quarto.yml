@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: FOSSILPOL project
+  navbar:
+    title: FOSSILPOL project
+    left:
+      - text: General Information
+        href: about.qmd
+      - text: A step-by-step guide
+        href: step_by_step_guide.qmd
+      - text: Get in touch!
+        href: get_in_touch.qmd
+      - text: Other materials
+        href: other_materials.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

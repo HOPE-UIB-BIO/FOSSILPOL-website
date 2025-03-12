@@ -1,4 +1,10 @@
-# Get in touch <img src="figures/Logo FOSSILPOL regular - 600ppi.png" align="right" width="200" />
+---
+date: 2022/02/22
+date-format: long
+date-modified: last-modified
+---
+
+# Get in touch
 
 We would love to build a community around FOSSILPOL and there are various ways to get in touch and grow together.
 
@@ -14,7 +20,7 @@ Consider the following steps before and when opening a new Issue:
 
 1. Have you or someone else asked about it at the [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions)? The "Q&A" section is perfect for that!
 
-2. Have you checked that similar issues may have been already reported? The issue tracker has a filter function to search for keywords in open Issues. You can narrow down the search using `labels`:label: as filters. See [Labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) for more information. As a general rule, we don't assign issues to anyone.
+2. Have you checked that similar issues may have been already reported? The issue tracker has a filter function to search for keywords in open Issues. You can narrow down the search using `labels`🏷️ as filters. See [Labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) for more information. As a general rule, we don't assign issues to anyone.
 
 To open a new Issue:
 
@@ -22,7 +28,7 @@ To open a new Issue:
 
 2. Describe your problem in as much detail as possible. The issue should state what the problem is, what the expected behaviour should be, and, maybe, suggest a solution. Note that you can also attach files (e.g. sample data, R code, etc.) or images to the issue.
 
-3. Select a suitable `label`:label: from the drop-down menu called **Labels**.
+3. Select a suitable `label`🏷️ from the drop-down menu called **Labels**.
 
 4. Click on the green **Submit new issue** button and wait for a reply.
 
@@ -36,7 +42,7 @@ We also use the [Issues page](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/i
 
 3. Describe your feature as detailed as possible. What is the expected behaviour? What packages we should use? Note that you can also attach files or images to the Issue.
 
-4. Select a suitable `label`:label: from the drop-down menu called **Labels**.
+4. Select a suitable `label`🏷️ from the drop-down menu called **Labels**.
 
 5. Click on the green **Submit new issue** button and wait for a reply.
 
@@ -87,7 +93,7 @@ procedure:
 
 * See how it is done in the codebase.
 * See what [Advanced R by Hadley Wickham](http://adv-r.had.co.nz/Style.html) convention says and choose something that is close to the codebase.
-* If all else fails, ask on [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions) :)
+* If all else fails, ask on [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions)
 
 ### Submitting Pull Requests
 
