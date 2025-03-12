@@ -29,6 +29,55 @@ $coral: #eb5f56 !default;
 $orange: #ff9714 !default;
 $green: #6c6934 !default;
 
+.text-background-grey {
+  background-color: $grey;
+  color: $black;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-blue {
+  background-color: $blue;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-purple {
+  background-color: $purple;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-pink {
+  background-color: $pink;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-coral {
+  background-color: $coral;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-orange {
+  background-color: $orange;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
+.text-background-green {
+  background-color: $green;
+  color: $white;
+  padding: $smallMargin;
+  border-radius: 5px;
+}
+
 $body-color: $black;
 $backgroundColor: $white;
 
@@ -42,11 +91,18 @@ $headingFont: "Tahoma" !default;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
 $headingTextShadow: none;
-$headingFontWeight: normal;
+$headingFontWeight: bold;
 
 $heading1Size: 36pt;
 $heading2Size: 34pt;
 $heading3Size: 32pt;
+$heading4Size: 20pt;
+$heading5Size: 16pt;
+$heading6Size: 14pt;
+
+.bold {
+  font-weight: bold;
+}
 
 // Layout
 $content-max-width: 900px;
@@ -89,12 +145,39 @@ h2 {
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
-  margin-top: $blockMargin;
+  margin-top: $largeMargin;
 }
 
 h3 {
   font-family: $headingFont;
   font-size: $heading3Size;
+  line-height: $headingLineHeight;
+  letter-spacing: $headingLetterSpacing;
+  font-weight: $headingFontWeight;
+  margin-top: $largeMargin;
+}
+
+h4 {
+  font-family: $headingFont;
+  font-size: $heading4Size;
+  line-height: $headingLineHeight;
+  letter-spacing: $headingLetterSpacing;
+  font-weight: $headingFontWeight;
+  margin-top: $blockMargin;
+}
+
+h5 {
+  font-family: $headingFont;
+  font-size: $heading5Size;
+  line-height: $headingLineHeight;
+  letter-spacing: $headingLetterSpacing;
+  font-weight: $headingFontWeight;
+  margin-top: $smallMargin;
+}
+
+h6 {
+  font-family: $headingFont;
+  font-size: $heading6Size;
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
@@ -116,7 +199,7 @@ pre {
 }
 
 code {
-  background-color: $orange !important;
+  background-color: $grey !important;
   padding: 0;
 }
 
@@ -138,8 +221,13 @@ code a {
 
 /* List styling */
 ul {
-  padding-left: 0;
-  margin-left: $blockMargin;
+  padding-left: $largeMargin;
+  margin-left: $largeMargin;
+}
+
+ul ul {
+  padding-left: $largeMargin;
+  margin-left: $largeMargin;
 }
 
 /* Navbar */
