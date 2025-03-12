@@ -1,0 +1,23 @@
+---
+date: 2022/02/22
+date-format: long
+date-modified: last-modified
+---
+
+# Resources & Materials 
+
+We will be placing additional material (e.g., presentations, posters) about the FOSSILPOL project here.
+
+## Publications
+- "*A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*": [![static-badge](https://img.shields.io/badge/DOI-10.1111/geb.13693-blue)](https://doi.org/10.1111/geb.13693).
+
+
+## Presentations
+
+- [IBS 2024 presentation](https://bit.ly/FOSSILPOL_IBS_2024)
+
+## Posters
+
+- [Poster presented at INQUA 2023 in Rome](figures/Poster_INQUA2023.png)
+
+

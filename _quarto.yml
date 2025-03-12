@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+  
+website:
+  title: FOSSILPOL
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+  navbar:
+    title: FOSSILPOL
+    left:
+      - text: General Information
+        href: about.qmd
+      - text: A step-by-step guide
+        href: step_by_step_guide.qmd
+      - text: Get in touch!
+        href: get_in_touch.qmd
+      - text: Resources
+        href: other_materials.qmd
+    search: true
+    site-url: https://hope-uib-bio.github.io/FOSSILPOL-website/
+    repo-url: https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/
+    issues-url: https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues
+    repo-actions: [source, issue]
+    tools:
+      - icon: github
+        href: https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow
+    image: figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png
+    favicon: figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png
+    back-to-top-navigation: true
+
+format:
+  html:
+    theme:
+     - custom_style.scss
+    toc: true
+    toc-depth: 6
