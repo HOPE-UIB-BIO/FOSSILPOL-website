@@ -65,12 +65,10 @@ The project consists of several sections:
 
 * [Get in touch!](get_in_touch.qmd) - Information about the community, future updates, issue reporting, and potential collaboration
 
-* [Other materials](other_materials.qmd) - Additional materials related to the FOSSILPOL project.
+* [Resources](other_materials.qmd) - Additional materials related to the FOSSILPOL project.
 
 ## Current versions
 
 * FOSSILPOL workflow: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-workflow?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases)
 
 * {RFossilpol} R-package: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)
-
-* FOSSILPOL website: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-website?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/releases)
