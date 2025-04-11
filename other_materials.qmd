@@ -14,10 +14,14 @@ We will be placing additional material (e.g., presentations, posters) about the 
 
 ## Presentations
 
+- [Paleoverse Lecture series - 2025](https://hope-uib-bio.github.io/FOSSILPOL-example-Scandinavia/)
 - [IBS 2024 presentation](https://bit.ly/FOSSILPOL_IBS_2024)
 
 ## Posters
 
 - [Poster presented at INQUA 2023 in Rome](figures/Poster_INQUA2023.png)
 
+## FOSSILPOL logo
+- [FOSSILPOL logo large PNG](/figures/Logo%20FOSSILPOL%20big%20-%20600ppi.png)
+- [FOSSILPOL logo small PNG](/figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png)
 
