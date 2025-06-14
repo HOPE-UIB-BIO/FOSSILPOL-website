@@ -1,4 +1,3 @@
-
 # Guía paso a paso para el procesamiento de datos con FOSSILPOL
 
 :::: {.columns}
@@ -223,12 +222,13 @@ UPHE         | Hierbas de tierras altas
 VACR         | Criptógamas vasculares terrestres
 VASC         | Plantas vasculares
 
+<br>
 
 -----
 
+<br>
 
-
-### II. Obtención de datos: `/02_Other_source/`
+### [II. Obtención de datos]{.text-background-blue .bold}: `/02_Other_source/`
 
 - `Run_01_02.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Import_other_data.R` - obtener otras fuentes de datos y filtrar los registros de manera similar a Neotoma.
@@ -256,11 +256,13 @@ La obtención de otras fuentes de datos sigue un orden simple de acciones:
 
 4. Los datos se tratan de manera similar a los datos de Neotoma, en cuanto al filtrado por ubicación geográfica, número de niveles ([Fig. 2](#figura-2-figura-2) - criterios config **5**, **6**), y ambientes de depósito (punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)).
 
+<br>
+
 -----
 
+<br>
 
-
-### III. Procesamiento de datos inicial: `/03_Merging_and_geographic_delineation/`
+### [III. Procesamiento de datos inicial]{.text-background-green .bold}: `/03_Merging_and_geographic_delineation/`
 
 - `Run_01_03.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Merge_datasets.R` - combinar datos de todas las fuentes, filtrar duplicados y asignar valores según la ubicación geográfica
@@ -298,11 +300,13 @@ Se realizan varios pasos adicionales para crear la compilación completamente co
     - `old_age` = edad más antigua que debe tener el registro
     - `end_of_interest_period` = niveles más allá de esta edad serán omitidos
 
+<br>
+
 -----
 
+<br>
 
-
-### IV. Cronologías: `/04_Chronologies/`
+### [IV. Cronologías]{.text-background-purple .bold}: `/04_Chronologies/`
 
 - `Run_01_04.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Prepare_chron_control_tables.R` - prepara las tablas de cronología para el modelado edad-profundidad
@@ -391,6 +395,7 @@ Los modelos edad-profundidad individuales se estiman con el paquete {[Bchron](ht
 
 Si hay muchas edades a profundidades cercanas, pueden producirse problemas de inicialización y Bchron podría no converger. En ese caso, el grosor de los puntos duplicados se aumenta automáticamente por 0.01 (ver argumento `artificialThickness` en `Bchron::Bchronology()`).
 
+
 ##### Computación multinúcleo
 
 Como crear modelos edad-profundidad para muchos registros puede ser intensivo, el flujo usa computación paralela. Detecta automáticamente los núcleos de la máquina (ajustable con `number_of_cores` en el archivo de configuración, [Fig. 2](#figura-2-figura-2) - criterio config **14**). Los modelos se crean en lotes, con el tamaño determinado por el número de núcleos (`batch size`, [Fig. 2](#figura-2-figura-2) - criterio config **13**; por defecto depende de `number_of_cores`). Si `number_of_cores` es `1`, no usa el modo lote.
@@ -417,11 +422,13 @@ La representación visual de todos los modelos edad-profundidad se guarda como P
 
 Las edades predichas se enlazan con todos los registros de las diferentes fuentes (Secciones I-III). Los niveles de cada registro se ordenan por edades predichas y el mismo orden se aplica a las tablas de conteos de polen.
 
+<br>
+
 -----
 
+<br>
 
-
-### V. Armonización: `/05_Harmonisation/`
+### [V. Armonización]{.text-background-pink .bold}: `/05_Harmonisation/`
 
 - `Run_01_05.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Harmonisation.R` - prepara todas las tablas de armonización y armoniza los conteos brutos.
@@ -445,11 +452,13 @@ El usuario puede también definir qué taxones deben eliminarse totalmente duran
 
 Con estas tablas, cada conjunto se armoniza para que todos los taxones que pertenezcan al mismo taxón armonizado (morfotipo) se sumen en cada nivel; esto aplica tanto para datos de conteo como de porcentaje. El proceso incluye una verificación automática de éxito de la armonización, revisando el número total de granos antes y después de armonizar (puede desactivarse cambiando el argumento `pollen_grain_test` a `FALSE` en la función `RFossilpol::harmonise_all_regions()`).
 
+<br>
+
 -----
 
+<br>
 
-
-### VI. Filtrado de datos: `/06_Main_filtering/`
+### [VI. Filtrado de datos]{.text-background-coral .bold}: `/06_Main_filtering/`
 
 - `Run_01_06.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Level_filtering.R` - filtra niveles y registros según los criterios definidos por el usuario en el archivo de configuración
@@ -491,11 +500,13 @@ Niveles fuera del periodo de interés (`end_of_interest_period`) serán filtrado
 
 El número total de niveles es importante para futuros análisis. Registros con pocos niveles aportan poco y pueden ser fuentes de valores atípicos. Se recomienda definir un número mínimo (`min_n_levels`, [Fig. 2](#figura-2-figura-2) - criterio config **29**); se filtrará si `filter_by_number_of_levels` == `TRUE`.
 
+<br>
+
 -----
 
+<br>
 
-
-### VII. Salidas/Outputs: `/07_Outputs/`
+### [VII. Salidas/Outputs]{.text-background-orange .bold}: `/07_Outputs/`
 
 - `Run_01_07.R` - ejecuta todos los scripts dentro de esta carpeta
 - `01_Pollen_diagrams.R` - guarda los diagramas de polen de todos los registros
