@@ -5,3 +5,36 @@ profile:
   default: english
   group: [english, spanish]
   
+website:
+  title: FOSSILPOL
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+  site-url: https://hope-uib-bio.github.io/FOSSILPOL-website/
+  repo-url: https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/
+  issue-url: https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues
+  repo-actions: [source, issue]
+  
+  image: figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png
+  favicon: figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png
+  back-to-top-navigation: true
+  navbar:
+    title: FOSSILPOL
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow
+    right:
+      - text: 🌐
+        menu:      
+          - text: English
+            href: ../en
+          - text: Español
+            href: ../es
+
+
+format:
+  html:
+    theme:
+     - custom_style.scss
+    toc: true
+    toc-depth: 6
