@@ -1,0 +1,68 @@
+# FOSSILPOL project
+
+:::: {.columns}
+
+::: {.column width="55%"}
+## Resumen
+
+Este sitio web presenta toda la información necesaria sobre el flujo de trabajo FOSSILPOL, que tiene como objetivo procesar y estandarizar datos globales de polen paleoecológico.
+
+### Autores
+
+El flujo de trabajo FOSSILPOL ha sido desarrollado durante el proyecto ERC denominado [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) por el equipo de la [University of Bergen](https://www.uib.no/en):
+
+Suzette G.A. Flantua\*, Ondrej Mottl\*, Vivian Felde\*, Kuber P. Bhatta\*, Hilary Birks, John-Arvid Grytnes, Alistair Seddon, H. John B. Birks
+
+\* autores principales compartidos
+
+[Ondřej Mottl](https://ondrejmottl.github.io/) es el principal responsable del proyecto FOSSILPOL
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+
+<br>
+<br>
+<br>
+
+![](/figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png)
+:::
+
+::::
+
+## Secciones del proyecto
+
+El proyecto consta de varias secciones:
+
+* **[A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen](https://doi.org/10.1111/geb.13693)** – Una publicación de acceso abierto en *Global Ecology and Biogeography* (Flantua et al. 2023)
+
+* **[FOSSILPOL workflow](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow)** – Una herramienta para procesar múltiples registros de polen fósil y crear una compilación de datos completa y estandarizada, lista para análisis multi-registro y multi-proxy (programado en el entorno R)
+
+* **[{RFossilpol} package](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)** – Un paquete de R desarrollado específicamente para proporcionar herramientas y funciones para el flujo de trabajo FOSSILPOL
+
+* **[Sitio web](https://hope-uib-bio.github.io/FOSSILPOL-website)** – El centro principal de toda la información sobre el proyecto FOSSILPOL, incluyendo una guía paso a paso para los usuarios, con una descripción de las funciones más importantes y los criterios para usuarios a lo largo del flujo de trabajo
+
+* **[Ejemplo de Escandinavia](https://github.com/HOPE-UIB-BIO/FOSSILPOL-example-Scandinavia)** – Un ejemplo de caso de estudio del flujo de trabajo FOSSILPOL aplicado a registros de polen fósil del norte de Europa
+
+* **[Issue tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues)** – Repositorio específico de GitHub para gestionar todos los problemas detectados en el flujo de trabajo FOSSILPOL
+
+* **[Futuras actualizaciones](https://github.com/orgs/HOPE-UIB-BIO/projects/3/views/1)** – Panorama de las futuras actualizaciones que planeamos realizar en el flujo de trabajo FOSSILPOL y en el paquete de R
+
+## Páginas del sitio web
+
+* [Información general](about.qmd) – Información sobre cómo obtener, configurar y ejecutar el proyecto FOSSILPOL
+
+* [Guía paso a paso](step_by_step_guide.qmd) – Información detallada sobre los pasos individuales del procesamiento de datos
+
+* [¡Ponte en contacto!](get_in_touch.qmd) – Información sobre la comunidad, futuras actualizaciones, reporte de problemas y posibles colaboraciones
+
+* [Recursos](other_materials.qmd) – Materiales adicionales relacionados con el proyecto FOSSILPOL.
+
+## Versiones actuales
+
+* Flujo de trabajo FOSSILPOL: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/FOSSILPOL-workflow?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases)
+
+* Paquete de R {RFossilpol}: [![Version](https://img.shields.io/github/v/release/HOPE-UIB-BIO/R-Fossilpol-package?label=Version&logo=github)](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package/releases)

@@ -1,0 +1,116 @@
+# ¡Ponte en contacto!
+
+Nos encantaría construir una comunidad en torno a FOSSILPOL y hay varias maneras de ponerse en contacto y crecer juntos.
+
+## Contáctanos
+
+Hemos creado [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions) como el centro principal de comunicación. ¿Tienes una pregunta? ¿Has pensado en una nueva funcionalidad genial? Escríbenos un mensaje. Esperamos que la página de **Discusiones** sirva como línea de comunicación tanto para los desarrolladores como entre los diferentes usuarios.
+
+## "¡No funciona!"
+
+Ningún software está libre de problemas, y si encuentras un error desagradable utilizando este flujo de trabajo, utiliza la [página de Issues](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) para reportarlo.
+
+Considera los siguientes pasos antes y al abrir un nuevo Issue:
+
+1. ¿Tú o alguien más ya lo ha preguntado en [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions)? ¡La sección "Q&A" es perfecta para eso!
+
+2. ¿Has comprobado que problemas similares ya hayan sido reportados? El rastreador de Issues tiene una función de filtro para buscar palabras clave en los Issues abiertos. Puedes reducir la búsqueda usando `labels`🏷️ como filtros. Consulta [Labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) para más información. Como regla general, no asignamos issues a nadie.
+
+Para abrir un nuevo Issue:
+
+1. Haz clic en el botón verde **New issue** en la esquina superior derecha y selecciona **Bug report**.
+
+2. Describe tu problema con el mayor detalle posible. El issue debe indicar cuál es el problema, cuál debería ser el comportamiento esperado y, tal vez, sugerir una solución. Ten en cuenta que también puedes adjuntar archivos (por ejemplo, datos de ejemplo, código en R, etc.) o imágenes al issue.
+
+3. Selecciona una `label`🏷️ adecuada del menú desplegable llamado **Labels**.
+
+4. Haz clic en el botón verde **Submit new issue** y espera una respuesta.
+
+## "¿Podemos añadir esto?"
+
+También usamos la [página de Issues](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) para solicitudes serias de nuevas funcionalidades. Si alguna discusión en el portal [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions) lleva a una función bien definida que te gustaría implementar, puedes enviarla como *feature request*:
+
+1. Ve a la [página de Issues](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues)
+
+2. Haz clic en el botón verde **New issue** en la esquina superior derecha y selecciona **Feature request**.
+
+3. Describe la funcionalidad con el mayor detalle posible. ¿Cuál es el comportamiento esperado? ¿Qué paquetes deberíamos usar? Ten en cuenta que también puedes adjuntar archivos o imágenes al Issue.
+
+4. Selecciona una `label`🏷️ adecuada del menú desplegable llamado **Labels**.
+
+5. Haz clic en el botón verde **Submit new issue** y espera una respuesta.
+
+## Actualizaciones futuras del proyecto
+
+El proyecto FOSSILPOL está concebido como un software que recibirá actualizaciones para mejorar continuamente.
+
+Somos conscientes de las funciones y características que nos gustaría implementar en el futuro.
+
+Consulta las actualizaciones futuras previstas en **[project future updates](https://github.com/orgs/HOPE-UIB-BIO/projects/3)**. Las tres etapas de la solicitud son:
+
+* "next version" – una función que se implementará en la próxima versión de FOSSILPOL
+
+* "future" – una función que probablemente se implementará en una de las próximas versiones de FOSSILPOL
+
+* "in consideration" – una función que podría implementarse, pero no es prioritaria
+
+Si hay alguna funcionalidad que te gustaría implementar, primero consulta el [Issue Tracker](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues) y mira si alguien ya la ha sugerido y ***dale un voto positivo*** si ya está allí. Antes de cada lanzamiento de versión, implementaremos la funcionalidad más votada.
+
+Nuestro objetivo es actualizar la lista regularmente.
+
+## Contribuye
+
+El proyecto FOSSILPOL está concebido como un software que recibirá actualizaciones para mejorar continuamente.
+
+Agradecemos la ayuda :sparkling_heart: y gracias solo por considerar contribuir a FOSSILPOL.
+
+Para asegurarnos de mantener la más alta calidad de código, debemos cumplir algunas directrices estrictas. Por favor, lee este documento para ayudarte a comenzar.
+
+Si deseas reportar un bug, sugerir mejoras o solicitar una nueva
+funcionalidad, dirígete a la [sección de Issues](#it-does-not-work).
+
+### Git + GitHub
+
+Usamos el sistema de control de versiones [Git](https://git-scm.com/) para gestionar los desarrollos en el repositorio alojado en [GitHub](https://github.com). Si eres nuevo en Git o GitHub, por favor revisa el
+[GitHub Bootcamp](https://help.github.com/categories/bootcamp/) para ponerte al día.
+
+Si ya conoces Git y GitHub, por favor revisa
+[Submitting Pull Requests](#submitting-pull-requests).
+
+### Directrices de estilo de codificación
+
+Aunque tenemos nuestro propio estilo de codificación y no seguimos ningún estándar disponible en la web, sí mantenemos cierta uniformidad.
+
+Si olvidamos mencionar algún caso particular, siempre debes seguir este procedimiento:
+
+* Mira cómo se hace en el código fuente.
+* Consulta qué dice la convención de [Advanced R by Hadley Wickham](http://adv-r.had.co.nz/Style.html) y elige algo que se asemeje al código base.
+* Si todo lo demás falla, pregunta en [GitHub Discussions](https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/discussions)
+
+### Envío de Pull Requests
+
+Todos los cambios a FOSSILPOL deben ser en forma de **pull request** (también conocidos como PR). Si no estás familiarizado con los pull requests, por favor lee [esto](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project>).
+
+Este es el proceso recomendado:
+
+1. Haz un fork del repositorio para que puedas hacer tus cambios sin afectar el proyecto original hasta que estés listo para fusionarlos. Consulta la [Guía para forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo#fork-an-example-repository)
+
+2. Trabaja sobre la rama (nombrada según la próxima versión, si existe).
+
+3. Haz commit de tus actualizaciones cuando estés satisfecho con ellas. Consulta la [guía de contribución](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) para los mensajes de commit.
+
+4. Cuando termines los cambios, crea un PR
+   * Haz clic en "Ready for review" para que podamos revisar tu PR. Esta plantilla ayuda a los revisores a entender tus cambios, así como el propósito de tu pull request.
+   * No olvides [vincular el PR al Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) si estás resolviendo uno.
+   * Habilita la casilla para [permitir ediciones por parte de los mantenedores](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) para que la rama pueda ser actualizada para una fusión. Una vez que envíes tu PR, un miembro del equipo HOPE revisará tu propuesta. Podemos hacer preguntas o solicitar información adicional.
+   * Es posible que pidamos cambios antes de poder fusionar el PR, ya sea usando cambios sugeridos o comentarios en el pull request. Puedes aplicar los cambios sugeridos directamente desde la interfaz de usuario (UI). Puedes hacer cualquier otro cambio en tu fork, y luego hacer commit a tu rama.
+   * A medida que actualices tu PR y apliques cambios, marca cada conversación como [resuelta](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#resolving-conversations)
+   * Si tienes problemas de fusión, revisa este [tutorial de git](https://lab.github.com/githubtraining/managing-merge-conflicts) para ayudarte a resolver conflictos de fusión y otros problemas.
+
+Antes de enviar un pull request, asegúrate de seguir todas las pautas
+a continuación mientras trabajas en tus cambios:
+
+* Cada pull request debe intentar lograr una sola tarea general.
+* Todo el trabajo debe realizarse en una rama con un nombre descriptivo relacionado con la tarea general (por ejemplo, `fix_bug_x` o `add_feature_y`). Cada commit debe lograr una pequeña subtarea y debe ser explicable en una o dos frases.
+* Cada commit debe tener un mensaje descriptivo.
+* Debes asegurarte de que tu código pase todas las pruebas antes de hacer commit.
