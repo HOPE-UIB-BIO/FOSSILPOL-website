@@ -48,7 +48,7 @@ El flujo de trabajo producirá varios archivos, incluyendo *archivos de salida t
 
 2. **Tablas CSV de *stop-check***: al ejecutar el flujo de trabajo, habrá varias ocasiones en que se pedirá al usuario que revise y, cuando sea necesario, ajuste las tablas CSV producidas para continuar con el flujo de trabajo (es decir, volver a ejecutar el script). Esto se hace para obligar al usuario a comprobar los resultados intermedios antes de continuar. Por ejemplo, en cierto punto, el flujo de trabajo producirá una lista de todos los grupos ecológicos detectados en la compilación de datos obtenida de Neotoma. Luego, el usuario debe editar la tabla CSV mencionada y especificar qué grupos ecológicos deben mantenerse (`include` = `TRUE`) y cuáles deben filtrarse (`include` = `FALSE`). Ten en cuenta que hay varios stop-checks a lo largo del flujo de trabajo (ver resumen en [Fig. 2](#figura-2-figura-2)).
 
-3. **Salida del flujo de trabajo** (`Outputs/`, ver [Sección VII](#vii.-salidasoutputs-07_outputs) para más información):
+3. **Salida del flujo de trabajo** (`Outputs/`, ver [Sección VII](#vii.-salidasoutputs.text-background-orange-.bold-07_outputs) para más información):
     - una compilación de datos de polen fósil armonizada taxonómicamente y estandarizada temporalmente, lista para el análisis (formato rds)
     - gráficos de curvas de edad-profundidad modeladas para cada registro (formato pdf)
     - diagramas de polen de cada registro (formato pdf)
@@ -167,11 +167,11 @@ Aquí nos centramos en los scripts dentro de la carpeta `R/01_Data_processing` q
 ### [I. Obtención de datos]{.text-background-blue .bold}: `/01_Neotoma_source/`
 
 - `Run_01_01.R` - ejecuta todos los scripts dentro de esta carpeta
-- [`01_Download_neotoma.R`](#download_neotoma.r) - descarga los datos de polen desde la base de datos Neotoma
-- [`02_Extract_samples.R`](#extract_samples.r) - crea una tabla a partir de las listas descargadas de Neotoma y descarga la información de los autores
-- [`03_Filter_dep_env.R`](#filter_dep_env.r) - obtiene los datos del ambiente de depósito y filtra registros según las preferencias del usuario
-- [`04_Extract_chron_control_tables.R`](#extract_chron_control_tables.r) - obtiene las cronologías, incluyendo la tabla preferida con los puntos de control de cronología
-- [`05_Extract_raw_pollen_data.R`](#extract_raw_pollen_data.r) - extrae los conteos de polen brutos de Neotoma y filtra por grupos ecológicos seleccionados por el usuario.
+- [`01_Download_neotoma.R`](#01_download_neotoma.r) - descarga los datos de polen desde la base de datos Neotoma
+- [`02_Extract_samples.R`](#02_extract_samples.r) - crea una tabla a partir de las listas descargadas de Neotoma y descarga la información de los autores
+- [`03_Filter_dep_env.R`](#03_filter_dep_env.r) - obtiene los datos del ambiente de depósito y filtra registros según las preferencias del usuario
+- [`04_Extract_chron_control_tables.R`](#04_extract_chron_control_tables.r) - obtiene las cronologías, incluyendo la tabla preferida con los puntos de control de cronología
+- [`05_Extract_raw_pollen_data.R`](#05_extract_raw_pollen_data.r) - extrae los conteos de polen brutos de Neotoma y filtra por grupos ecológicos seleccionados por el usuario.
 
 #### *01_Download_neotoma.R*
 
@@ -183,7 +183,7 @@ Cada registro se procesa utilizando un ID único de dataset (`dataset_id`) con l
 
 #### 03_Filter_dep_env.R
 
-La información de depósito de cada registro ofrece información sobre los ambientes donde se extrajo el registro. Según la pregunta de investigación, puede haber preferencia por ciertos ambientes (por ejemplo, terrestres vs. marinos). Actualmente en Neotoma, los datos sobre ambientes de depósito están organizados en una estructura jerárquica (por ejemplo, "Pond" está anidado en "Natural Lake", que a su vez está anidado en "Lacustrine"), donde el número máximo de capas anidadas es cinco. En el nivel jerárquico más bajo, actualmente existen más de 50 categorías diferentes de ambientes de depósito (para registros de polen fósil). Según los registros seleccionados, el flujo de trabajo producirá una lista de todos los ambientes de depósito (y su posición jerárquica) presentes en la selección de datos del usuario. Luego se solicita al usuario que defina los ambientes de elección (esto es un punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)). Observa que excluir ambientes de depósito con una posición jerárquica superior **no** excluye automáticamente todos los ambientes de depósito anidados en él.
+La información de depósito de cada registro ofrece información sobre los ambientes donde se extrajo el registro. Según la pregunta de investigación, puede haber preferencia por ciertos ambientes (por ejemplo, terrestres vs. marinos). Actualmente en Neotoma, los datos sobre ambientes de depósito están organizados en una estructura jerárquica (por ejemplo, "Pond" está anidado en "Natural Lake", que a su vez está anidado en "Lacustrine"), donde el número máximo de capas anidadas es cinco. En el nivel jerárquico más bajo, actualmente existen más de 50 categorías diferentes de ambientes de depósito (para registros de polen fósil). Según los registros seleccionados, el flujo de trabajo producirá una lista de todos los ambientes de depósito (y su posición jerárquica) presentes en la selección de datos del usuario. Luego se solicita al usuario que defina los ambientes de elección (esto es un punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)). Observa que excluir ambientes de depósito con una posición jerárquica superior **no** excluye automáticamente todos los ambientes de depósito anidados en él.
 
 #### 04_Extract_chron_control_tables.R
 
@@ -195,7 +195,7 @@ Cada nivel de cada registro incluye información adicional: a) ID único de mues
 
 El flujo de trabajo solo mantendrá los registros con un número mínimo de niveles según lo definido en el archivo de configuración (`min_n_levels`, [Fig. 2](#figura-2-figura-2) - criterio config **4**). El número mínimo de niveles por defecto es tres, pero el usuario puede cambiar este ajuste.
 
-En el caso de los datos obtenidos de Neotoma, cada taxón de polen tiene información sobre el grupo ecológico (por ejemplo, palmas, manglares, etc.). Según los registros seleccionados, el flujo de trabajo producirá una lista completa de todos los grupos ecológicos tras lo cual se solicita al usuario definir qué grupos ecológicos incluir (un punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2), ver explicación de la abreviatura en [Tabla 1](#table-1.-ecological-groups-assigned-to-pollen-taxa-as-defined-in-neotoma)).
+En el caso de los datos obtenidos de Neotoma, cada taxón de polen tiene información sobre el grupo ecológico (por ejemplo, palmas, manglares, etc.). Según los registros seleccionados, el flujo de trabajo producirá una lista completa de todos los grupos ecológicos tras lo cual se solicita al usuario definir qué grupos ecológicos incluir (un punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2), ver explicación de la abreviatura en [Tabla 1](#table-1.-ecological-groups-assigned-to-pollen-taxa-as-defined-in-neotoma)).
 
 ##### Tabla 1. Grupos ecológicos asignados a taxones de polen según Neotoma
 
@@ -231,7 +231,7 @@ VASC         | Plantas vasculares
 ### [II. Obtención de datos]{.text-background-blue .bold}: `/02_Other_source/`
 
 - `Run_01_02.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Import_other_data.R` - obtener otras fuentes de datos y filtrar los registros de manera similar a Neotoma.
+- [`01_Import_other_data.R`](#01_import_other_data.r) - obtener otras fuentes de datos y filtrar los registros de manera similar a Neotoma.
 
 #### Nota sobre otras fuentes de datos
 
@@ -248,13 +248,13 @@ La obtención de otras fuentes de datos sigue un orden simple de acciones:
 2. Los datos se extraen y formatean para ser compatibles con los datos de Neotoma utilizando la función `RFossilpol::import_datasets_from_folder()`, con los siguientes argumentos:
    - `dir_files` - el usuario puede especificar qué carpeta contiene los datos preparados (por defecto = `Data/Input/Other/`)
    - `suffix` - argumento para identificar la fuente de los datos. Por defecto se define como `"other"`, lo que significa que los conjuntos de datos se pueden identificar fácilmente ya que su nombre será `(dataset id)_other`
-   - `source_of_data` - marcará la fuente de cada conjunto de datos en la compilación en el resumen de metadatos (ver [sección VII](#vii.-salidasoutputs-07_outputs)). Por defecto se define como `"personal_data"`
-   - `data_publicity` - marcará la publicidad de los datos de cada conjunto en la compilación en el resumen de metadatos (ver [sección VII - Outputs](#vii.-salidasoutputs-07_outputs)). Por defecto se define como `"restricted"`
+   - `source_of_data` - marcará la fuente de cada conjunto de datos en la compilación en el resumen de metadatos (ver [sección VII](#vii.-salidasoutputs.text-background-orange-.bold-07_outputs)). Por defecto se define como `"personal_data"`
+   - `data_publicity` - marcará la publicidad de los datos de cada conjunto en la compilación en el resumen de metadatos (ver [sección VII - Outputs](#vii.-salidasoutputs.text-background-orange-.bold-07_outputs)). Por defecto se define como `"restricted"`
    - `pollen_percentage` - los conteos de polen medidos como proporciones (por ejemplo, escaneados de diagramas de polen) se pueden marcar aquí. Por defecto en `FALSE`
 
-3. Los nombres de los contribuyentes de datos se extraen y se añaden a la [base de datos Autor-Dataset](#extract_samples.r) usada para la atribución de autor-dataset (ver [sección VII - Outputs](#vii.-salidasoutputs-07_outputs)).
+3. Los nombres de los contribuyentes de datos se extraen y se añaden a la [base de datos Autor-Dataset](#extract_samples.r) usada para la atribución de autor-dataset (ver [sección VII - Outputs](#vii.-salidasoutputs.text-background-orange-.bold-07_outputs)).
 
-4. Los datos se tratan de manera similar a los datos de Neotoma, en cuanto al filtrado por ubicación geográfica, número de niveles ([Fig. 2](#figura-2-figura-2) - criterios config **5**, **6**), y ambientes de depósito (punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)).
+4. Los datos se tratan de manera similar a los datos de Neotoma, en cuanto al filtrado por ubicación geográfica, número de niveles ([Fig. 2](#figura-2-figura-2) - criterios config **5**, **6**), y ambientes de depósito (punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)).
 
 <br>
 
@@ -265,7 +265,7 @@ La obtención de otras fuentes de datos sigue un orden simple de acciones:
 ### [III. Procesamiento de datos inicial]{.text-background-green .bold}: `/03_Merging_and_geographic_delineation/`
 
 - `Run_01_03.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Merge_datasets.R` - combinar datos de todas las fuentes, filtrar duplicados y asignar valores según la ubicación geográfica
+- [`01_Merge_datasets.R`](#01_merge_datasets.r) - combinar datos de todas las fuentes, filtrar duplicados y asignar valores según la ubicación geográfica
 
 #### 01_Merge_datasets.R
 
@@ -273,29 +273,29 @@ Después del procesamiento inicial, los registros de Neotoma y otras fuentes se 
 
 ##### Detección de duplicados
 
-Existe la posibilidad de que algunos conjuntos de datos de otras fuentes ya estén en Neotoma. Para evitar duplicados en la compilación final, el flujo de trabajo comparará conjuntos de ambas fuentes e identificará posibles duplicados. Este paso es opcional, pero se recomienda seguirlo. Para ello, el usuario debe especificar `detect_duplicates` == `TRUE` en el archivo de configuración (esto es predeterminado, [Fig. 2](#figura-2-figura-2) - criterio config **7**). El flujo de trabajo iniciará una subrutina ...
+Existe la posibilidad de que algunos conjuntos de datos de otras fuentes ya estén en Neotoma. Para evitar duplicados en la compilación final, el flujo de trabajo comparará conjuntos de ambas fuentes e identificará posibles duplicados. Este paso es opcional, pero se recomienda seguirlo. Para ello, el usuario debe especificar `detect_duplicates` == `TRUE` en el archivo de configuración (esto es predeterminado, [Fig. 2](#figura-2-figura-2) - criterio config **7**). El flujo de trabajo iniciará una subrutina simple que utiliza la función `RFossilpol::proc_filter_out_duplicates()`. Dado que comparar todos los registros de cada fuente de datos entre sí es relativamente exigente en términos de cálculo, la función dividirá los datos en varios grupos según su ubicación geográfica (aprox. 100 registros por grupo). El usuario puede definir el número de grupos mediante el argumento `n_subgroups`. A continuación, cada registro de una fuente se compara con todos los registros de la otra fuente, siempre que se encuentren en un radio de 1 grado (se asume que los registros duplicados estarán en una ubicación similar). El usuario puede definir la distancia máxima mediante el argumento `max_degree_distance`. Finalmente, el flujo de trabajo generará una lista de posibles registros duplicados (un punto de ***stop-check***, [Fig. 2](#figura-2-figura-2)). Para cada par de registros, el usuario debe especificar qué registros deben eliminarse escribiendo `1` (eliminar el Neotoma) o `2` (eliminar la otra fuente de datos) en la columna `delete` de la lista creada (dejar `0` dejará ambos registros).
 
 ##### Preparación adicional de datos
 
 Se realizan varios pasos adicionales para crear la compilación completamente combinada antes de pasar al paso de cronología (no requieren acción del usuario):
 
-1. Todos los nombres de taxones se transforman en un formato más fácil de manejar por ordenador para su manipulación. La función `RFossilpol::proc_clean_count_names()` primero transforma los caracteres especiales a texto (por ejemplo, `+` a `_plus_`) y luego utiliza {[janitor](https://sfirke.github.io/janitor/)} para transformar en el estilo ["*snake_case*"](https://en.wikipedia.org/wiki/Snake_case). Además, el usuario puede especificar cambios adicionales mediante el argumento `user_name_patterns` (ver ejem...
+1. Todos los nombres de taxones se transforman en un formato más fácil de manejar por ordenador para su manipulación. La función `RFossilpol::proc_clean_count_names()` primero transforma los caracteres especiales a texto (por ejemplo, `+` a `_plus_`) y luego utiliza {[janitor](https://sfirke.github.io/janitor/)} para transformar en el estilo ["*snake_case*"](https://en.wikipedia.org/wiki/Snake_case). Además, el usuario puede especificar cambios adicionales mediante el argumento `user_name_patterns` (ver ejemplo en el script). Durante la limpieza de nombres de taxones, el flujo de trabajo guardará la `taxa_reference_table` para la trazabilidad a la taxonomía de Neotoma. La `taxa_reference_table` es un archivo CSV que se guarda en la misma carpeta que las tablas de armonización (`Data/Input/Harmonisation_tables/`). Más información sobre el proceso de [armonización](#v.-armonización-05_harmonisation).
 
 2. Los niveles individuales (profundidades de muestra) se ordenan por su profundidad para cada registro con `RFossilpol::proc_prepare_raw_count_levels()`. Esto incluye subrutinas, por ejemplo, mantener solo los niveles presentes en todas las tablas de datos, filtrar niveles sin datos de polen y taxones que no estén presentes en ningún nivel.
 
 3. Se asigna información espacial a cada registro según los shapefiles geográficos proporcionados. Específicamente:
   
-    - **Información de región** - el shapefile en `Data/Input/Spatial/Regions_shapefile` asignará los nombres regionales a cada registro (ver [Sección Entrada de datos](#data-input)). El usuario puede (y se recomienda) cambiar la delimitación espacial alterando o reemplazando el shapefile.
+    - **Información de región** - el shapefile en `Data/Input/Spatial/Regions_shapefile` asignará los nombres regionales a cada registro (ver [Sección Entrada de datos](#entrada-de-datos)). El usuario puede (y se recomienda) cambiar la delimitación espacial alterando o reemplazando el shapefile.
   
     - **Delimitación política (países)** - obtenido de la base de datos [GADM](www.gadm.org), versión 2.8, noviembre 2015.
   
-    - **Región de armonización** - el shapefile en `Data/Input/Spatial/Harmonisation_regions_shapefile` asignará la región de armonización (para vincular la tabla de armonización correspondiente; ver [Sección Entrada de datos](#data-input)). El shapefile predeterminado en el flujo de trabajo es una copia del shapefile de información regional, pero debe ajustarse para corresponder al área cubierta por las distintas tablas de armonización.
+    - **Región de armonización** - el shapefile en `Data/Input/Spatial/Harmonisation_regions_shapefile` asignará la región de armonización (para vincular la tabla de armonización correspondiente; ver [Sección Entrada de datos](#entrada-de-datos)). El shapefile predeterminado en el flujo de trabajo es una copia del shapefile de información regional, pero debe ajustarse para corresponder al área cubierta por las distintas tablas de armonización.
   
-    - **Curvas de calibración (normal y post-bomba)** - dependiendo de la posición geográfica del registro, se debe asignar una curva de calibración distinta, ya que se usan curvas diferentes para los hemisferios norte y sur, y para ambientes terrestres y marinos. Ver más detalles sobre [curvas de calibración](#calibration-curves).
+    - **Curvas de calibración (normal y post-bomba)** - dependiendo de la posición geográfica del registro, se debe asignar una curva de calibración distinta, ya que se usan curvas diferentes para los hemisferios norte y sur, y para ambientes terrestres y marinos. Ver más detalles sobre [curvas de calibración](#curvas-de-calibración).
 
     - **Adicional** - El usuario puede añadir cualquier otra delimitación espacial (por ejemplo, ecozonas). Esto requerirá agregar el shapefile (o archivo TIF) específico en `/Data/Input/Spatial/NOMBRE_DE_LA_CARPETA` y ajustar el código R manualmente (`optional_info_to_assign`) para que el shapefile se lea y su información se asigne a cada registro (ver el ejemplo en el script).  
 
-4. El flujo de trabajo creará una nueva tabla con los límites de edad para cada región representada en los datos, que debe ser editada por el usuario (un punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)). Por ejemplo, la tabla `Regional_age_limits` tendrá los siguientes valores:
+4. El flujo de trabajo creará una nueva tabla con los límites de edad para cada región representada en los datos, que debe ser editada por el usuario (un punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)). Por ejemplo, la tabla `Regional_age_limits` tendrá los siguientes valores:
     - `young_age` = edad más joven que debe tener el registro
     - `old_age` = edad más antigua que debe tener el registro
     - `end_of_interest_period` = niveles más allá de esta edad serán omitidos
@@ -309,11 +309,11 @@ Se realizan varios pasos adicionales para crear la compilación completamente co
 ### [IV. Cronologías]{.text-background-purple .bold}: `/04_Chronologies/`
 
 - `Run_01_04.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Prepare_chron_control_tables.R` - prepara las tablas de cronología para el modelado edad-profundidad
-- `02_Run_age_depth_models.R` - crea modelos edad-profundidad con BChron
-- `03_Predict_ages.R` - estima las edades de los niveles individuales
-- `04_Save_AD_figures.R` - guarda la salida visual de los modelos edad-profundidad en formato pdf
-- `05_Merge_chron_output.R` - enlaza los modelos edad-profundidad a los conjuntos de datos correspondientes
+- [`01_Prepare_chron_control_tables.R`](#01_prepare_chron_control_tables.r) - prepara las tablas de cronología para el modelado edad-profundidad
+- [`02_Run_age_depth_models.R`](#02_run_age_depth_models.r) - crea modelos edad-profundidad con BChron
+- [`03_Predict_ages.R`](#03_predict_ages.r) - estima las edades de los niveles individuales
+- [`04_Save_AD_figures.R`](#04_save_ad_figures.r) - guarda la salida visual de los modelos edad-profundidad en formato pdf
+- [`05_Merge_chron_output.R`](#05_merge_chron_output.r) - enlaza los modelos edad-profundidad a los conjuntos de datos correspondientes
 
 #### Nota sobre el modelado edad-profundidad
 
@@ -358,7 +358,7 @@ Este script realiza varios pasos para preparar los registros para el modelado ed
 
 ##### Curvas de calibración
 
-Las curvas de calibración se asignan a cada punto de control según varios criterios. Si un punto de control tiene un tipo marcado para calibrar (ver sección siguiente), la curva se asigna según la posición geográfica del registro. Solo los puntos de control con edades de radiocarbono sin calibrar requieren recalibración. FOSSILPOL incluye un shapefile basado en la figura 7 de [Hogg et al (2020)](https://doi.org/10.1017/RDC.2020.59) para asignar correctamente IntCal20, SHCal20 y una curva mixta. Se sigue la rec...
+Las curvas de calibración se asignan a cada punto de control según varios criterios. Si un punto de control tiene un tipo marcado para calibrar (ver sección siguiente), la curva se asigna según la posición geográfica del registro. Solo los puntos de control con edades de radiocarbono sin calibrar requieren recalibración. FOSSILPOL incluye un shapefile basado en la figura 7 de [Hogg et al (2020)](https://doi.org/10.1017/RDC.2020.59) para asignar correctamente IntCal20, SHCal20 y una curva mixta. Se sigue la recomendación: “*...el uso de (i) IntCal20 para áreas al norte de la ITCZ en junio-agosto (líneas discontinuas en la Figura 7) que reciben masas de aire del hemisferio norte durante todo el año, (ii) SHCal20 para áreas al sur de la ITCZ en diciembre-febrero (líneas punteadas en la Figura 7) que reciben masas de aire del hemisferio sur durante todo el año, y (iii) una curva mixta para áreas entre las dos posiciones estacionales de la ITCZ mostradas en la Figura 7, que reciben masas de aire del norte en diciembre-febrero y masas de aire del sur en junio-agosto*”. FOSSILPOL también incluye una curva mixta construida con el paquete {[rcarbon](https://github.com/ahb108/rcarbon)} con una proporción de contribución de la curva de 1:1. Consulte [más información](https://chrono.qub.ac.uk/blaauw/clam.html) sobre el uso de la curva de calibración mixta.
 
 Todas las curvas de calibración tienen un límite de edad, es decir, solo pueden usarse para ciertas edades. Las curvas de calibración de radiocarbono actualmente no cubren edades mayores a 55 mil años. Para edades más jóvenes, durante el último siglo, existen problemas con el radiocarbono atmosférico y debe usarse un conjunto distinto de curvas (debido a las detonaciones nucleares en los 50-60, que alteraron la señal atmosférica). Si el punto de control tiene una edad de radiocarbono menor a 200 años BP, se usa una *curva post-bomba* (ver más arriba). Al igual que las curvas normales, la posición geográfica determina qué curva post-bomba asignar.
 
@@ -366,15 +366,15 @@ Las fechas modernas de radiocarbono se calibran usando una de las curvas post-bo
 
 ##### Tipos de puntos de control de cronología
 
-Cada punto de control tiene varias propiedades: ID único, profundidad, edad, error, espesor y tipo de control (ej. radiocarbono, biostratigráfico, laminaciones anuales, tefra). Cada tipo tiene diferentes incertidumbres de edad. Por ejemplo, muchos registros antiguos se basan en técnicas indirectas (biostratigráficas, tefra, etc.) y pueden tener grandes incertidumbres. Neotoma tiene más de 50 tipos distintos de puntos de control, que abarcan geocronología (ej. plomo-210, radiocarbono, uranio), escalas ...
+Cada punto de control tiene varias propiedades: ID único, profundidad, edad, error, espesor y tipo de control (ej. radiocarbono, biostratigráfico, laminaciones anuales, tefra). Cada tipo tiene diferentes incertidumbres de edad. Por ejemplo, muchos registros antiguos se basan en técnicas indirectas (biostratigráficas, tefra, etc.) y pueden tener grandes incertidumbres. Neotoma tiene más de 50 tipos distintos de puntos de control, que abarcan geocronología (ej. plomo-210, radiocarbono, uranio), escala temporal relativa (por ejemplo, MIS5e, Heinrich Stadial 1, Late Wisconsin event), estratigráfica (por ejemplo, eventos bioestratigráficos como la introducción de taxones antropogénicos), cultural (por ejemplo, European Settlement Horizon), otros métodos de datación absoluta (por ejemplo, laminaciones anuales, fecha de recolección) y otros métodos de datación (por ejemplo, extrapolación o conjeturas). Solo los puntos de control cronológico en edades radiocarbónicas sin calibrar requieren recalibración con las curvas de calibración, ya que la mayoría, si no todos, los demás puntos de control estarán en edades calendáricas y no se debe implementar ninguna recalibración.
 
-El usuario puede elegir qué tipos de control aceptar "tal cual" y cuáles calibrar (un punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)). El flujo genera automáticamente una lista con todos los puntos de control detectados, incluyendo columnas `include` y `calibrate`. En la primera, el usuario indica si se debe incluir el punto; en la segunda, si debe calibrarse.
+El usuario puede elegir qué tipos de control aceptar "tal cual" y cuáles calibrar (un punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)). El flujo genera automáticamente una lista con todos los puntos de control detectados, incluyendo columnas `include` y `calibrate`. En la primera, el usuario indica si se debe incluir el punto; en la segunda, si debe calibrarse.
 
 ##### Preparación de las tablas de cronología
 
 Las tablas de control de cronología deben pasar varios ajustes definidos por el usuario:
 
-- filtrar tipos de puntos de control no deseados seleccionados por el usuario ([***stop-check***](#data-storage))
+- filtrar tipos de puntos de control no deseados seleccionados por el usuario ([***stop-check***](#almacenamiento-de-datos))
 - filtrar registros que no cumplan el número mínimo de puntos de control (`min_n_of_control_points` en el archivo de configuración, por defecto = `2`, [Fig. 2](#figura-2-figura-2) - criterio config **8**)
 - corregir valores ausentes con `default_thickness` (por defecto = `1`, [Fig. 2](#figura-2-figura-2) - criterio config **9**) y `default_error` (por defecto = `100`, [Fig. 2](#figura-2-figura-2) - criterio config **10**)
 - filtrar puntos de control con errores demasiado grandes (`max_age_error` en el archivo de configuración; por defecto = `3000` años, [Fig. 2](#figura-2-figura-2) - criterio config **11**)
@@ -385,7 +385,7 @@ Además, el número y la distribución de estos puntos pueden indicar la incerti
 
 ##### Porcentaje de carbono
 
-Existen tres maneras de reportar fechas post-bomba de radiocarbono: 1) fechas modernas (<0 F14C años); 2) porcentaje de carbono moderno (pMC, normalizado a 100%); y 3) fracción de radiocarbono (F14C, normalizado a 1; [Reimer et al. 2004](https://doi.org/10.1017/S0033822200033154)). Actualmente no hay manera directa de saber si las fechas de Neotoma están en pMC o F14C. Si se detectan, el flujo exporta los registros sospechosos y el usuario debe especificar cuáles deben retrotransformarse ([***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)). Para los seleccionados, se convierten los valores pMC a edades negativas con `IntCal::pMC.age()`, tras lo cual se usan las curvas post-bomba para calibrar a edades de calendario.
+Existen tres maneras de reportar fechas post-bomba de radiocarbono: 1) fechas modernas (<0 F14C años); 2) porcentaje de carbono moderno (pMC, normalizado a 100%); y 3) fracción de radiocarbono (F14C, normalizado a 1; [Reimer et al. 2004](https://doi.org/10.1017/S0033822200033154)). Actualmente no hay manera directa de saber si las fechas de Neotoma están en pMC o F14C. Si se detectan, el flujo exporta los registros sospechosos y el usuario debe especificar cuáles deben retrotransformarse ([***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)). Para los seleccionados, se convierten los valores pMC a edades negativas con `IntCal::pMC.age()`, tras lo cual se usan las curvas post-bomba para calibrar a edades de calendario.
 
 Aunque F14C se recomienda como estándar, en la práctica la mayoría se reporta como fechas normales de radiocarbono o como pMC. El flujo actualmente no gestiona F14C ya que no se han detectado casos. Si se encuentra con otras fuentes, se puede transformar usando el paquete {[IntCal](https://cran.r-project.org/web/packages/IntCal/index.html)}.
 
@@ -431,22 +431,22 @@ Las edades predichas se enlazan con todos los registros de las diferentes fuente
 ### [V. Armonización]{.text-background-pink .bold}: `/05_Harmonisation/`
 
 - `Run_01_05.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Harmonisation.R` - prepara todas las tablas de armonización y armoniza los conteos brutos.
+- [`01_Harmonisation.R`](#01_harmonisation.r) - prepara todas las tablas de armonización y armoniza los conteos brutos.
 
 #### Nota sobre armonización
 
-El objetivo de la armonización taxonómica es estandarizar todos los nombres a nivel de sitio a los mismos morfotipos de polen (conjunto de morfotipos de polen y esporas usados para todos los registros), y así reducir el efecto de la incertidumbre taxonómica y la complejidad nomenclatural (ver literatura relevante en el Apéndice 1 de [Flantua et al. 2023](https://doi.org/10.1111/geb.13693)). Para ello, se puede crear una *tabla de armonización* que agrupa los morfotipos en el mayor nivel taxonómic...
+El objetivo de la armonización taxonómica es estandarizar todos los nombres a nivel de sitio a los mismos morfotipos de polen (conjunto de morfotipos de polen y esporas usados para todos los registros), y así reducir el efecto de la incertidumbre taxonómica y la complejidad nomenclatural (ver literatura relevante en el Apéndice 1 de [Flantua et al. 2023](https://doi.org/10.1111/geb.13693)). Para ello, se puede crear una *tabla de armonización* que agrupa los morfotipos en el mayor nivel taxonómic que es muy probable que la mayoría de los analistas de polen lo identifiquen.
 
 #### 01_Harmonisation.R
 
-Primero, el flujo de trabajo revisa las *regiones de armonización* presentes en los datos, definidas por el shapefile (ver [Entrada de datos](#data-input) y [Sección III](#additional-data-preparation)), y confirma que exista una tabla de armonización por región (un punto [***stop-check***](#data-storage), [Fig. 2](#figura-2-figura-2)). Si falta alguna tabla (o se ejecuta por primera vez), el flujo crea automáticamente una tabla por región, con todos los nombres crudos de taxones de todos los registros...
+Primero, el flujo de trabajo revisa las *regiones de armonización* presentes en los datos, definidas por el shapefile (ver [Entrada de datos](#entrada-de-datos) y [Sección III](#iii.-procesamiento-de-datos-inicial.text-background-green-.bold-03_merging_and_geographic_delineation)), y confirma que exista una tabla de armonización por región (un punto [***stop-check***](#almacenamiento-de-datos), [Fig. 2](#figura-2-figura-2)). Si falta alguna tabla (o se ejecuta por primera vez), el flujo crea automáticamente una tabla por región, con todos los nombres crudos de taxones de todos los registros de esa región. Cabe destacar que, para simplificar, nos referimos aquí a "nombres de taxón", pero la identificación suele realizarse a nivel de familia o género, y se denominan mejor morfotipos.
 
 Cada tabla de armonización tiene dos columnas:
 
 i. `taxon_name` es el nombre original del taxón (morfotipo) en formato computacional (*snake_case*)
 ii. `level 1`, que se usa para agrupar varios taxones (morfotipos) en unidades armonizadas, específicas del proyecto.
 
-Para enlazar los nombres con la visualización original de Neotoma, el usuario puede usar la `taxa_reference_table` (ver [proceso de limpieza de nombres](#additional-data-preparation)).
+Para enlazar los nombres con la visualización original de Neotoma, el usuario puede usar la `taxa_reference_table` (ver [proceso de limpieza de nombres](#preparación-adicional-de-datos)).
 
 El usuario puede también definir qué taxones deben eliminarse totalmente durante la armonización (marcados como `delete`), en caso de errores taxonómicos o proxies no deseados (ej. esporas). Se pueden añadir columnas extra (ej. `level_2`) y especificar qué niveles incluir ajustando el argumento `harm_name` en la función `RFossilpol::harmonise_all_regions()`.
 
@@ -461,7 +461,7 @@ Con estas tablas, cada conjunto se armoniza para que todos los taxones que perte
 ### [VI. Filtrado de datos]{.text-background-coral .bold}: `/06_Main_filtering/`
 
 - `Run_01_06.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Level_filtering.R` - filtra niveles y registros según los criterios definidos por el usuario en el archivo de configuración
+- [`01_Level_filtering.R`](#01_level_filtering.r) - filtra niveles y registros según los criterios definidos por el usuario en el archivo de configuración
 
 #### Nota sobre el filtrado de datos
 
@@ -482,7 +482,7 @@ Además, se pueden activar dos opciones más:
 
 ##### Suma de granos de polen
 
-El número de granos contados en cada nivel es un índice de calidad. Para una representación fiable de la vegetación, se recomienda contar más de `300` granos (Moore et al., 1991), aunque pueden usarse otros criterios (por ejemplo, `150`; ver [Djamali & Cilleros, 2020](https://doi.org/10.1016/j.revpalbo.2019.104156)). En regiones árticas puede bastar con c. `100`, en sitios mediterráneos puede llegar a `1000` ([Birks & Birks, 1980](https://www.google.cz/books/edition/_/9wrDQgAACAAJ?hl=es)), pero la preferencia del analista es clave. Números bajos suelen deberse a limitaciones de tiempo, pero también a fenómenos de preservación. Dado que el poder inferencial estadístico es proporcional al tamaño de muestra, recomendamos definir un mínimo de granos en cada nivel. Luego, se puede aceptar un registro solo si *X*% (por defecto `50`, [Fig. 2](#figura-2-figura-2) - criterio config **23**) de los niveles cumple el número aceptable.
+El número de granos contados en cada nivel es un índice de calidad. Para una representación fiable de la vegetación, se recomienda contar más de `300` granos (Moore et al., 1991), aunque pueden usarse otros criterios (por ejemplo, `150`; ver [Djamali & Cilleros, 2020](https://doi.org/10.1016/j.revpalbo.2019.104156)). En regiones árticas puede bastar con c. `100`, en sitios mediterráneos puede llegar a `1000` ([Birks & Birks, 1980](https://www.google.cz/books/edition/_/9wrDQgAACAAJ)), pero la preferencia del analista es clave. Números bajos suelen deberse a limitaciones de tiempo, pero también a fenómenos de preservación. Dado que el poder inferencial estadístico es proporcional al tamaño de muestra, recomendamos definir un mínimo de granos en cada nivel. Luego, se puede aceptar un registro solo si *X*% (por defecto `50`, [Fig. 2](#figura-2-figura-2) - criterio config **23**) de los niveles cumple el número aceptable.
 
 ##### Criterios de edad
 
@@ -509,9 +509,9 @@ El número total de niveles es importante para futuros análisis. Registros con 
 ### [VII. Salidas/Outputs]{.text-background-orange .bold}: `/07_Outputs/`
 
 - `Run_01_07.R` - ejecuta todos los scripts dentro de esta carpeta
-- `01_Pollen_diagrams.R` - guarda los diagramas de polen de todos los registros
-- `02_Save_assembly.R` - guarda el ensamblado de datos con las variables seleccionadas
-- `03_Save_references.R` - guarda referencias y metadatos
+- [`01_Pollen_diagrams.R`](#01_pollen_diagrams.r) - guarda los diagramas de polen de todos los registros
+- [`02_Save_assembly.R`](#02_save_assembly.r) - guarda el ensamblado de datos con las variables seleccionadas
+- [`03_Save_references.R`](#03_save_references.r) - guarda referencias y metadatos
 
 #### 01_Pollen_diagrams.R
 
@@ -549,4 +549,4 @@ El flujo guarda todos los metadatos y la información de citación necesarios pa
   B) gráfico de bastones con el número de registros por grupo
   C) límites de edad de los registros (línea por registro)
 
-- `"reproducibility_bundle"` - un zip (`reproducibility_bundle.zip`) con el archivo de configuración, todas las tablas [***stop-check***](#data-storage), y todos los shapefiles. La idea es aumentar la reproducibilidad; este zip puede compartirse al publicar un proyecto creado con el flujo FOSSILPOL, o durante revisión para obtener feedback detallado antes de la publicación.
+- `"reproducibility_bundle"` - un zip (`reproducibility_bundle.zip`) con el archivo de configuración, todas las tablas [***stop-check***](#almacenamiento-de-datos), y todos los shapefiles. La idea es aumentar la reproducibilidad; este zip puede compartirse al publicar un proyecto creado con el flujo FOSSILPOL, o durante revisión para obtener feedback detallado antes de la publicación.
