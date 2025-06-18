@@ -1,0 +1,197 @@
+# FOSSILPOL project
+
+:::: {.columns}
+
+::: {.column width="75%"}
+## Información general
+
+Aquí presentamos una guía sobre cómo obtener y configurar el flujo de trabajo FOSSILPOL, que es un flujo de trabajo modular basado en [R](https://en.wikipedia.org/wiki/R_(programming_language)) para procesar múltiples registros de polen fósil y crear una compilación de conjuntos de datos completa y estandarizada, lista para análisis multi-registro y multi-proxy a diferentes escalas espaciales y temporales ([Fig. 1](#figura-1-figura-1)). La guía general se describe en la publicación titulada *A guide to the processing and standardisation of global palaeoecological data for large-scale syntheses using fossil pollen*, por Flantua, S.G.A., Mottl, O., Felde, V.A., Bhatta, K.P., Birks, H.H., Grytnes, J-A., Seddon, A.W.R., Birks H.J.B. (2023) en [Global Ecology and Biogeography](https://doi.org/10.1111/geb.13693).
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="20%"}
+
+<br>
+<br>
+
+![](/figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png)
+:::
+
+::::
+
+El flujo de trabajo FOSSILPOL está programado como un [RStudio project](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) (en el [R programming language](https://en.wikipedia.org/wiki/R_(programming_language))), que debe ser personalizado por el usuario según su proyecto de investigación específico.
+
+El flujo de trabajo FOSSILPOL ha sido desarrollado para procesar datos de polen fósil en el proyecto ERC denominado [*Humans on Planet Earth* (HOPE)](https://www.uib.no/en/rg/EECRG/107501/hope) por el equipo de la [University of Bergen](https://www.uib.no/en).
+
+El logo de FOSSILPOL y la Figura 1 han sido creados por el increíble [MilanTvM](https://www.milantvm.com)
+
+-----
+
+### Figura 1 ![Figura 1](/figures/Workflow%20complete%20-%20600ppi.png)
+
+## Cómo obtener el flujo de trabajo
+
+El flujo de trabajo FOSSILPOL (denominado "el Flujo de Trabajo" en adelante) es accesible de dos maneras:
+  
+  1. Si el usuario tiene una cuenta en [GitHub](https://github.com/), la forma más sencilla es crear su propio repositorio de GitHub usando esta [plantilla de GitHub](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow). Más detalles sobre cómo usar plantillas de GitHub se encuentran en [GitHub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+  
+  2. El usuario puede descargar la última *Release* del Flujo de Trabajo como archivo zip desde la [página de Releases del Flujo de Trabajo de FOSSILPOL](https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow/releases).
+
+El proyecto de R consiste en códigos con scripts y funciones individuales. Todos los scripts se almacenan en la carpeta `R/`. Después de obtener el flujo de trabajo, el proyecto R de FOSSILPOL tendrá la siguiente estructura:
+
+### Bloque de código 1
+
+```{r}
+#| label: code_block_1_es
+#| eval: false
+#| echo: true
+project
+│
+│   README.md
+│   Rprofile
+│   gitignore  
+│   Workflow_template.Rproj
+│
+└───Data
+│   │
+│   └───Input
+│       │
+│       └───Spatial
+│           │
+│           └───Biomes_shapefile   
+│           │   │
+│           │   └───WWF
+│           │
+│           └───Calibration_curves_shapefile   
+│           │
+│           └───Countries_shapefile
+│           │  
+│           └───Harmonisation_regions_shapefile
+│           │
+│           └───Postbomb_shapefile
+│           │
+│           └───Regions_shapefile
+│
+└───R
+│   │
+│   │   ___Init_project___.R
+│   │   00_Config_file.R
+│   │
+│   └───01_Data_processing
+│   │   │   │
+│   │   │   │   Master_run_01.R
+│   │   │
+│   │   └───01_Neotoma_source
+│   │   │   │
+│   │   │   │   Run_01_01.R
+│   │   │   │   01_Download_neotoma.R
+│   │   │   │   02_Extract_samples.R
+│   │   │   │   03_Filter_dep_env.R
+│   │   │   │   04_Extract_chron_control_tables.R
+│   │   │   │   05_Extract_raw_pollen_data.R
+│   │   │   
+│   │   └───02_Other_source
+│   │   │   │
+│   │   │   │   Run_01_02.R
+│   │   │   │   01_Import_other_data.R
+│   │   │
+│   │   └───03_Merging_and_geography
+│   │   │   │
+│   │   │   │   Run_01_03.R
+│   │   │   │   01_Merge_datasets.R
+│   │   │
+│   │   └───04_Chronologies
+│   │   │   │
+│   │   │   │   Run_01_04.R
+│   │   │   │   01_Prepare_chron_control_tables.R
+│   │   │   │   02_Run_age_depth_models.R
+│   │   │   │   03_Predict_ages.R
+│   │   │   │   04_Save_AD_figures.R
+│   │   │   │   05_Merge_chron_output.R
+│   │   │
+│   │   └───05_Harmonisation
+│   │   │   │
+│   │   │   │   Run_01_05.R
+│   │   │   │   01_Harmonisation.R
+│   │   │
+│   │   └───06_Main_filtering
+│   │   │   │
+│   │   │   │   Run_01_06.R
+│   │   │   │   01_Level_filtering.R
+│   │   │
+│   │   └───07_Outputs
+│   │       │
+│   │       │   Run_01_07.R
+│   │       │   01_Pollen_diagrams.R
+│   │       │   02_Save_assembly.R
+│   │       │   03_Save_references.R
+│   │
+│   └───02_Main_analyses
+│   │   │
+│   │   │   Master_run_02.R
+│   │
+│   └───03_Supplementary_analyses
+│   │   │
+│   │   │   Master_run_03.R
+│   │
+│   └───Functions
+│       │
+│       │ example_function.R
+│
+└───renv
+    │
+    │   gitignore
+    │   activate.R
+    │   library_list.lock
+    │   settings.dcf
+```
+
+### Configuración
+
+Una vez que el usuario obtiene su versión del Flujo de Trabajo, hay varios pasos a seguir antes de usarlo:
+
+- Actualiza [R](https://en.wikipedia.org/wiki/R_(programming_language)) y [R-studio IDE](https://posit.co/products/open-source/rstudio/). Hay muchas guías sobre cómo hacerlo (por ejemplo, [aquí](https://jennhuck.github.io/workshops/install_update_R.html))
+
+- Ejecuta todos los pasos individuales con el script `___Init_project___.R`. Esto preparará todos los paquetes de R utilizando el paquete {[renv](https://rstudio.github.io/renv/articles/renv.html)}, que gestiona las dependencias de R de tus proyectos. Principalmente instalará dos paquetes principales de R: {[RFossilpol](https://github.com/HOPE-UIB-BIO/R-Fossilpol-package)} y {[RUtilpol](https://github.com/HOPE-UIB-BIO/R-Utilpol-package)} y todas sus dependencias. RFossilpol ha sido desarrollado específicamente para el flujo de trabajo y la última versión se instala automáticamente en la etapa de configuración del proyecto. Esto es importante ya que la versión del paquete debe coincidir con la versión del Flujo de Trabajo. Por lo tanto, no recomendamos actualizar el paquete después de la instalación. Ten en cuenta que instalar todos los paquetes puede llevar un tiempo considerable.
+
+- Configura tus preferencias editando el script `00_Config_file.R` (denominado "*Config file*" en adelante). El Config file es un script donde todos los ajustes (configuraciones) y criterios utilizados en todo el proyecto están predefinidos por el usuario antes de ejecutar el Flujo de Trabajo. Además, prepara la sesión actual cargando los paquetes requeridos y guardando todos los ajustes durante el proyecto. Los puntos en el Config file que requieren atención del usuario están marcados con "**[USER]**", lo que significa que estos son criterios que deben ser revisados por el usuario. Más información sobre el Config file se encuentra en la sección del sitio web [Guía paso a paso](step_by_step_guide.qmd). Los puntos cruciales son:
+
+  - `data_storage_path` dentro de la sección "*2. Fecha actual y directorio de trabajo*" – como el Flujo de Trabajo produce varios archivos grandes, el usuario puede especificar el directorio donde se almacenarán dichos archivos. Ten en cuenta que el lugar predeterminado es dentro del proyecto.
+
+  - sección "*5. Definir variables*" – estas son las variables importantes para la selección y el filtrado de datos para obtener la compilación final de datos.
+
+- Ejecuta `R/01_Data_processing/Master_run_01.R` para ejecutar toda la parte de procesamiento de datos del proyecto (prepárate para los [**"stop-checks"**](step_by_step_guide.qmd#data-storage)). Alternativamente, el usuario puede ejecutar cada script de manera individual. Una vez resueltos todos los *stop-checks*, el Flujo de Trabajo se puede ejecutar completo para producir la compilación estandarizada final de datos, lista para análisis multi-registro y multi-proxy.
+
+- Si se desea, el usuario puede ejecutar scripts adicionales específicos de su proyecto (no proporcionados) en las carpetas `02_Main_analyses` y `03_Supplementary_analyses` para analizar la compilación de datos.
+
+### Cascada de scripts de R
+
+Este Flujo de Trabajo está construido utilizando una *cascada de scripts*. Esto significa que `Master_run_01.R`, ubicado en la carpeta `R/01_Data_processing/`, ejecuta todos los scripts dentro de las subcarpetas de `R/01_Data_processing/`  y, a su vez, ejecuta sus propias subcarpetas (por ejemplo, `R/01_Data_processing/01_Neotoma_source/Run_01_01.R` ejecuta `R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R`, `R/01_Data_processing/01_Neotoma_source/02_Extract_samples.R`, ...). Consulta el [Bloque de código 2](#code-block-2).
+
+Por lo tanto, un usuario puede ejecutar la sección de procesamiento de datos del proyecto ejecutando el script `R/01_Data_processing/Master_run_01.R` o ejecutar secciones individuales ejecutando scripts individuales dentro de las secciones. Un ejemplo alternativo es que el usuario puede ejecutar la subsección del Flujo de Trabajo completa ejecutando `R/01_Data_processing/01_Neotoma_source/Run_01_01.R`, y no `R/01_Data_processing/01_Neotoma_source/01_Download_neotoma.R`, y luego `R/01_Data_processing/01_Neotoma_source/02_Extract_samples.R`, etc.
+
+#### Bloque de código 2
+
+```{r}
+#| label: code_block_2_es
+#| eval: false
+#| echo: true
+R
+│
+└───01_Data_processing
+        │
+        │   Master_run_01.R
+        │
+        └───01_Neotoma_source
+            │
+            │   Run_01_01.R
+                │
+                │   01_Download_neotoma.R
+                │   02_Extract_samples.R
+                │   03_Filter_dep_env.R
+                │   04_Extract_chron_control_tables.R
+                │   05_Extract_raw_pollen_data.R
+
+```

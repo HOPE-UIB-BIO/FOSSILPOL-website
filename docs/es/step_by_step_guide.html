@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>step_by_step_guide – FOSSILPOL</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./figures/Logo FOSSILPOL regular - 600ppi.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c1a00952e5a83ca3f27e83b7d780dfa8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">FOSSILPOL</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Información General</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./step_by_step_guide.html" aria-current="page"> 
+<span class="menu-text">Una guía paso a paso</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./get_in_touch.html"> 
+<span class="menu-text">¡Ponte en contacto!</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./other_materials.html"> 
+<span class="menu-text">Recursos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🌐</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="./../en">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../es">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#guía-paso-a-paso-para-el-procesamiento-de-datos-con-fossilpol" id="toc-guía-paso-a-paso-para-el-procesamiento-de-datos-con-fossilpol" class="nav-link active" data-scroll-target="#guía-paso-a-paso-para-el-procesamiento-de-datos-con-fossilpol">Guía paso a paso para el procesamiento de datos con FOSSILPOL</a>
+  <ul>
+  <li><a href="#figura-1-figura-1" id="toc-figura-1-figura-1" class="nav-link" data-scroll-target="#figura-1-figura-1">Figura 1 <img src="figures/Workflow complete - 600ppi.png" class="img-fluid" alt="Figura 1"></a></li>
+  <li><a href="#entrada-de-datos" id="toc-entrada-de-datos" class="nav-link" data-scroll-target="#entrada-de-datos">Entrada de datos</a>
+  <ul>
+  <li><a href="#figura-2-figura-2" id="toc-figura-2-figura-2" class="nav-link" data-scroll-target="#figura-2-figura-2">Figura 2 <img src="figures/Workflow_Detailed.png" class="img-fluid" alt="Figura 2"></a></li>
+  </ul></li>
+  <li><a href="#almacenamiento-de-datos" id="toc-almacenamiento-de-datos" class="nav-link" data-scroll-target="#almacenamiento-de-datos">Almacenamiento de datos</a>
+  <ul>
+  <li><a href="#bloque-de-código-3" id="toc-bloque-de-código-3" class="nav-link" data-scroll-target="#bloque-de-código-3">Bloque de código 3</a></li>
+  </ul></li>
+  <li><a href="#procesamiento-de-datos" id="toc-procesamiento-de-datos" class="nav-link" data-scroll-target="#procesamiento-de-datos">Procesamiento de datos</a>
+  <ul>
+  <li><a href="#i.-obtención-de-datos-01_neotoma_source" id="toc-i.-obtención-de-datos-01_neotoma_source" class="nav-link" data-scroll-target="#i.-obtención-de-datos-01_neotoma_source"><span class="text-background-blue bold">I. Obtención de datos</span>: <code>/01_Neotoma_source/</code></a>
+  <ul>
+  <li><a href="#download_neotoma.r-1" id="toc-download_neotoma.r-1" class="nav-link" data-scroll-target="#download_neotoma.r-1"><em>01_Download_neotoma.R</em></a></li>
+  <li><a href="#extract_samples.r-1" id="toc-extract_samples.r-1" class="nav-link" data-scroll-target="#extract_samples.r-1"><em>02_Extract_samples.R</em></a></li>
+  <li><a href="#filter_dep_env.r-1" id="toc-filter_dep_env.r-1" class="nav-link" data-scroll-target="#filter_dep_env.r-1">03_Filter_dep_env.R</a></li>
+  <li><a href="#extract_chron_control_tables.r-1" id="toc-extract_chron_control_tables.r-1" class="nav-link" data-scroll-target="#extract_chron_control_tables.r-1">04_Extract_chron_control_tables.R</a></li>
+  <li><a href="#extract_raw_pollen_data.r-1" id="toc-extract_raw_pollen_data.r-1" class="nav-link" data-scroll-target="#extract_raw_pollen_data.r-1">05_Extract_raw_pollen_data.R</a>
+  <ul class="collapse">
+  <li><a href="#tabla-1.-grupos-ecológicos-asignados-a-taxones-de-polen-según-neotoma" id="toc-tabla-1.-grupos-ecológicos-asignados-a-taxones-de-polen-según-neotoma" class="nav-link" data-scroll-target="#tabla-1.-grupos-ecológicos-asignados-a-taxones-de-polen-según-neotoma">Tabla 1. Grupos ecológicos asignados a taxones de polen según Neotoma</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#ii.-obtención-de-datos-02_other_source" id="toc-ii.-obtención-de-datos-02_other_source" class="nav-link" data-scroll-target="#ii.-obtención-de-datos-02_other_source"><span class="text-background-blue bold">II. Obtención de datos</span>: <code>/02_Other_source/</code></a>
+  <ul>
+  <li><a href="#nota-sobre-otras-fuentes-de-datos" id="toc-nota-sobre-otras-fuentes-de-datos" class="nav-link" data-scroll-target="#nota-sobre-otras-fuentes-de-datos">Nota sobre otras fuentes de datos</a></li>
+  <li><a href="#import_other_data.r-1" id="toc-import_other_data.r-1" class="nav-link" data-scroll-target="#import_other_data.r-1">01_Import_other_data.R</a></li>
+  </ul></li>
+  <li><a href="#iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation" id="toc-iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation" class="nav-link" data-scroll-target="#iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation"><span class="text-background-green bold">III. Procesamiento de datos inicial</span>: <code>/03_Merging_and_geographic_delineation/</code></a>
+  <ul>
+  <li><a href="#merge_datasets.r-1" id="toc-merge_datasets.r-1" class="nav-link" data-scroll-target="#merge_datasets.r-1">01_Merge_datasets.R</a>
+  <ul class="collapse">
+  <li><a href="#detección-de-duplicados" id="toc-detección-de-duplicados" class="nav-link" data-scroll-target="#detección-de-duplicados">Detección de duplicados</a></li>
+  <li><a href="#preparación-adicional-de-datos" id="toc-preparación-adicional-de-datos" class="nav-link" data-scroll-target="#preparación-adicional-de-datos">Preparación adicional de datos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#iv.-cronologías-04_chronologies" id="toc-iv.-cronologías-04_chronologies" class="nav-link" data-scroll-target="#iv.-cronologías-04_chronologies"><span class="text-background-purple bold">IV. Cronologías</span>: <code>/04_Chronologies/</code></a>
+  <ul>
+  <li><a href="#nota-sobre-el-modelado-edad-profundidad" id="toc-nota-sobre-el-modelado-edad-profundidad" class="nav-link" data-scroll-target="#nota-sobre-el-modelado-edad-profundidad">Nota sobre el modelado edad-profundidad</a></li>
+  <li><a href="#prepare_chron_control_tables.r-1" id="toc-prepare_chron_control_tables.r-1" class="nav-link" data-scroll-target="#prepare_chron_control_tables.r-1">01_Prepare_chron_control_tables.R</a>
+  <ul class="collapse">
+  <li><a href="#curvas-de-calibración" id="toc-curvas-de-calibración" class="nav-link" data-scroll-target="#curvas-de-calibración">Curvas de calibración</a></li>
+  <li><a href="#tipos-de-puntos-de-control-de-cronología" id="toc-tipos-de-puntos-de-control-de-cronología" class="nav-link" data-scroll-target="#tipos-de-puntos-de-control-de-cronología">Tipos de puntos de control de cronología</a></li>
+  <li><a href="#preparación-de-las-tablas-de-cronología" id="toc-preparación-de-las-tablas-de-cronología" class="nav-link" data-scroll-target="#preparación-de-las-tablas-de-cronología">Preparación de las tablas de cronología</a></li>
+  <li><a href="#porcentaje-de-carbono" id="toc-porcentaje-de-carbono" class="nav-link" data-scroll-target="#porcentaje-de-carbono">Porcentaje de carbono</a></li>
+  </ul></li>
+  <li><a href="#run_age_depth_models.r-1" id="toc-run_age_depth_models.r-1" class="nav-link" data-scroll-target="#run_age_depth_models.r-1">02_Run_age_depth_models.R</a>
+  <ul class="collapse">
+  <li><a href="#computación-multinúcleo" id="toc-computación-multinúcleo" class="nav-link" data-scroll-target="#computación-multinúcleo">Computación multinúcleo</a></li>
+  <li><a href="#iteraciones" id="toc-iteraciones" class="nav-link" data-scroll-target="#iteraciones">Iteraciones</a></li>
+  </ul></li>
+  <li><a href="#predict_ages.r-1" id="toc-predict_ages.r-1" class="nav-link" data-scroll-target="#predict_ages.r-1">03_Predict_ages.R</a></li>
+  <li><a href="#save_ad_figures.r-1" id="toc-save_ad_figures.r-1" class="nav-link" data-scroll-target="#save_ad_figures.r-1">04_Save_AD_figures.R</a></li>
+  <li><a href="#merge_chron_output.r-1" id="toc-merge_chron_output.r-1" class="nav-link" data-scroll-target="#merge_chron_output.r-1">05_Merge_chron_output.R</a></li>
+  </ul></li>
+  <li><a href="#v.-armonización-05_harmonisation" id="toc-v.-armonización-05_harmonisation" class="nav-link" data-scroll-target="#v.-armonización-05_harmonisation"><span class="text-background-pink bold">V. Armonización</span>: <code>/05_Harmonisation/</code></a>
+  <ul>
+  <li><a href="#nota-sobre-armonización" id="toc-nota-sobre-armonización" class="nav-link" data-scroll-target="#nota-sobre-armonización">Nota sobre armonización</a></li>
+  <li><a href="#harmonisation.r-1" id="toc-harmonisation.r-1" class="nav-link" data-scroll-target="#harmonisation.r-1">01_Harmonisation.R</a></li>
+  </ul></li>
+  <li><a href="#vi.-filtrado-de-datos-06_main_filtering" id="toc-vi.-filtrado-de-datos-06_main_filtering" class="nav-link" data-scroll-target="#vi.-filtrado-de-datos-06_main_filtering"><span class="text-background-coral bold">VI. Filtrado de datos</span>: <code>/06_Main_filtering/</code></a>
+  <ul>
+  <li><a href="#nota-sobre-el-filtrado-de-datos" id="toc-nota-sobre-el-filtrado-de-datos" class="nav-link" data-scroll-target="#nota-sobre-el-filtrado-de-datos">Nota sobre el filtrado de datos</a></li>
+  <li><a href="#level_filtering.r-1" id="toc-level_filtering.r-1" class="nav-link" data-scroll-target="#level_filtering.r-1">01_Level_filtering.R</a>
+  <ul class="collapse">
+  <li><a href="#suma-de-granos-de-polen" id="toc-suma-de-granos-de-polen" class="nav-link" data-scroll-target="#suma-de-granos-de-polen">Suma de granos de polen</a></li>
+  <li><a href="#criterios-de-edad" id="toc-criterios-de-edad" class="nav-link" data-scroll-target="#criterios-de-edad">Criterios de edad</a></li>
+  <li><a href="#extrapolación-de-edad" id="toc-extrapolación-de-edad" class="nav-link" data-scroll-target="#extrapolación-de-edad">Extrapolación de edad</a></li>
+  <li><a href="#periodo-de-interés" id="toc-periodo-de-interés" class="nav-link" data-scroll-target="#periodo-de-interés">Periodo de interés</a></li>
+  <li><a href="#número-de-niveles" id="toc-número-de-niveles" class="nav-link" data-scroll-target="#número-de-niveles">Número de niveles</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#vii.-salidasoutputs-07_outputs" id="toc-vii.-salidasoutputs-07_outputs" class="nav-link" data-scroll-target="#vii.-salidasoutputs-07_outputs"><span class="text-background-orange bold">VII. Salidas/Outputs</span>: <code>/07_Outputs/</code></a>
+  <ul>
+  <li><a href="#pollen_diagrams.r-1" id="toc-pollen_diagrams.r-1" class="nav-link" data-scroll-target="#pollen_diagrams.r-1">01_Pollen_diagrams.R</a></li>
+  <li><a href="#save_assembly.r-1" id="toc-save_assembly.r-1" class="nav-link" data-scroll-target="#save_assembly.r-1">02_Save_assembly.R</a></li>
+  <li><a href="#save_references.r-1" id="toc-save_references.r-1" class="nav-link" data-scroll-target="#save_references.r-1">03_Save_references.R</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/blob/main/step_by_step_guide.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 de febrero de 2022</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">14 de junio de 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="guía-paso-a-paso-para-el-procesamiento-de-datos-con-fossilpol" class="level1">
+<h1>Guía paso a paso para el procesamiento de datos con FOSSILPOL</h1>
+<div class="columns">
+<div class="column" style="width:75%;">
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>El flujo de trabajo FOSSILPOL está estructurado de manera modular, donde todos los pasos se organizan secuencialmente y guiados por un único archivo principal de configuración (<em>Config file</em>) donde todos los criterios y configuraciones se predefinen por el usuario.</p>
+</section>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:20%;">
+<p><br></p>
+<hr>
+<p><br></p>
+<p><img src=".\figures/Logo FOSSILPOL regular - 600ppi.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="figura-1-figura-1" class="level3">
+<h3 class="anchored" data-anchor-id="figura-1-figura-1">Figura 1 <img src="figures/Workflow complete - 600ppi.png" class="img-fluid" alt="Figura 1"></h3>
+</section>
+<section id="entrada-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="entrada-de-datos">Entrada de datos</h2>
+<p>El flujo de trabajo FOSSILPOL está configurado de manera que los datos de <a href="https://www.neotomadb.org/">Neotoma Paleoecological Database</a> (“<em>Neotoma</em>” de aquí en adelante) son la fuente principal de datos. Sin embargo, también se pueden utilizar otras fuentes de datos en paralelo utilizando nuestro formato predefinido (<a href="#figura-2-figura-2">Fig. 2</a>). El usuario, por lo tanto, tiene la flexibilidad de obtener datos de Neotoma o de otra fuente de datos siempre que se utilice nuestro archivo de formato predefinido (ver <a href="#ii.-obtención-de-datos-02_other_source">otras fuentes de datos</a>).</p>
+<p>Se requieren tres insumos adicionales para la configuración inicial del flujo de trabajo:</p>
+<ol type="1">
+<li><p><strong>Archivo de configuración</strong> (<code>00_Config_file.R</code>) - contiene todos los ajustes seleccionados por el usuario que se aplicarán a lo largo del flujo de trabajo. Estos van desde configuraciones técnicas (por ejemplo, ubicación del almacenamiento de datos) hasta requisitos específicos (por ejemplo, criterios de filtrado) para los registros que se incluirán. Un resumen de dónde se utilizan los criterios de configuración en el flujo de trabajo se resume en (<a href="#figura-2-figura-2">Fig. 2</a>).</p></li>
+<li><p><strong>Shapefiles geográficos</strong> - el flujo de trabajo está configurado internamente para que los datos se procesen por regiones geográficas y los shapefiles se utilizan para asignar la información geográfica relevante a los registros a procesar. Primero, el flujo de trabajo está conceptualizado para un proyecto global, por lo que la estructura general del procesamiento de datos se realiza <em>por continente</em> (es decir, <code>region</code> = “<em>continent</em>”), pero el usuario puede usar cualquier otra delimitación de interés. El flujo de trabajo viene con un shapefile por defecto que delimita aproximadamente los continentes, pero puede ajustarse o reemplazarse según las necesidades del proyecto. En segundo lugar, la armonización taxonómica de los registros se estructura por <em>regiones de armonización</em> proporcionadas por el <code>harmonisation region shapefile</code>. Por defecto, este shapefile es una copia del shapefile continental, pero como las tablas de armonización son específicas por región (ver siguiente ítem de insumo), este shapefile debe ajustarse para representar la delimitación geográfica de las regiones de armonización utilizadas. Finalmente, si el usuario está interesado en otras unidades biogeográficas, climáticas o ecológicas de interés para ser vinculadas a cada registro (por ejemplo, ecorregiones, tipo de bioma, zonas climáticas), entonces se pueden agregar shapefiles (o archivos TIF) adicionales al flujo de trabajo (ver <a href="#almacenamiento-de-datos">detalles aquí</a>).</p></li>
+<li><p><strong>Tablas de armonización</strong> - en cada proyecto, se debe proporcionar una tabla de armonización por región de armonización (delimitada por el correspondiente shapefile de región de armonización, ver arriba). Una tabla de armonización siempre viene con dos columnas: i) <code>original taxa</code> (taxones originales) con los nombres taxonómicos presentes originalmente en Neotoma y/o en otra fuente de datos en el proyecto, y ii) <code>level_1</code> (taxones armonizados) con los nombres taxonómicos estandarizados. El flujo de trabajo detectará si el usuario ha proporcionado una tabla de armonización o, de lo contrario, creará una nueva tabla con todos los nombres de taxones <em>brutos</em> detectados para cada región de armonización. Esta última puede servir como plantilla para la armonización en la columna <code>level_1</code> (ver <a href="#v.-armonización-05_harmonisation">detalles aquí</a>).</p></li>
+</ol>
+<section id="figura-2-figura-2" class="level3">
+<h3 class="anchored" data-anchor-id="figura-2-figura-2">Figura 2 <img src="figures/Workflow_Detailed.png" class="img-fluid" alt="Figura 2"></h3>
+</section>
+</section>
+<section id="almacenamiento-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="almacenamiento-de-datos">Almacenamiento de datos</h2>
+<p>El flujo de trabajo producirá varios archivos, incluyendo <em>archivos de salida temporales</em>, tablas de <em>stop-check</em>, y <em>salidas</em> finales (compilación de datos, figuras, etc.):</p>
+<ol type="1">
+<li><p><strong>Archivos temporales de salida</strong>: el flujo de trabajo está configurado para que los archivos de datos temporales (en proceso) se guarden en varias etapas del flujo de trabajo. Cada archivo contendrá la fecha de creación para una organización más fácil. Cuando se ejecuta varias veces, el flujo de trabajo detectará automáticamente si hay cambios en un archivo seleccionado y solo lo sobrescribirá si se produce un archivo actualizado (esto lo gestiona el paquete {<a href="https://github.com/HOPE-UIB-BIO/R-Utilpol-package">RUtilpol</a>}). Esto también significa que el usuario no tiene que volver a ejecutar todo el flujo de trabajo, sino que puede volver a ejecutar solo partes específicas. Como el tamaño total de los archivos puede ser considerable, el usuario puede especificar si todos los archivos deben almacenarse dentro de la carpeta del proyecto (por defecto) o en otro directorio (especificado usando <code>data_storage_path</code> en el archivo de configuración). Con tal especificación, y después de ejecutar el script <code>00_Config_file.R</code>, se creará una estructura de carpetas adicional (ver [FLAG]).</p></li>
+<li><p><strong>Tablas CSV de <em>stop-check</em></strong>: al ejecutar el flujo de trabajo, habrá varias ocasiones en que se pedirá al usuario que revise y, cuando sea necesario, ajuste las tablas CSV producidas para continuar con el flujo de trabajo (es decir, volver a ejecutar el script). Esto se hace para obligar al usuario a comprobar los resultados intermedios antes de continuar. Por ejemplo, en cierto punto, el flujo de trabajo producirá una lista de todos los grupos ecológicos detectados en la compilación de datos obtenida de Neotoma. Luego, el usuario debe editar la tabla CSV mencionada y especificar qué grupos ecológicos deben mantenerse (<code>include</code> = <code>TRUE</code>) y cuáles deben filtrarse (<code>include</code> = <code>FALSE</code>). Ten en cuenta que hay varios stop-checks a lo largo del flujo de trabajo (ver resumen en <a href="#figura-2-figura-2">Fig. 2</a>).</p></li>
+<li><p><strong>Salida del flujo de trabajo</strong> (<code>Outputs/</code>, ver <a href="#vii.-salidasoutputs.text-background-orange-.bold-07_outputs">Sección VII</a> para más información):</p>
+<ul>
+<li>una compilación de datos de polen fósil armonizada taxonómicamente y estandarizada temporalmente, lista para el análisis (formato rds)</li>
+<li>gráficos de curvas de edad-profundidad modeladas para cada registro (formato pdf)</li>
+<li>diagramas de polen de cada registro (formato pdf)</li>
+<li>tabla de metadatos con el principal contribuyente de datos, información de contacto y publicaciones correspondientes para propósitos de citación de los conjuntos de datos utilizados (PDF).</li>
+<li>reproducibility bundle, un archivo zip que contiene todas las secciones importantes para la reproducibilidad de todo el proyecto.</li>
+<li>figuras resumen de la distribución espacial y temporal de la compilación de datos, es decir, un mapa y un gráfico de la duración de los registros, respectivamente (PDF).</li>
+</ul></li>
+</ol>
+<section id="bloque-de-código-3" class="level3">
+<h3 class="anchored" data-anchor-id="bloque-de-código-3">Bloque de código 3</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>│</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>└───Data</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>│   │</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>│   └───Input</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>│   │   └───Chronology_setting</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>│   │   │   │</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>│   │   │   └───Bchron_crash</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>│   │   │   │</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>│   │   │   └───Chron_control_point_types</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>│   │   │   │</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>│   │   │   └───Percentage_radiocarbon</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>│   │   └───Depositional_environment</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>│   │   │   │</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>│   │   │   └───Neotoma</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>│   │   │   │</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>│   │   │   └───Other</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>│   │   └───Eco_group</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>│   │   └───Harmonisation_tables</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>│   │   └───Neotoma_download</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>│   │   └───Potential_duplicates</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>│   │   └───Other</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>│   │   │</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>│   │   └───Regional_age_limits</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>│   │   </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>│   └───Personal_database_storage</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>│   │</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>│   └───Processed</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>│       └───Chronology</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>│       │   └───Chron_tables_prepared</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>│       │   └───Models_full</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>│       │   └───Predicted_ages</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>│       │   └───Temporary_output</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>│       └───Data_filtered</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>│       └───Data_harmonised</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>│       └───Data_merged</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>│       └───Data_with_chronologies</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>│       └───Neotoma_processed</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>│       │   └───Neotoma_chron_control</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>│       │   └───Neotoma_dep_env</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>│       │   │</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>│       │   └───Neotoma_meta</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>│       │</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>│       └───Other</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>│ </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>└───Outputs</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    │</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    └───Data</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    │</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    └───Figures</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    │   │</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    │   └───Chronology</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    │   │</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    │   └───Pollen_diagrams</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    │   </span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    └───Tables</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>        │</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>        └───Meta_and_references</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="procesamiento-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="procesamiento-de-datos">Procesamiento de datos</h2>
+<p>Aquí nos centramos en los scripts dentro de la carpeta <code>R/01_Data_processing</code> que representan todos los pasos necesarios para el procesamiento de datos (desde la obtención de los datos hasta la compilación final del conjunto de datos), organizados en las siguientes Secciones:</p>
+<ol type="I">
+<li><p><strong><a href="#i.-obtención-de-datos-01_neotoma_source">Obtención de datos: <code>/01_Neotoma_source/</code></a></strong> - obtener y procesar datos de Neotoma</p></li>
+<li><p><strong><a href="#ii.-obtención-de-datos-02_other_source">Obtención de datos: <code>/02_Other_source/</code></a></strong> - procesar datos de otras fuentes (opcional)</p></li>
+<li><p><strong><a href="#iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation">Procesamiento de datos inicial: <code>/03_Merging_and_geographic_delineation/</code></a></strong> - combinar fuentes de datos, filtrar duplicados y asignar valores según la ubicación geográfica</p></li>
+<li><p><strong><a href="#iv.-cronologías-04_chronologies">Cronologías: <code>/04_Chronologies/</code></a></strong> - preparar tablas de control de cronología, calcular modelos edad-profundidad y predecir edades para los niveles</p></li>
+<li><p><strong><a href="#v.-armonización-05_harmonisation">Armonización: <code>/05_Harmonisation/</code></a></strong> - preparar todas las tablas de armonización y armonizar los taxones de polen (morfotipos)</p></li>
+<li><p><strong><a href="#vi.-filtrado-de-datos-06_main_filtering">Filtrado de datos: <code>/06_Main_filtering/</code></a></strong> - filtrar niveles y registros según criterios definidos por el usuario</p></li>
+<li><p><strong><a href="#vii.-salidasoutputs-07_outputs">Salidas: <code>/07_Outputs/</code></a></strong> - guardar la salida final incluyendo la compilación de datos, diagramas de polen, información de metadatos, resumen gráfico y reproducibility bundle</p></li>
+</ol>
+<p><br></p>
+<hr>
+<p><br></p>
+<section id="i.-obtención-de-datos-01_neotoma_source" class="level3">
+<h3 class="anchored" data-anchor-id="i.-obtención-de-datos-01_neotoma_source"><span class="text-background-blue bold">I. Obtención de datos</span>: <code>/01_Neotoma_source/</code></h3>
+<ul>
+<li><code>Run_01_01.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_download_neotoma.r"><code>01_Download_neotoma.R</code></a> - descarga los datos de polen desde la base de datos Neotoma</li>
+<li><a href="#02_extract_samples.r"><code>02_Extract_samples.R</code></a> - crea una tabla a partir de las listas descargadas de Neotoma y descarga la información de los autores</li>
+<li><a href="#03_filter_dep_env.r"><code>03_Filter_dep_env.R</code></a> - obtiene los datos del ambiente de depósito y filtra registros según las preferencias del usuario</li>
+<li><a href="#04_extract_chron_control_tables.r"><code>04_Extract_chron_control_tables.R</code></a> - obtiene las cronologías, incluyendo la tabla preferida con los puntos de control de cronología</li>
+<li><a href="#05_extract_raw_pollen_data.r"><code>05_Extract_raw_pollen_data.R</code></a> - extrae los conteos de polen brutos de Neotoma y filtra por grupos ecológicos seleccionados por el usuario.</li>
+</ul>
+<section id="download_neotoma.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="download_neotoma.r-1"><em>01_Download_neotoma.R</em></h4>
+<p>Todos los registros de polen se descargan de Neotoma en base a los criterios geográficos (extensión espacial, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>1</strong>) y el tipo de dato seleccionado, en este caso: “pollen”. Observa que se puede utilizar una extensión espacial más compleja, como un polígono, con el argumento <code>loc</code> en <code>RFossilpol::proc_neo_get_all_neotoma_datasets()</code> (ver uso de <code>loc</code> en el ejemplo de <code>neotoma2</code> <a href="https://github.com/NeotomaDB/EPD_binder/blob/main/slides/slides2.pdf">aquí</a>).</p>
+</section>
+<section id="extract_samples.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="extract_samples.r-1"><em>02_Extract_samples.R</em></h4>
+<p>Cada registro se procesa utilizando un ID único de dataset (<code>dataset_id</code>) con la información de metadatos extraída. Los metadatos incluyen información sobre el nombre del registro, información geográfica y los autores y DOI de la publicación conectada al dataset. Los autores y su vínculo con el dataset se guardan en una base de datos de Autor-Dataset creada específicamente para cada proyecto. Esto permite la fácil extracción de autores y DOI para la compilación final producida por el flujo de trabajo.</p>
+</section>
+<section id="filter_dep_env.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="filter_dep_env.r-1">03_Filter_dep_env.R</h4>
+<p>La información de depósito de cada registro ofrece información sobre los ambientes donde se extrajo el registro. Según la pregunta de investigación, puede haber preferencia por ciertos ambientes (por ejemplo, terrestres vs.&nbsp;marinos). Actualmente en Neotoma, los datos sobre ambientes de depósito están organizados en una estructura jerárquica (por ejemplo, “Pond” está anidado en “Natural Lake”, que a su vez está anidado en “Lacustrine”), donde el número máximo de capas anidadas es cinco. En el nivel jerárquico más bajo, actualmente existen más de 50 categorías diferentes de ambientes de depósito (para registros de polen fósil). Según los registros seleccionados, el flujo de trabajo producirá una lista de todos los ambientes de depósito (y su posición jerárquica) presentes en la selección de datos del usuario. Luego se solicita al usuario que defina los ambientes de elección (esto es un punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>). Observa que excluir ambientes de depósito con una posición jerárquica superior <strong>no</strong> excluye automáticamente todos los ambientes de depósito anidados en él.</p>
+</section>
+<section id="extract_chron_control_tables.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="extract_chron_control_tables.r-1">04_Extract_chron_control_tables.R</h4>
+<p>Los datos de cronología para cada registro están disponibles en una tabla que contiene información sobre los puntos de control de cronología usados para construir un modelo edad-profundidad. Algunos registros pueden tener múltiples tablas de cronología, ya que han sido utilizados para varios proyectos o recalibrados por los responsables de los datos. Estas tablas se enumeran según el orden en que se crearon y subieron. Cada cronología viene con la unidad de edad de la salida del modelo edad-profundidad (por ejemplo, “Radiocarbon years BP”, “Calibrated radiocarbon years BP”) y el rango temporal del registro (edad más joven y más vieja). Las cronologías en “Radiocarbon years BP” suelen ser cronologías más antiguas ya que es práctica común recalibrar el material datado por radiocarbono y producir cronologías expresadas en “Calibrated radiocarbon years BP”. Nota: Las cronologías en “Calibrated radiocarbon years BP” aún vienen con tablas de cronología que contienen las edades de radiocarbono sin calibrar y deben ser calibradas por el usuario si se desea un nuevo modelo edad-profundidad. El flujo de trabajo selecciona automáticamente una tabla por registro según el orden definido por <code>chron_order</code> en el archivo de configuración (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>2</strong>). Nota: si hay varias tablas con el mismo tipo de unidad de edad (por ejemplo, Calibrated radiocarbon years BP), el flujo de trabajo optará por la tabla más reciente. El usuario puede especificar su preferencia para ciertos tipos de unidad de edad en el archivo de configuración. Además, solo se utilizarán los registros que tengan al menos un número mínimo de puntos de control (definido por <code>min_n_of_control_points</code> en el archivo de configuración, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>3</strong>).</p>
+</section>
+<section id="extract_raw_pollen_data.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="extract_raw_pollen_data.r-1">05_Extract_raw_pollen_data.R</h4>
+<p>Cada nivel de cada registro incluye información adicional: a) ID único de muestra (sample_id), b) información sobre la profundidad (y edad estimada posteriormente), y c) conteos de polen para cada taxón presente en ese nivel. La información sobre los niveles se divide en dos tablas diferentes (primero con profundidad y edades, y segundo con conteos de polen) vinculadas por sample_id (<code>sample_id</code>).</p>
+<p>El flujo de trabajo solo mantendrá los registros con un número mínimo de niveles según lo definido en el archivo de configuración (<code>min_n_levels</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>4</strong>). El número mínimo de niveles por defecto es tres, pero el usuario puede cambiar este ajuste.</p>
+<p>En el caso de los datos obtenidos de Neotoma, cada taxón de polen tiene información sobre el grupo ecológico (por ejemplo, palmas, manglares, etc.). Según los registros seleccionados, el flujo de trabajo producirá una lista completa de todos los grupos ecológicos tras lo cual se solicita al usuario definir qué grupos ecológicos incluir (un punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>, ver explicación de la abreviatura en <a href="#table-1.-ecological-groups-assigned-to-pollen-taxa-as-defined-in-neotoma">Tabla 1</a>).</p>
+<section id="tabla-1.-grupos-ecológicos-asignados-a-taxones-de-polen-según-neotoma" class="level5">
+<h5 class="anchored" data-anchor-id="tabla-1.-grupos-ecológicos-asignados-a-taxones-de-polen-según-neotoma">Tabla 1. Grupos ecológicos asignados a taxones de polen según Neotoma</h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ABREVIATURA</th>
+<th>GRUPO ECOLÓGICO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ACRI</td>
+<td>Acritarcos</td>
+</tr>
+<tr class="even">
+<td>ANAC</td>
+<td>Anacrónicos</td>
+</tr>
+<tr class="odd">
+<td>ALGA</td>
+<td>Algas (ej. Botryococcus)</td>
+</tr>
+<tr class="even">
+<td>AQB</td>
+<td>Acuáticos (ej. Sphagnum)</td>
+</tr>
+<tr class="odd">
+<td>AQVP</td>
+<td>Plantas vasculares acuáticas (ej. Isoetes)</td>
+</tr>
+<tr class="even">
+<td>BIOM</td>
+<td>Mediciones biométricas</td>
+</tr>
+<tr class="odd">
+<td>EMBR</td>
+<td>Embriófitas</td>
+</tr>
+<tr class="even">
+<td>FUNG</td>
+<td>Hongos</td>
+</tr>
+<tr class="odd">
+<td>LABO</td>
+<td>Análisis de laboratorio</td>
+</tr>
+<tr class="even">
+<td>MAN</td>
+<td>Manglares</td>
+</tr>
+<tr class="odd">
+<td>PALM</td>
+<td>Palmas</td>
+</tr>
+<tr class="even">
+<td>PLNT</td>
+<td>Planta</td>
+</tr>
+<tr class="odd">
+<td>SEED</td>
+<td>No identificado, pero definitivamente polen - rango o clado de espermatófitos</td>
+</tr>
+<tr class="even">
+<td>SUCC</td>
+<td>Suculentas</td>
+</tr>
+<tr class="odd">
+<td>TRSH</td>
+<td>Árboles y arbustos</td>
+</tr>
+<tr class="even">
+<td>UNID</td>
+<td>Desconocido e indeterminable</td>
+</tr>
+<tr class="odd">
+<td>UPBR</td>
+<td>Briófitas de tierras altas</td>
+</tr>
+<tr class="even">
+<td>UPHE</td>
+<td>Hierbas de tierras altas</td>
+</tr>
+<tr class="odd">
+<td>VACR</td>
+<td>Criptógamas vasculares terrestres</td>
+</tr>
+<tr class="even">
+<td>VASC</td>
+<td>Plantas vasculares</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="ii.-obtención-de-datos-02_other_source" class="level3">
+<h3 class="anchored" data-anchor-id="ii.-obtención-de-datos-02_other_source"><span class="text-background-blue bold">II. Obtención de datos</span>: <code>/02_Other_source/</code></h3>
+<ul>
+<li><code>Run_01_02.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_import_other_data.r"><code>01_Import_other_data.R</code></a> - obtener otras fuentes de datos y filtrar los registros de manera similar a Neotoma.</li>
+</ul>
+<section id="nota-sobre-otras-fuentes-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="nota-sobre-otras-fuentes-de-datos">Nota sobre otras fuentes de datos</h4>
+<p>Nuestro flujo de trabajo FOSSILPOL permite el uso de otras fuentes de datos en combinación con los datos de Neotoma. Incluir otras fuentes es completamente opcional y puede omitirse según lo indicado por <code>use_other_datasource</code> = <code>TRUE</code>/<code>FALSE</code> en el archivo de configuración.</p>
+<p>Se pueden usar cualquier tipo de datos, siempre y cuando contengan la siguiente información obligatoria: a) metadatos, b) ambiente de depósito, c) cronología, d) nivel (edad-profundidad), y e) conteos de polen. Para preparar los datos para su uso, el usuario debe descargar la <a href="https://figshare.com/articles/dataset/FOSSILPOL-private_data-template/19794112">plantilla de archivo</a> especialmente preparada para este fin. Cada registro de polen debe guardarse como un archivo separado con un nombre <strong>único</strong>. Se recomienda, por ejemplo, <code>private_data_(nombre_del_sitio).xlsx</code>. El <em>nombre del sitio</em> en el nombre del archivo es crucial ya que se comparará con todos los demás registros de polen en Neotoma para detectar posibles duplicados en una etapa posterior del flujo de trabajo. Todos los archivos deben almacenarse en <code>/Data/Input/Other/</code> (o según lo especificado por el argumento <code>dir_files</code>, ver abajo).</p>
+</section>
+<section id="import_other_data.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="import_other_data.r-1">01_Import_other_data.R</h4>
+<p>La obtención de otras fuentes de datos sigue un orden simple de acciones:</p>
+<ol type="1">
+<li><p>Los archivos de datos deben ser preparados por el usuario siguiendo la plantilla, un registro por archivo.</p></li>
+<li><p>Los datos se extraen y formatean para ser compatibles con los datos de Neotoma utilizando la función <code>RFossilpol::import_datasets_from_folder()</code>, con los siguientes argumentos:</p>
+<ul>
+<li><code>dir_files</code> - el usuario puede especificar qué carpeta contiene los datos preparados (por defecto = <code>Data/Input/Other/</code>)</li>
+<li><code>suffix</code> - argumento para identificar la fuente de los datos. Por defecto se define como <code>"other"</code>, lo que significa que los conjuntos de datos se pueden identificar fácilmente ya que su nombre será <code>(dataset id)_other</code></li>
+<li><code>source_of_data</code> - marcará la fuente de cada conjunto de datos en la compilación en el resumen de metadatos (ver <a href="#vii.-salidasoutputs.text-background-orange-.bold-07_outputs">sección VII</a>). Por defecto se define como <code>"personal_data"</code></li>
+<li><code>data_publicity</code> - marcará la publicidad de los datos de cada conjunto en la compilación en el resumen de metadatos (ver <a href="#vii.-salidasoutputs.text-background-orange-.bold-07_outputs">sección VII - Outputs</a>). Por defecto se define como <code>"restricted"</code></li>
+<li><code>pollen_percentage</code> - los conteos de polen medidos como proporciones (por ejemplo, escaneados de diagramas de polen) se pueden marcar aquí. Por defecto en <code>FALSE</code></li>
+</ul></li>
+<li><p>Los nombres de los contribuyentes de datos se extraen y se añaden a la <a href="#extract_samples.r">base de datos Autor-Dataset</a> usada para la atribución de autor-dataset (ver <a href="#vii.-salidasoutputs.text-background-orange-.bold-07_outputs">sección VII - Outputs</a>).</p></li>
+<li><p>Los datos se tratan de manera similar a los datos de Neotoma, en cuanto al filtrado por ubicación geográfica, número de niveles (<a href="#figura-2-figura-2">Fig. 2</a> - criterios config <strong>5</strong>, <strong>6</strong>), y ambientes de depósito (punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>).</p></li>
+</ol>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation" class="level3">
+<h3 class="anchored" data-anchor-id="iii.-procesamiento-de-datos-inicial-03_merging_and_geographic_delineation"><span class="text-background-green bold">III. Procesamiento de datos inicial</span>: <code>/03_Merging_and_geographic_delineation/</code></h3>
+<ul>
+<li><code>Run_01_03.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_merge_datasets.r"><code>01_Merge_datasets.R</code></a> - combinar datos de todas las fuentes, filtrar duplicados y asignar valores según la ubicación geográfica</li>
+</ul>
+<section id="merge_datasets.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="merge_datasets.r-1">01_Merge_datasets.R</h4>
+<p>Después del procesamiento inicial, los registros de Neotoma y otras fuentes se combinan.</p>
+<section id="detección-de-duplicados" class="level5">
+<h5 class="anchored" data-anchor-id="detección-de-duplicados">Detección de duplicados</h5>
+<p>Existe la posibilidad de que algunos conjuntos de datos de otras fuentes ya estén en Neotoma. Para evitar duplicados en la compilación final, el flujo de trabajo comparará conjuntos de ambas fuentes e identificará posibles duplicados. Este paso es opcional, pero se recomienda seguirlo. Para ello, el usuario debe especificar <code>detect_duplicates</code> == <code>TRUE</code> en el archivo de configuración (esto es predeterminado, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>7</strong>). El flujo de trabajo iniciará una subrutina simple que utiliza la función <code>RFossilpol::proc_filter_out_duplicates()</code>. Dado que comparar todos los registros de cada fuente de datos entre sí es relativamente exigente en términos de cálculo, la función dividirá los datos en varios grupos según su ubicación geográfica (aprox. 100 registros por grupo). El usuario puede definir el número de grupos mediante el argumento <code>n_subgroups</code>. A continuación, cada registro de una fuente se compara con todos los registros de la otra fuente, siempre que se encuentren en un radio de 1 grado (se asume que los registros duplicados estarán en una ubicación similar). El usuario puede definir la distancia máxima mediante el argumento <code>max_degree_distance</code>. Finalmente, el flujo de trabajo generará una lista de posibles registros duplicados (un punto de <strong><em>stop-check</em></strong>, <a href="#figura-2-figura-2">Fig. 2</a>). Para cada par de registros, el usuario debe especificar qué registros deben eliminarse escribiendo <code>1</code> (eliminar el Neotoma) o <code>2</code> (eliminar la otra fuente de datos) en la columna <code>delete</code> de la lista creada (dejar <code>0</code> dejará ambos registros).</p>
+</section>
+<section id="preparación-adicional-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="preparación-adicional-de-datos">Preparación adicional de datos</h5>
+<p>Se realizan varios pasos adicionales para crear la compilación completamente combinada antes de pasar al paso de cronología (no requieren acción del usuario):</p>
+<ol type="1">
+<li><p>Todos los nombres de taxones se transforman en un formato más fácil de manejar por ordenador para su manipulación. La función <code>RFossilpol::proc_clean_count_names()</code> primero transforma los caracteres especiales a texto (por ejemplo, <code>+</code> a <code>_plus_</code>) y luego utiliza {<a href="https://sfirke.github.io/janitor/">janitor</a>} para transformar en el estilo <a href="https://en.wikipedia.org/wiki/Snake_case">“<em>snake_case</em>”</a>. Además, el usuario puede especificar cambios adicionales mediante el argumento <code>user_name_patterns</code> (ver ejemplo en el script). Durante la limpieza de nombres de taxones, el flujo de trabajo guardará la <code>taxa_reference_table</code> para la trazabilidad a la taxonomía de Neotoma. La <code>taxa_reference_table</code> es un archivo CSV que se guarda en la misma carpeta que las tablas de armonización (<code>Data/Input/Harmonisation_tables/</code>). Más información sobre el proceso de <a href="#v.-armonización-05_harmonisation">armonización</a>.</p></li>
+<li><p>Los niveles individuales (profundidades de muestra) se ordenan por su profundidad para cada registro con <code>RFossilpol::proc_prepare_raw_count_levels()</code>. Esto incluye subrutinas, por ejemplo, mantener solo los niveles presentes en todas las tablas de datos, filtrar niveles sin datos de polen y taxones que no estén presentes en ningún nivel.</p></li>
+<li><p>Se asigna información espacial a cada registro según los shapefiles geográficos proporcionados. Específicamente:</p>
+<ul>
+<li><p><strong>Información de región</strong> - el shapefile en <code>Data/Input/Spatial/Regions_shapefile</code> asignará los nombres regionales a cada registro (ver <a href="#entrada-de-datos">Sección Entrada de datos</a>). El usuario puede (y se recomienda) cambiar la delimitación espacial alterando o reemplazando el shapefile.</p></li>
+<li><p><strong>Delimitación política (países)</strong> - obtenido de la base de datos <a href="www.gadm.org">GADM</a>, versión 2.8, noviembre 2015.</p></li>
+<li><p><strong>Región de armonización</strong> - el shapefile en <code>Data/Input/Spatial/Harmonisation_regions_shapefile</code> asignará la región de armonización (para vincular la tabla de armonización correspondiente; ver <a href="#entrada-de-datos">Sección Entrada de datos</a>). El shapefile predeterminado en el flujo de trabajo es una copia del shapefile de información regional, pero debe ajustarse para corresponder al área cubierta por las distintas tablas de armonización.</p></li>
+<li><p><strong>Curvas de calibración (normal y post-bomba)</strong> - dependiendo de la posición geográfica del registro, se debe asignar una curva de calibración distinta, ya que se usan curvas diferentes para los hemisferios norte y sur, y para ambientes terrestres y marinos. Ver más detalles sobre <a href="#curvas-de-calibración">curvas de calibración</a>.</p></li>
+<li><p><strong>Adicional</strong> - El usuario puede añadir cualquier otra delimitación espacial (por ejemplo, ecozonas). Esto requerirá agregar el shapefile (o archivo TIF) específico en <code>/Data/Input/Spatial/NOMBRE_DE_LA_CARPETA</code> y ajustar el código R manualmente (<code>optional_info_to_assign</code>) para que el shapefile se lea y su información se asigne a cada registro (ver el ejemplo en el script).</p></li>
+</ul></li>
+<li><p>El flujo de trabajo creará una nueva tabla con los límites de edad para cada región representada en los datos, que debe ser editada por el usuario (un punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>). Por ejemplo, la tabla <code>Regional_age_limits</code> tendrá los siguientes valores:</p>
+<ul>
+<li><code>young_age</code> = edad más joven que debe tener el registro</li>
+<li><code>old_age</code> = edad más antigua que debe tener el registro</li>
+<li><code>end_of_interest_period</code> = niveles más allá de esta edad serán omitidos</li>
+</ul></li>
+</ol>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="iv.-cronologías-04_chronologies" class="level3">
+<h3 class="anchored" data-anchor-id="iv.-cronologías-04_chronologies"><span class="text-background-purple bold">IV. Cronologías</span>: <code>/04_Chronologies/</code></h3>
+<ul>
+<li><code>Run_01_04.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_prepare_chron_control_tables.r"><code>01_Prepare_chron_control_tables.R</code></a> - prepara las tablas de cronología para el modelado edad-profundidad</li>
+<li><a href="#02_run_age_depth_models.r"><code>02_Run_age_depth_models.R</code></a> - crea modelos edad-profundidad con BChron</li>
+<li><a href="#03_predict_ages.r"><code>03_Predict_ages.R</code></a> - estima las edades de los niveles individuales</li>
+<li><a href="#04_save_ad_figures.r"><code>04_Save_AD_figures.R</code></a> - guarda la salida visual de los modelos edad-profundidad en formato pdf</li>
+<li><a href="#05_merge_chron_output.r"><code>05_Merge_chron_output.R</code></a> - enlaza los modelos edad-profundidad a los conjuntos de datos correspondientes</li>
+</ul>
+<section id="nota-sobre-el-modelado-edad-profundidad" class="level4">
+<h4 class="anchored" data-anchor-id="nota-sobre-el-modelado-edad-profundidad">Nota sobre el modelado edad-profundidad</h4>
+<p>Para estimar la edad de los niveles individuales en función de su profundidad, se debe construir un modelo edad-profundidad basado en los datos de cronología del registro. Un modelo edad-profundidad proporciona estimaciones de edad para cada nivel y el rango completo de edades del registro.</p>
+<p>El modelado edad-profundidad puede ser muy computacionalmente intensivo y llevar bastante tiempo. Por ello, el flujo de trabajo procesa automáticamente varios archivos (formato rds):</p>
+<ul>
+<li><em>Tablas de control de cronología</em>:
+<ul>
+<li><code>/Data/Processed/Chronology/Chron_tables_prepared/chron_tables_prepared*.rds</code> contiene todas las tablas de control de cronología preparadas para recalibrarse</li>
+</ul></li>
+<li><em>Modelos edad-profundidad</em>:
+<ul>
+<li><code>/Data/Processed/Chronology/Models_full/*</code> contiene un archivo para cada modelo edad-profundidad</li>
+</ul></li>
+<li><em>Edades predichas</em>:
+<ul>
+<li><code>/Data/Processed/Chronology/Predicted_ages/predicted_ages*.rds</code> contiene las edades predichas usando los modelos edad-profundidad</li>
+</ul></li>
+</ul>
+<p>Puede ser <strong>no</strong> preferible volver a ejecutar todos los modelos edad-profundidad cada vez que se quiera volver a correr el flujo de trabajo. Por eso, el flujo permite guardar los modelos exitosos (<em>Modelos edad-profundidad</em> y <em>Edades predichas</em>) y mantenerlos entre ejecuciones. Esto se puede hacer de varias formas:</p>
+<ul>
+<li><p><code>recalib_AD_models</code> en el archivo de configuración puede fijarse en <code>FALSE</code>. Así se omiten completamente los scripts destinados a calcular los modelos edad-profundidad, y este paso se saltará. Esto solo funciona si los modelos ya fueron creados exitosamente al menos una vez (<em>Edades predichas</em> existen).</p></li>
+<li><p><code>calc_AD_models_denovo</code> en el archivo de configuración puede fijarse en <code>FALSE</code> (es el valor predeterminado). Si está en <code>TRUE</code>, el flujo <strong>no</strong> usará los archivos de <em>Modelos edad-profundidad</em> y recalibrará todo “<em>de novo</em>”.</p></li>
+<li><p><code>predict_ages_denovo</code> en el archivo de configuración está en <code>FALSE</code> por defecto. Si está en <code>TRUE</code>, el flujo usará todos los archivos de modelos edad-profundidad pero reasignará las edades a cada nivel de todos los registros relacionados (incluso si ya se predijeron exitosamente antes). Esto es útil, por ejemplo, cuando el número de niveles en un registro aumenta desde la última ejecución y esos niveles aún necesitan edades.</p></li>
+</ul>
+<p><strong>IMPORTANTE</strong>: Si seleccionas ambos <code>calc_AD_models_denovo</code> y <code>predict_ages_denovo</code> como <code>FALSE</code> en tu primera ejecución de modelado edad-profundidad, el flujo puede pedirte temporalmente cambiarlos a <code>TRUE</code> en la consola (no tienes que modificar el archivo de configuración).</p>
+</section>
+<section id="prepare_chron_control_tables.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="prepare_chron_control_tables.r-1">01_Prepare_chron_control_tables.R</h4>
+<p>Los modelos edad-profundidad se construyen usando <em>puntos de control de cronología</em> (normalmente fechas de radiocarbono) con profundidad conocida, edad estimada y su incertidumbre asociada. Cada registro puede y debe tener varios puntos guardados en la <em>tabla de control de cronología</em>. Cada punto de control tiene las siguientes propiedades:</p>
+<ul>
+<li>Profundidad</li>
+<li>Edad estimada</li>
+<li>Error de la edad estimada</li>
+<li>Tipo de punto de control de cronología</li>
+<li>Curva de calibración utilizada (necesaria para convertir edades de radiocarbono a edades de calendario; ¡ojo! las edades de radiocarbono <em>no</em> son edades de calendario verdaderas).</li>
+</ul>
+<p>Este script realiza varios pasos para preparar los registros para el modelado edad-profundidad:</p>
+<ol type="1">
+<li>Crear y adjuntar las curvas de calibración necesarias</li>
+<li>Seleccionar los tipos preferidos de puntos de control de cronología</li>
+<li>Preparar tablas de cronología (incluido corregir problemas con porcentaje de carbono si es necesario)</li>
+</ol>
+<section id="curvas-de-calibración" class="level5">
+<h5 class="anchored" data-anchor-id="curvas-de-calibración">Curvas de calibración</h5>
+<p>Las curvas de calibración se asignan a cada punto de control según varios criterios. Si un punto de control tiene un tipo marcado para calibrar (ver sección siguiente), la curva se asigna según la posición geográfica del registro. Solo los puntos de control con edades de radiocarbono sin calibrar requieren recalibración. FOSSILPOL incluye un shapefile basado en la figura 7 de <a href="https://doi.org/10.1017/RDC.2020.59">Hogg et al (2020)</a> para asignar correctamente IntCal20, SHCal20 y una curva mixta. Se sigue la recomendación: “<em>…el uso de (i) IntCal20 para áreas al norte de la ITCZ en junio-agosto (líneas discontinuas en la Figura 7) que reciben masas de aire del hemisferio norte durante todo el año, (ii) SHCal20 para áreas al sur de la ITCZ en diciembre-febrero (líneas punteadas en la Figura 7) que reciben masas de aire del hemisferio sur durante todo el año, y (iii) una curva mixta para áreas entre las dos posiciones estacionales de la ITCZ mostradas en la Figura 7, que reciben masas de aire del norte en diciembre-febrero y masas de aire del sur en junio-agosto</em>”. FOSSILPOL también incluye una curva mixta construida con el paquete {<a href="https://github.com/ahb108/rcarbon">rcarbon</a>} con una proporción de contribución de la curva de 1:1. Consulte <a href="https://chrono.qub.ac.uk/blaauw/clam.html">más información</a> sobre el uso de la curva de calibración mixta.</p>
+<p>Todas las curvas de calibración tienen un límite de edad, es decir, solo pueden usarse para ciertas edades. Las curvas de calibración de radiocarbono actualmente no cubren edades mayores a 55 mil años. Para edades más jóvenes, durante el último siglo, existen problemas con el radiocarbono atmosférico y debe usarse un conjunto distinto de curvas (debido a las detonaciones nucleares en los 50-60, que alteraron la señal atmosférica). Si el punto de control tiene una edad de radiocarbono menor a 200 años BP, se usa una <em>curva post-bomba</em> (ver más arriba). Al igual que las curvas normales, la posición geográfica determina qué curva post-bomba asignar.</p>
+<p>Las fechas modernas de radiocarbono se calibran usando una de las curvas post-bomba (<code>nh_zone_1</code>, <code>nh_zone_2</code>, <code>nh_zone_3</code>, <code>sh_zone_1_2</code>, <code>sh_zone_3</code>), siguiendo a Hua et al., 2013 y <a href="http://calib.org/CALIBomb/">enlace</a>. El flujo asignará la curva adecuada automáticamente (ver función <code>IntCal::copyCalibrationCurve()</code>). Si detecta fechas modernas, mostrará los registros y aplicará la conversión usando el paquete {<a href="https://cran.r-project.org/web/packages/IntCal/index.html">IntCal</a>}.</p>
+</section>
+<section id="tipos-de-puntos-de-control-de-cronología" class="level5">
+<h5 class="anchored" data-anchor-id="tipos-de-puntos-de-control-de-cronología">Tipos de puntos de control de cronología</h5>
+<p>Cada punto de control tiene varias propiedades: ID único, profundidad, edad, error, espesor y tipo de control (ej. radiocarbono, biostratigráfico, laminaciones anuales, tefra). Cada tipo tiene diferentes incertidumbres de edad. Por ejemplo, muchos registros antiguos se basan en técnicas indirectas (biostratigráficas, tefra, etc.) y pueden tener grandes incertidumbres. Neotoma tiene más de 50 tipos distintos de puntos de control, que abarcan geocronología (ej. plomo-210, radiocarbono, uranio), escala temporal relativa (por ejemplo, MIS5e, Heinrich Stadial 1, Late Wisconsin event), estratigráfica (por ejemplo, eventos bioestratigráficos como la introducción de taxones antropogénicos), cultural (por ejemplo, European Settlement Horizon), otros métodos de datación absoluta (por ejemplo, laminaciones anuales, fecha de recolección) y otros métodos de datación (por ejemplo, extrapolación o conjeturas). Solo los puntos de control cronológico en edades radiocarbónicas sin calibrar requieren recalibración con las curvas de calibración, ya que la mayoría, si no todos, los demás puntos de control estarán en edades calendáricas y no se debe implementar ninguna recalibración.</p>
+<p>El usuario puede elegir qué tipos de control aceptar “tal cual” y cuáles calibrar (un punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>). El flujo genera automáticamente una lista con todos los puntos de control detectados, incluyendo columnas <code>include</code> y <code>calibrate</code>. En la primera, el usuario indica si se debe incluir el punto; en la segunda, si debe calibrarse.</p>
+</section>
+<section id="preparación-de-las-tablas-de-cronología" class="level5">
+<h5 class="anchored" data-anchor-id="preparación-de-las-tablas-de-cronología">Preparación de las tablas de cronología</h5>
+<p>Las tablas de control de cronología deben pasar varios ajustes definidos por el usuario:</p>
+<ul>
+<li>filtrar tipos de puntos de control no deseados seleccionados por el usuario (<a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>)</li>
+<li>filtrar registros que no cumplan el número mínimo de puntos de control (<code>min_n_of_control_points</code> en el archivo de configuración, por defecto = <code>2</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>8</strong>)</li>
+<li>corregir valores ausentes con <code>default_thickness</code> (por defecto = <code>1</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>9</strong>) y <code>default_error</code> (por defecto = <code>100</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>10</strong>)</li>
+<li>filtrar puntos de control con errores demasiado grandes (<code>max_age_error</code> en el archivo de configuración; por defecto = <code>3000</code> años, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>11</strong>)</li>
+<li>eliminar puntos de control duplicados en términos de edad y/o profundidad</li>
+<li>en varios casos, el punto de control de la parte superior del núcleo es de tipo <code>guess</code>. El usuario puede especificar que el tipo <code>guess</code> solo sea aceptado hasta cierta profundidad usando <code>guess_depth</code> (por defecto es <code>10</code> cm, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>12</strong>)</li>
+</ul>
+<p>Además, el número y la distribución de estos puntos pueden indicar la incertidumbre temporal de las edades (<a href="https://doi.org/10.1007/s00334-012-0390-y">Giesecke et al.&nbsp;2014</a>, <a href="https://doi.org/10.5194/cp-12-387-2016">Flantua et al.&nbsp;2016</a>). Un registro con pocos puntos en el periodo de interés tendrá mayor incertidumbre.</p>
+</section>
+<section id="porcentaje-de-carbono" class="level5">
+<h5 class="anchored" data-anchor-id="porcentaje-de-carbono">Porcentaje de carbono</h5>
+<p>Existen tres maneras de reportar fechas post-bomba de radiocarbono: 1) fechas modernas (&lt;0 F14C años); 2) porcentaje de carbono moderno (pMC, normalizado a 100%); y 3) fracción de radiocarbono (F14C, normalizado a 1; <a href="https://doi.org/10.1017/S0033822200033154">Reimer et al.&nbsp;2004</a>). Actualmente no hay manera directa de saber si las fechas de Neotoma están en pMC o F14C. Si se detectan, el flujo exporta los registros sospechosos y el usuario debe especificar cuáles deben retrotransformarse (<a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>). Para los seleccionados, se convierten los valores pMC a edades negativas con <code>IntCal::pMC.age()</code>, tras lo cual se usan las curvas post-bomba para calibrar a edades de calendario.</p>
+<p>Aunque F14C se recomienda como estándar, en la práctica la mayoría se reporta como fechas normales de radiocarbono o como pMC. El flujo actualmente no gestiona F14C ya que no se han detectado casos. Si se encuentra con otras fuentes, se puede transformar usando el paquete {<a href="https://cran.r-project.org/web/packages/IntCal/index.html">IntCal</a>}.</p>
+</section>
+</section>
+<section id="run_age_depth_models.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="run_age_depth_models.r-1">02_Run_age_depth_models.R</h4>
+<p>Los modelos edad-profundidad individuales se estiman con el paquete {<a href="http://andrewcparnell.github.io/Bchron/">Bchron</a>}, que estima la trayectoria probabilística bayesiana (modelo no paramétrico). Es apto para diversas combinaciones de tipos de puntos de control, outliers y reversals.</p>
+<p>Si hay muchas edades a profundidades cercanas, pueden producirse problemas de inicialización y Bchron podría no converger. En ese caso, el grosor de los puntos duplicados se aumenta automáticamente por 0.01 (ver argumento <code>artificialThickness</code> en <code>Bchron::Bchronology()</code>).</p>
+<section id="computación-multinúcleo" class="level5">
+<h5 class="anchored" data-anchor-id="computación-multinúcleo">Computación multinúcleo</h5>
+<p>Como crear modelos edad-profundidad para muchos registros puede ser intensivo, el flujo usa computación paralela. Detecta automáticamente los núcleos de la máquina (ajustable con <code>number_of_cores</code> en el archivo de configuración, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>14</strong>). Los modelos se crean en lotes, con el tamaño determinado por el número de núcleos (<code>batch size</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>13</strong>; por defecto depende de <code>number_of_cores</code>). Si <code>number_of_cores</code> es <code>1</code>, no usa el modo lote.</p>
+<p>Si el cálculo del lote falla, el flujo omite ese lote y sigue con los demás. El usuario puede ajustar el tiempo de espera con el argumento <code>time_per_record</code> en <code>RFossilpol::chron_recalibrate_ad_models()</code>.</p>
+<p>Cada lote se intenta tres veces (ajustable con <code>batch_attempts</code>). Si se detiene el modelado, se usan los lotes exitosos previamente guardados. Si algún registro causa que R se congele completamente, su ID se guarda automáticamente en el archivo <em>Crash</em> (<code>/Data/Input/Chronology_setting/Bchron_crash/</code>) y se omite en futuras ejecuciones. Se recomienda revisar ese dataset en detalle.</p>
+</section>
+<section id="iteraciones" class="level5">
+<h5 class="anchored" data-anchor-id="iteraciones">Iteraciones</h5>
+<p>En el archivo de configuración, el número de iteraciones es <code>50,000</code> por defecto, descartando las primeras <code>10,000</code> (<em>burn-in</em>) y guardando cada iteración subsiguiente con un salto de <code>40</code> (<em>thinning</em>) (<a href="#figura-2-figura-2">Fig. 2</a> - criterios config <strong>15</strong>, <strong>16</strong>, <strong>17</strong>). El usuario puede cambiar esto con <code>iteration_multiplier</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>18</strong>). Así, se obtienen <code>1000</code> ((<code>50k</code> - <code>10k</code>) / <code>40</code>) valores posteriores. El número por defecto es robusto pero se puede aumentar (aunque incrementará el tiempo de espera).</p>
+<p>Hay que tener en cuenta que modelar cientos de registros con muchas iteraciones es intensivo y puede llevar decenas de horas o días.</p>
+</section>
+</section>
+<section id="predict_ages.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="predict_ages.r-1">03_Predict_ages.R</h4>
+<p>Con un modelo exitoso, se estiman las edades de cada nivel. El flujo calculará la edad y la estimación de error (que engloba el 95% de los valores posteriores: límite superior e inferior). Como {<a href="http://andrewcparnell.github.io/Bchron/">Bchron</a>} es probabilístico, es posible obtener <em>posibles</em> edades. Para ello, se extraen varios valores (por defecto = <code>1000</code>), se calculan cuartiles, usando el cuantil 50 como edad final y los cuantiles 2.5 y 97.5 como límites. Todo se guarda como <em>matriz de incertidumbre de edad</em> (<code>age_uncertainty</code>). Todo el proceso es automático.</p>
+</section>
+<section id="save_ad_figures.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="save_ad_figures.r-1">04_Save_AD_figures.R</h4>
+<p>La representación visual de todos los modelos edad-profundidad se guarda como PDFs en <code>/Outputs/Figures/Chronologies/</code>, divididos por región. Las propiedades se pueden cambiar en el archivo de configuración (<code>image_width</code>, <code>image_height</code>, <code>image_units</code>, <code>image_dpi</code>, <code>text_size</code>, <code>line_size</code>). Se recomienda revisarlas para buscar errores grandes, hiatos o extrapolaciones extremas.</p>
+</section>
+<section id="merge_chron_output.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="merge_chron_output.r-1">05_Merge_chron_output.R</h4>
+<p>Las edades predichas se enlazan con todos los registros de las diferentes fuentes (Secciones I-III). Los niveles de cada registro se ordenan por edades predichas y el mismo orden se aplica a las tablas de conteos de polen.</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="v.-armonización-05_harmonisation" class="level3">
+<h3 class="anchored" data-anchor-id="v.-armonización-05_harmonisation"><span class="text-background-pink bold">V. Armonización</span>: <code>/05_Harmonisation/</code></h3>
+<ul>
+<li><code>Run_01_05.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_harmonisation.r"><code>01_Harmonisation.R</code></a> - prepara todas las tablas de armonización y armoniza los conteos brutos.</li>
+</ul>
+<section id="nota-sobre-armonización" class="level4">
+<h4 class="anchored" data-anchor-id="nota-sobre-armonización">Nota sobre armonización</h4>
+<p>El objetivo de la armonización taxonómica es estandarizar todos los nombres a nivel de sitio a los mismos morfotipos de polen (conjunto de morfotipos de polen y esporas usados para todos los registros), y así reducir el efecto de la incertidumbre taxonómica y la complejidad nomenclatural (ver literatura relevante en el Apéndice 1 de <a href="https://doi.org/10.1111/geb.13693">Flantua et al.&nbsp;2023</a>). Para ello, se puede crear una <em>tabla de armonización</em> que agrupa los morfotipos en el mayor nivel taxonómic que es muy probable que la mayoría de los analistas de polen lo identifiquen.</p>
+</section>
+<section id="harmonisation.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="harmonisation.r-1">01_Harmonisation.R</h4>
+<p>Primero, el flujo de trabajo revisa las <em>regiones de armonización</em> presentes en los datos, definidas por el shapefile (ver <a href="#entrada-de-datos">Entrada de datos</a> y <a href="#iii.-procesamiento-de-datos-inicial.text-background-green-.bold-03_merging_and_geographic_delineation">Sección III</a>), y confirma que exista una tabla de armonización por región (un punto <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, <a href="#figura-2-figura-2">Fig. 2</a>). Si falta alguna tabla (o se ejecuta por primera vez), el flujo crea automáticamente una tabla por región, con todos los nombres crudos de taxones de todos los registros de esa región. Cabe destacar que, para simplificar, nos referimos aquí a “nombres de taxón”, pero la identificación suele realizarse a nivel de familia o género, y se denominan mejor morfotipos.</p>
+<p>Cada tabla de armonización tiene dos columnas:</p>
+<ol type="i">
+<li><code>taxon_name</code> es el nombre original del taxón (morfotipo) en formato computacional (<em>snake_case</em>)</li>
+<li><code>level 1</code>, que se usa para agrupar varios taxones (morfotipos) en unidades armonizadas, específicas del proyecto.</li>
+</ol>
+<p>Para enlazar los nombres con la visualización original de Neotoma, el usuario puede usar la <code>taxa_reference_table</code> (ver <a href="#preparación-adicional-de-datos">proceso de limpieza de nombres</a>).</p>
+<p>El usuario puede también definir qué taxones deben eliminarse totalmente durante la armonización (marcados como <code>delete</code>), en caso de errores taxonómicos o proxies no deseados (ej. esporas). Se pueden añadir columnas extra (ej. <code>level_2</code>) y especificar qué niveles incluir ajustando el argumento <code>harm_name</code> en la función <code>RFossilpol::harmonise_all_regions()</code>.</p>
+<p>Con estas tablas, cada conjunto se armoniza para que todos los taxones que pertenezcan al mismo taxón armonizado (morfotipo) se sumen en cada nivel; esto aplica tanto para datos de conteo como de porcentaje. El proceso incluye una verificación automática de éxito de la armonización, revisando el número total de granos antes y después de armonizar (puede desactivarse cambiando el argumento <code>pollen_grain_test</code> a <code>FALSE</code> en la función <code>RFossilpol::harmonise_all_regions()</code>).</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="vi.-filtrado-de-datos-06_main_filtering" class="level3">
+<h3 class="anchored" data-anchor-id="vi.-filtrado-de-datos-06_main_filtering"><span class="text-background-coral bold">VI. Filtrado de datos</span>: <code>/06_Main_filtering/</code></h3>
+<ul>
+<li><code>Run_01_06.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_level_filtering.r"><code>01_Level_filtering.R</code></a> - filtra niveles y registros según los criterios definidos por el usuario en el archivo de configuración</li>
+</ul>
+<section id="nota-sobre-el-filtrado-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="nota-sobre-el-filtrado-de-datos">Nota sobre el filtrado de datos</h4>
+<p>Para obtener una compilación comprensiva de múltiples registros de polen fósil, mejorar la calidad general y responder preguntas de investigación de forma fiable, recomendamos reducir aún más la selección filtrando niveles individuales y/o registros completos. Todos los criterios de filtrado pueden ser ajustados por el usuario en el archivo de configuración:</p>
+<ul>
+<li><code>filter_by_pollen_sum</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>20</strong>) - si es <code>TRUE</code>, el flujo utiliza la cantidad de granos de polen contados en cada nivel como indicador de calidad.</li>
+<li><code>filter_by_age_limit</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>24</strong>) - si es <code>TRUE</code>, se filtran registros que no cubran el periodo de interés definido por el usuario.</li>
+<li><code>filter_by_extrapolation</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>25</strong>) - si es <code>TRUE</code>, se filtran niveles según el número de años extrapolados respecto al último punto de control de cronología usado.</li>
+<li><code>filter_by_interest_region</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>27</strong>) - si es <code>TRUE</code>, se filtran niveles mayores a <code>end_of_interest_period</code>.</li>
+<li><code>filter_by_number_of_levels</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>28</strong>) - si es <code>TRUE</code>, se filtran registros según el número de niveles.</li>
+</ul>
+<p>Además, se pueden activar dos opciones más:</p>
+<ul>
+<li><code>use_age_quantiles</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>30</strong>) - si es <code>TRUE</code>, se usa el cuantil 95 de la edad en el filtrado (incertidumbre).</li>
+<li><code>use_bookend_level</code> (<a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>31</strong>) - si es <code>TRUE</code>, se deja un nivel adicional más allá de la edad más antigua del periodo de interés.</li>
+</ul>
+</section>
+<section id="level_filtering.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="level_filtering.r-1">01_Level_filtering.R</h4>
+<section id="suma-de-granos-de-polen" class="level5">
+<h5 class="anchored" data-anchor-id="suma-de-granos-de-polen">Suma de granos de polen</h5>
+<p>El número de granos contados en cada nivel es un índice de calidad. Para una representación fiable de la vegetación, se recomienda contar más de <code>300</code> granos (Moore et al., 1991), aunque pueden usarse otros criterios (por ejemplo, <code>150</code>; ver <a href="https://doi.org/10.1016/j.revpalbo.2019.104156">Djamali &amp; Cilleros, 2020</a>). En regiones árticas puede bastar con c.&nbsp;<code>100</code>, en sitios mediterráneos puede llegar a <code>1000</code> (<a href="https://www.google.cz/books/edition/_/9wrDQgAACAAJ">Birks &amp; Birks, 1980</a>), pero la preferencia del analista es clave. Números bajos suelen deberse a limitaciones de tiempo, pero también a fenómenos de preservación. Dado que el poder inferencial estadístico es proporcional al tamaño de muestra, recomendamos definir un mínimo de granos en cada nivel. Luego, se puede aceptar un registro solo si <em>X</em>% (por defecto <code>50</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>23</strong>) de los niveles cumple el número aceptable.</p>
+</section>
+<section id="criterios-de-edad" class="level5">
+<h5 class="anchored" data-anchor-id="criterios-de-edad">Criterios de edad</h5>
+<p>Según el enfoque temporal, solo un subconjunto de registros será de interés. Por tanto, registros que no cubran el periodo de interés serán filtrados si <code>filter_by_age_limit</code> == <code>TRUE</code>.</p>
+</section>
+<section id="extrapolación-de-edad" class="level5">
+<h5 class="anchored" data-anchor-id="extrapolación-de-edad">Extrapolación de edad</h5>
+<p>La extrapolación de edades a muestras más allá del último punto de control incrementa la incertidumbre. Recomendamos seleccionar una extrapolación máxima (ej. <code>5000</code> años) respecto al último punto de control; niveles más viejos serán filtrados si <code>filter_by_extrapolation</code> == <code>TRUE</code>.</p>
+</section>
+<section id="periodo-de-interés" class="level5">
+<h5 class="anchored" data-anchor-id="periodo-de-interés">Periodo de interés</h5>
+<p>Niveles fuera del periodo de interés (<code>end_of_interest_period</code>) serán filtrados si <code>filter_by_interest_region</code> == <code>TRUE</code>.</p>
+</section>
+<section id="número-de-niveles" class="level5">
+<h5 class="anchored" data-anchor-id="número-de-niveles">Número de niveles</h5>
+<p>El número total de niveles es importante para futuros análisis. Registros con pocos niveles aportan poco y pueden ser fuentes de valores atípicos. Se recomienda definir un número mínimo (<code>min_n_levels</code>, <a href="#figura-2-figura-2">Fig. 2</a> - criterio config <strong>29</strong>); se filtrará si <code>filter_by_number_of_levels</code> == <code>TRUE</code>.</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="vii.-salidasoutputs-07_outputs" class="level3">
+<h3 class="anchored" data-anchor-id="vii.-salidasoutputs-07_outputs"><span class="text-background-orange bold">VII. Salidas/Outputs</span>: <code>/07_Outputs/</code></h3>
+<ul>
+<li><code>Run_01_07.R</code> - ejecuta todos los scripts dentro de esta carpeta</li>
+<li><a href="#01_pollen_diagrams.r"><code>01_Pollen_diagrams.R</code></a> - guarda los diagramas de polen de todos los registros</li>
+<li><a href="#02_save_assembly.r"><code>02_Save_assembly.R</code></a> - guarda el ensamblado de datos con las variables seleccionadas</li>
+<li><a href="#03_save_references.r"><code>03_Save_references.R</code></a> - guarda referencias y metadatos</li>
+</ul>
+<section id="pollen_diagrams.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="pollen_diagrams.r-1">01_Pollen_diagrams.R</h4>
+<p>Los diagramas de polen para todos los registros se crean usando el paquete {<a href="https://cran.r-project.org/web/packages/rioja/rioja.pdf">rioja</a>}. Los datos armonizados se transforman automáticamente en proporción relativa para graficar. Los diagramas se guardan en <code>/Outputs/Figures/Pollen_diagrams/</code>, divididos por <em>Región</em>.</p>
+<p>La función <code>RFossilpol::plot_all_pollen_diagrams()</code> genera automáticamente un PDF de los diagramas, listos para imprimir. El eje Y es, por defecto, la edad de los niveles (puede cambiarse a profundidad con el argumento <code>y_var</code>). El máximo de taxones por página se ajusta con <code>max_taxa</code> (por defecto, <code>20</code>). Además, la función omite taxones muy raros, definido por <code>min_n_occur</code>.</p>
+</section>
+<section id="save_assembly.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="save_assembly.r-1">02_Save_assembly.R</h4>
+<p>Una compilación armonizada y estandarizada, lista para análisis, se produce y guarda en <code>/Outputs/Data/</code> como <em>tibble</em> (<code>rds</code>). El usuario puede seleccionar qué columnas deben estar presentes en la compilación final estableciendo <code>select_final_variables</code> == <code>TRUE</code> en el archivo de configuración. El flujo pedirá al usuario en la consola de R si incluir cada variable.</p>
+</section>
+<section id="save_references.r-1" class="level4">
+<h4 class="anchored" data-anchor-id="save_references.r-1">03_Save_references.R</h4>
+<p>El flujo guarda todos los metadatos y la información de citación necesarios para crear la compilación de datos. Todos los resultados están en <code>/Outputs/Meta_and_references/</code>. La función <code>RFossilpol::proc_save_references()</code> lo hace automáticamente, pero el usuario puede especificar qué información guardar usando el argumento <code>user_sel_variables</code>. Por defecto incluye:</p>
+<ul>
+<li><p><code>"meta_table"</code> - <em>tabla de metadatos</em> (<code>data_assembly_meta.csv</code>) contiene por defecto (la lista puede alterarse ajustando variables finales por <code>select_final_variables</code>):</p>
+<ul>
+<li>lista de todos los registros en la compilación final</li>
+<li>ubicación geográfica</li>
+<li>ambiente de depósito</li>
+<li>región continental asignada</li>
+<li>región de armonización asignada</li>
+<li>número final de niveles</li>
+<li>número de puntos de control de cronología usados en el modelado edad-profundidad</li>
+<li>curvas de calibración asignadas</li>
+<li>límites de edad de cada registro por fuente (Neotoma u otra)</li>
+<li>DOI (de Neotoma)</li>
+</ul></li>
+<li><p><code>"author_table"</code> - <em>tabla de referencias</em> (<code>authors_meta.csv</code>) con información sobre los conjuntos de datos utilizados, el principal contribuyente y su contacto.</p></li>
+<li><p><code>"affiliation_table"</code> - si se provee afiliación con datos distintos de Neotoma, la <em>tabla de afiliaciones</em> (<code>affiliation_table</code>) enlaza autores y afiliaciones.</p></li>
+<li><p><code>"graphical_summary"</code> - PDF (<code>graphical_summary*.pdf</code>) con tres figuras usando <code>RFossilpol::plot_graphical_summary()</code>:</p>
+<ol type="A">
+<li>mapa de ubicación geográfica de los registros</li>
+<li>gráfico de bastones con el número de registros por grupo</li>
+<li>límites de edad de los registros (línea por registro)</li>
+</ol></li>
+<li><p><code>"reproducibility_bundle"</code> - un zip (<code>reproducibility_bundle.zip</code>) con el archivo de configuración, todas las tablas <a href="#almacenamiento-de-datos"><strong><em>stop-check</em></strong></a>, y todos los shapefiles. La idea es aumentar la reproducibilidad; este zip puede compartirse al publicar un proyecto creado con el flujo FOSSILPOL, o durante revisión para obtener feedback detallado antes de la publicación.</p></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hope-uib-bio\.github\.io\/FOSSILPOL-website\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-website/blob/main/step_by_step_guide.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/HOPE-UIB-BIO/FOSSILPOL-issues/issues" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs/en
+
+lang: en
+
+website:
+  navbar:
+    left:
+      - text: General Information
+        href: about.qmd
+      - text: A step-by-step guide
+        href: step_by_step_guide.qmd
+      - text: Get in touch!
+        href: get_in_touch.qmd
+      - text: Resources
+        href: other_materials.qmd

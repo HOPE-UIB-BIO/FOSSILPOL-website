@@ -1,7 +1,10 @@
 project:
   type: website
-  output-dir: docs
 
+profile: 
+  default: english
+  group: [english, spanish]
+  
 website:
   title: FOSSILPOL
   page-footer:
@@ -16,19 +19,18 @@ website:
   back-to-top-navigation: true
   navbar:
     title: FOSSILPOL
-    left:
-      - text: General Information
-        href: about.qmd
-      - text: A step-by-step guide
-        href: step_by_step_guide.qmd
-      - text: Get in touch!
-        href: get_in_touch.qmd
-      - text: Resources
-        href: other_materials.qmd
     search: true
     tools:
       - icon: github
         href: https://github.com/HOPE-UIB-BIO/FOSSILPOL-workflow
+    right:
+      - text: 🌐
+        menu:      
+          - text: English
+            href: ../en
+          - text: Español
+            href: ../es
+
 
 format:
   html:

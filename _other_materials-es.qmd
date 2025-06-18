@@ -1,0 +1,19 @@
+# Recursos y materiales
+
+Aquí colocaremos material adicional (por ejemplo, presentaciones, pósteres) sobre el proyecto FOSSILPOL.
+
+## Publicaciones
+- "*Una guía para el procesamiento y la estandarización de datos paleoecológicos globales para síntesis a gran escala utilizando polen fósil*": [![static-badge](https://img.shields.io/badge/DOI-10.1111/geb.13693-blue)](https://doi.org/10.1111/geb.13693).
+
+## Presentaciones
+
+- [Ciclo de charlas Paleoverse - 2025](https://hope-uib-bio.github.io/FOSSILPOL-example-Scandinavia/)
+- [Presentación IBS 2024](https://bit.ly/FOSSILPOL_IBS_2024)
+
+## Pósteres
+
+- [Póster presentado en INQUA 2023 en Roma](figures/Poster_INQUA2023.png)
+
+## Logo de FOSSILPOL
+- [Logo FOSSILPOL PNG grande](/figures/Logo%20FOSSILPOL%20big%20-%20600ppi.png)
+- [Logo FOSSILPOL PNG pequeño](/figures/Logo%20FOSSILPOL%20regular%20-%20600ppi.png)

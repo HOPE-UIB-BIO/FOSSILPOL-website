@@ -247,3 +247,18 @@ ul ul {
     }
   }
 }
+
+/* Language dropdown menu styling */
+.navbar .dropdown-menu {
+  background-color: $purple !important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  color: $white !important;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background-color: darken($purple, 10%) !important;
+  color: $white !important;
+}
